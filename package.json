@@ -1,0 +1,22 @@
+{
+  "name": "opencode-landing-page-template",
+  "version": "1.13.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "setup": "npm run ignore-key && npx @colbymchenry/codegraph init && npx playwright install",
+    "ignore-key": "git update-index --skip-worktree .opencode/secrets/context7-api-key 2>/dev/null || true",
+    "init": "node scripts/init.mjs",
+    "postinstall": "node scripts/init.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "vite": "^8.1.1"
+  },
+  "dependencies": {
+    "sanitize-html": "^2.17.5"
+  }
+}
