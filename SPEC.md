@@ -19,6 +19,7 @@
 - Videos: Spanish-speaking youtubers only. Priority: MoureDev > midudev. Other channel only when neither has one. Authorship marked: channel + title + link.
 - No affiliation/self-promotion. Neutral educational content.
 - Code samples: real, verifiable (bash/JSON/Markdown).
+- Video titles in this spec are real YouTube titles — embed verbatim on site (channel + title + link).
 - This repo (`.opencode/`, `opencode.json`, `AGENTS.md`) = live example (section 5).
 - Web content: 100% Spanish. Project files: 100% English.
 
@@ -38,10 +39,10 @@
 
 | ID | Video | Channel | URL | Topics |
 |---|---|---|---|---|
-| V1 | Curso: Desarrollo con IA — Programa con agentes (3h, 20 lessons) | MoureDev by Brais Moure | https://youtu.be/H3gH_Fe6xvs | 1.1–1.4, 2.1, 3.1, 3.3, 4.1–4.7, 4.9 |
-| V2 | Curso: OpenCode desde cero (2.5h, 20 lessons) | MoureDev by Brais Moure | https://youtube.com/live/aDJNG_f2C3E | 2.1–2.4, 3.1, 3.3, 4.5, 4.8 |
+| V1 | Aprende a Programar con Agentes de IA desde CERO (Curso Completo Gratis) — 3h, 20 lessons | MoureDev by Brais Moure | https://youtu.be/H3gH_Fe6xvs | 1.1–1.4, 2.1, 3.1, 3.3, 4.1–4.7, 4.9 |
+| V2 | Curso completo de OpenCode desde cero: Modelos gratis, Comandos, Agentes y mucho más — 2.5h, 20 lessons | MoureDev by Brais Moure | https://youtube.com/live/aDJNG_f2C3E | 2.1–2.4, 3.1, 3.3, 4.5, 4.8 |
 | V3 | Curso: Cursor desde cero | MoureDev by Brais Moure | https://youtu.be/-YAO3iFbuy0 | 2.1 |
-| V4 | Curso de SDD (Spec-Driven Development) desde cero + repo hello-sdd | MoureDev by Brais Moure | https://youtube.com/live/5HaOxAAA5qI · https://github.com/mouredev/hello-sdd | 4.2, 4.4 |
+| V4 | El fin del Vibe Coding: Crea software robusto con este método + repo hello-sdd | MoureDev by Brais Moure | https://youtube.com/live/5HaOxAAA5qI · https://github.com/mouredev/hello-sdd | 4.2, 4.4 |
 | V5 | El fin del VIBE CODING: la realidad de la IA en 2026 | MoureDev by Brais Moure | https://www.youtube.com/watch?v=jresR0hZ_Hs | 4.2 |
 | V6 | Curso: Introducción a la IA para Developers (lessons: LLM, tokens, agents, Claude Code, MCP, skills) | midudev | https://midu.dev/curso/intro-ia-para-devs/ | 1.1–1.4, 2.1, 3.2, 4.6, 4.9 |
 | V7 | ¡Aprende MCP! Para principiantes + primer MCP DESDE CERO | midudev | https://www.youtube.com/watch?v=wnHczxwukYY | 4.9 |
