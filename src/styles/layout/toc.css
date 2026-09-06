@@ -11,10 +11,17 @@
   padding: var(--space-5) var(--space-5) var(--space-8);
   overflow-y: auto;
   transform: translateX(100%);
-  transition: transform var(--duration-base) var(--ease-standard);
+  visibility: hidden;
+  transition:
+    transform var(--duration-base) var(--ease-standard),
+    visibility 0s linear var(--duration-base);
 
   &.is-open {
     transform: translateX(0);
+    visibility: visible;
+    transition:
+      transform var(--duration-base) var(--ease-standard),
+      visibility 0s;
     box-shadow: -8px 0 24px rgb(15 23 42 / 0.15);
   }
 
@@ -26,6 +33,7 @@
     width: var(--sidebar-width);
     max-height: calc(100vh - var(--header-height) - var(--space-7));
     transform: none;
+    visibility: visible;
     padding: 0;
     border-left: 0;
     overflow-y: auto;

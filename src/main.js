@@ -1,6 +1,10 @@
 // Entry point: init only. Guards each module (skip if its DOM is missing),
 // isolates failures so one broken module never blocks the rest.
 
+// Marks JS as active before any module init: reveal styles only apply with JS,
+// so no-JS visitors see the content unhidden.
+document.documentElement.classList.add("js");
+
 import { init as initHeader } from "./js/layout/header.js";
 import { init as initToc } from "./js/layout/toc.js";
 import { init as initVideoCard } from "./js/components/video-card.js";

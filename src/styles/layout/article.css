@@ -99,8 +99,9 @@
   }
 }
 
-/* Scroll-reveal (minimal, disabled under reduced motion) */
-.reveal {
+/* Scroll-reveal (minimal, disabled under reduced motion). Gated on .js:
+   without JS the content stays visible. */
+.js .reveal {
   opacity: 0;
   transform: translateY(12px);
   transition:

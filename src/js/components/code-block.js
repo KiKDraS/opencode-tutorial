@@ -72,4 +72,6 @@ export function init() {
   if (blocks.length === 0) return;
   blocks.forEach(wireCopyButton);
   document.addEventListener("click", handleCopyClick);
+
+  return () => document.removeEventListener("click", handleCopyClick);
 }

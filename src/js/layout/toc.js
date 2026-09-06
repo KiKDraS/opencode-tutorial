@@ -74,13 +74,16 @@ function revealActiveLink(heading) {
 // event always counts it — no stale state after a settle.
 const SPY_BAND_TOP = 50;
 const SPY_PROBE_RATIO = 0.2;
+// Spy only headings that are TOC targets. Fuentes h3s (and any other h3
+// outside the TOC) would clear aria-current when they cross the probe.
+const SPY_HEADINGS_SELECTOR = "main h2[id], main h3[id]:not(.sources h3)";
 
 function activeProbeY() {
   return globalThis.innerHeight * SPY_PROBE_RATIO;
 }
 
 function markActiveHeading() {
-  const headings = [...document.querySelectorAll("main h2[id], main h3[id]")];
+  const headings = [...document.querySelectorAll(SPY_HEADINGS_SELECTOR)];
   if (headings.length === 0) return;
   const probeY = activeProbeY();
   let activeHeading = headings[0];
@@ -107,7 +110,7 @@ export function init() {
     rootMargin: `-${SPY_BAND_TOP}px 0px -80% 0px`,
     threshold: 0,
   });
-  document.querySelectorAll("main h2[id], main h3[id]").forEach((heading) => {
+  document.querySelectorAll(SPY_HEADINGS_SELECTOR).forEach((heading) => {
     observer.observe(heading);
   });
   markActiveHeading();
