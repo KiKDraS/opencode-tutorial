@@ -85,7 +85,7 @@ function renderToc() {
     const group = groupTemplate.content.firstElementChild.cloneNode(true);
     const groupLink = group.querySelector("[data-toc-group-link]");
     groupLink.href = section.href;
-    fillTocLabel(groupLink, section.label);
+    fillTocLabel(groupLink, section.label ?? section.labelParts);
     const sublist = group.querySelector("[data-toc-sublist]");
     section.items.forEach((item) => {
       const itemNode = itemTemplate.content.firstElementChild.cloneNode(true);

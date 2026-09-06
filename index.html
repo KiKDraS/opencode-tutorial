@@ -148,113 +148,7 @@
       <section class="article__section reveal" id="fundamentos" aria-labelledby="fundamentos-titulo">
         <h2 id="fundamentos-titulo">1. Fundamentos de LLMs</h2>
 
-        <div class="article__subsection">
-          <h3 id="que-es-un-llm">1.1 ¿Qué es un LLM? ¿Cómo funciona?</h3>
-          <div class="article__body">
-            <p>
-              Un <strong>LLM</strong> (<em>large language model</em>, modelo de lenguaje grande) es un
-              modelo de aprendizaje automático entrenado con enormes cantidades de texto. Su tarea básica
-              es predecir la siguiente pieza de texto (token) dado lo que ya vio; al repetir esa
-              predicción, genera respuestas completas.
-            </p>
-            <p>
-              El mecanismo central es el <strong>transformador</strong> y su mecanismo de
-              <strong>atención</strong>: el modelo pondera qué palabras del contexto son relevantes para
-              predecir la siguiente. No «piensa» ni «entiende» como una persona: reconoce patrones
-              estadísticos aprendidos durante el entrenamiento. Después del entrenamiento inicial, se
-              ajusta con instrucciones y retroalimentación humana para seguir indicaciones de forma útil.
-            </p>
-            <ul>
-              <li>Entrada y salida: texto (o tokens de texto).</li>
-              <li>Base: red neuronal de tipo transformador.</li>
-              <li>Ajuste: entrenamiento + alineación con instrucciones.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="article__subsection">
-          <h3 id="agente-vs-llm">1.2 ¿Qué es un agente? Agente vs LLM</h3>
-          <div class="article__body">
-            <p>
-              El LLM es el <strong>motor de texto</strong>: recibe un prompt y devuelve texto. Un
-              <strong>agente</strong> es ese LLM <em>más</em> herramientas y un bucle de trabajo: puede
-              leer y escribir archivos, ejecutar comandos, consultar la web y decidir qué hacer con el
-              resultado.
-            </p>
-            <p>La diferencia práctica, en un ciclo simple:</p>
-            <ul>
-              <li><strong>LLM solo:</strong> contesta preguntas con su conocimiento estático.</li>
-              <li><strong>Agente:</strong> observa tu proyecto, ejecuta acciones (editar, probar, buscar) y
-                ajusta su plan según lo que encuentra.</li>
-            </ul>
-            <p>
-              OpenCode es un <strong>agente</strong>: usa uno o varios LLMs como cerebro y les añade
-              acceso al sistema de archivos, terminal, navegador y herramientas de desarrollo. El patrón
-              «LLM + herramientas + bucle» está documentado en la guía de Anthropic sobre agentes
-              efectivos y en el curso de agentes de Hugging Face.
-            </p>
-          </div>
-        </div>
-
-        <div class="article__subsection">
-          <h3 id="medir-inteligencia">1.3 ¿Cómo se mide la inteligencia de un LLM? Qué mirar para elegir modelo</h3>
-          <div class="article__body">
-            <p>
-              No existe una única medida. Se combinan <strong>benchmarks</strong> y criterios prácticos:
-            </p>
-            <ul>
-              <li>
-                <strong>LMArena:</strong> votación humana comparando respuestas de dos modelos a ciegas.
-                Mide preferencia percibida, no exactitud.
-              </li>
-              <li>
-                <strong>Artificial Analysis:</strong> comparativas independientes de calidad, velocidad
-                (tokens por segundo) y precio por millón de tokens.
-              </li>
-              <li>
-                <strong>SWE-bench:</strong> resuelve issues reales de repositorios de software; muy
-                relevante si vas a usar el modelo para programar.
-              </li>
-              <li>
-                <strong>Open LLM Leaderboard (Hugging Face):</strong> tablas de benchmarks abiertos para
-                modelos, incluidos los abiertos.
-              </li>
-            </ul>
-            <p>Para elegir modelo en un agente como OpenCode, mira:</p>
-            <ul>
-              <li><strong>Calidad</strong> en tareas de código (SWE-bench) y conversación.</li>
-              <li><strong>Velocidad</strong>: tokens por segundo; afecta el tiempo de cada iteración.</li>
-              <li><strong>Ventana de contexto</strong>: cuánto código/prompt cabe.</li>
-              <li><strong>Costo</strong>: precio por millón de tokens de entrada y salida.</li>
-              <li><strong>Disponibilidad</strong> en tu proveedor (OpenCode permite varios).</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="article__subsection">
-          <h3 id="conteo-tokens">1.4 ¿Cómo funciona el conteo de tokens?</h3>
-          <div class="article__body">
-            <p>
-              Los modelos no leen caracteres: dividen el texto en <strong>tokens</strong>, unidades que
-              pueden ser palabras completas, fragmentos de palabra o signos. Como regla general, un token
-              equivale a unas <strong>4 letras</strong> en inglés (menos en español por su morfología) y a
-              menos de una palabra promedio.
-            </p>
-            <p>
-              El <strong>tokenizador</strong> es la pieza que hace esa división, y es específico de cada
-              modelo. El conteo importa por tres motivos:
-            </p>
-            <ul>
-              <li><strong>Contexto:</strong> la ventana del modelo se mide en tokens (entrada + salida).</li>
-              <li><strong>Costo:</strong> los proveedores cobran por token procesado.</li>
-              <li><strong>Rendimiento:</strong> a más tokens, más lenta y cara cada llamada.</li>
-            </ul>
-            <p>
-              Puedes probar la división en el tokenizador interactivo de OpenAI, y el curso de midudev
-              explica el concepto con ejemplos para desarrolladores.
-            </p>
-          </div>
-        </div>
+        <div data-subsection-grid data-section="fundamentos"></div>
 
         <div class="video-card__grid" data-video-grid></div>
 
@@ -268,7 +162,7 @@
       <section class="article__section reveal" id="opencode" aria-labelledby="opencode-titulo">
         <h2 id="opencode-titulo">2. OpenCode</h2>
 
-        <div class="article__subsection">
+        <div class="article__table-block">
           <h3 id="que-es-opencode">2.1 ¿Qué es? vs ClaudeCode | Cursor | Codex</h3>
           <div class="article__body">
             <p>
@@ -332,55 +226,7 @@
           </div>
         </div>
 
-        <div class="article__subsection">
-          <h3 id="opencode-zen">2.2 OpenCode Zen: cuenta y modelos gratuitos</h3>
-          <div class="article__body">
-            <p>
-              <strong>OpenCode Zen</strong> es el servicio de modelos de OpenCode: creas una cuenta
-              gratuita y obtienes acceso a modelos de varios proveedores con una cuota gratuita, sin
-              tarjeta de crédito. Es la vía más rápida para probar OpenCode sin configurar claves de API.
-            </p>
-            <div class="callout" data-callout-container></div>
-            <p>
-              La documentación oficial explica los límites de la cuota gratuita, los modelos
-              disponibles y cómo escalar a planes de pago si los necesitas.
-            </p>
-          </div>
-        </div>
-
-        <div class="article__subsection">
-          <h3 id="conectar-zen">2.3 Conectar modelos Zen a OpenCode</h3>
-          <div class="article__body">
-            <p>
-              Dentro de la interfaz de OpenCode, el comando <code>/connect</code> abre el asistente de
-              conexión: eliges proveedor, autorizas con tu cuenta y seleccionas modelo. Para Zen, el
-              flujo es:
-            </p>
-          </div>
-          <div class="code-block" data-code-block-container></div>
-        </div>
-
-        <div class="article__subsection">
-          <h3 id="multi-proveedor">2.4 Multi-proveedor</h3>
-          <div class="article__body">
-            <p>
-              OpenCode no está atado a un solo proveedor. Puedes usar <strong>varios a la vez</strong> y
-              elegir cuál responde cada tarea:
-            </p>
-            <ul>
-              <li><strong>Zen:</strong> modelos gratuitos con cuenta.</li>
-              <li><strong>Anthropic / OpenAI / Google:</strong> tus claves de API, con
-                <code>opencode auth login</code>.</li>
-              <li><strong>Modelos locales:</strong> Ollama y otros servidores locales.</li>
-              <li><strong>Proveedores compatibles:</strong> la lista completa está en la documentación de
-                providers y models.</li>
-            </ul>
-            <p>
-              La selección de modelo por defecto y por tarea se configura en
-              <code>opencode.json</code> (sección 3.3).
-            </p>
-          </div>
-        </div>
+        <div data-subsection-grid data-section="opencode"></div>
 
         <div class="video-card__grid" data-video-grid></div>
 
@@ -394,54 +240,9 @@
       <section class="article__section reveal" id="estructura-opencode" aria-labelledby="estructura-titulo">
         <h2 id="estructura-titulo">3. Estructura <code>.opencode/</code></h2>
 
-        <div class="article__subsection">
-          <h3 id="carpetas-uso">3.1 Carpetas y uso</h3>
-          <div class="article__body">
-            <p>
-              La carpeta <code>.opencode/</code> concentra la configuración del proyecto para OpenCode.
-              Este mismo repositorio es el ejemplo vivo: su estructura es la siguiente.
-            </p>
-          </div>
-          <div class="code-block" data-code-block-container></div>
-          <div class="article__body">
-            <ul>
-              <li>
-                <strong><code>agents/</code></strong> — archivos Markdown que definen el rol de cada
-                agente: responsabilidades, reglas y límites. En este repo hay cuatro:
-                <code>orchestrator</code>, <code>frontend-dev</code>, <code>code-review</code> y
-                <code>release-manager</code>.
-              </li>
-              <li>
-                <strong><code>skills/</code></strong> — habilidades (instrucciones) que se cargan bajo
-                demanda, por ejemplo <code>accessibility-wcag</code>, <code>seo</code> o
-                <code>playwright-best-practices</code>.
-              </li>
-              <li>
-                <strong><code>commands/</code></strong> — comandos personalizados disponibles dentro de
-                la interfaz de OpenCode.
-              </li>
-              <li>
-                <strong><code>docs/</code></strong> — documentación interna de referencia: aquí vive
-                <code>trinity-architecture.md</code>, <code>performance-reliability.md</code> y
-                <code>directive-sync.md</code>, que regulan cómo se escribe código en el proyecto.
-              </li>
-              <li>
-                <strong><code>prompts/</code></strong> — plantillas de prompt que los agentes usan como
-                base, referenciadas desde <code>opencode.json</code> con <code>{file:…}</code>.
-              </li>
-              <li>
-                <strong><code>plugins/</code></strong> — código JavaScript que se ejecuta como plugin
-                (por ejemplo, proteger variables de entorno o cargar reglas).
-              </li>
-              <li>
-                <strong><code>secrets/</code></strong> — claves y tokens locales; está en
-                <code>.gitignore</code> y nunca se sube al repositorio.
-              </li>
-            </ul>
-          </div>
-        </div>
+        <div data-subsection-grid data-section="estructura" data-subtopics="carpetas-uso"></div>
 
-        <div class="article__subsection">
+        <div class="article__table-block">
           <h3 id="vs-claude-code">3.2 vs ClaudeCode (estructura/config)</h3>
           <div class="article__body">
             <p>
@@ -490,26 +291,7 @@
           </div>
         </div>
 
-        <div class="article__subsection">
-          <h3 id="opencode-json">3.3 <code>opencode.json</code>: qué es y por qué importa</h3>
-          <div class="article__body">
-            <p>
-              <code>opencode.json</code> es el <strong>archivo de configuración central</strong> de
-              OpenCode en un proyecto: define qué instrucciones leer, qué permisos tiene el agente, qué
-              agentes existen, qué plugins y servidores MCP se cargan y cuál es el agente por defecto.
-            </p>
-            <p>Un extracto real de este repositorio:</p>
-          </div>
-          <div class="code-block" data-code-block-container></div>
-          <div class="callout" data-callout-container></div>
-          <div class="article__body">
-            <p>
-              Por qué importa: <strong>permisos</strong> (qué puede ejecutar el agente), <strong>agentes</strong>
-              (quién hace cada tarea) y <strong>herramientas</strong> (qué está activo) se deciden aquí,
-              no en el prompt de cada conversación.
-            </p>
-          </div>
-        </div>
+        <div data-subsection-grid data-section="estructura" data-subtopics="opencode-json"></div>
 
         <div class="video-card__grid" data-video-grid></div>
 
@@ -523,204 +305,7 @@
       <section class="article__section reveal" id="agentes" aria-labelledby="agentes-titulo">
         <h2 id="agentes-titulo">4. Trabajar con agentes</h2>
 
-        <div class="article__subsection">
-          <h3 id="plan-vs-build">4.1 Agente. Plan vs Build</h3>
-          <div class="article__body">
-            <p>
-              Un agente de OpenCode trabaja en dos modos principales. En <strong>modo Plan</strong>
-              propone un plan y no toca archivos: lees, corriges y apruebas. En <strong>modo Build</strong>
-              ejecuta: edita, crea y prueba. La tecla <strong>Tab</strong> alterna entre modos dentro de
-              la interfaz.
-            </p>
-            <p>
-              Por qué importa: el modo Plan convierte al agente en un <strong>compañero de diseño</strong>
-              (revisa antes de actuar), y el modo Build en un <strong>ejecutor</strong>. Alternar entre
-              ambos evita que el agente haga cambios grandes sin que tú veas el rumbo.
-            </p>
-          </div>
-        </div>
-
-        <div class="article__subsection">
-          <h3 id="loop-prompt">4.2 Loop prompt → crear → iterar (y por qué importa)</h3>
-          <div class="article__body">
-            <p>
-              El flujo real de trabajo con un agente es un <strong>bucle</strong>:
-            </p>
-            <ol>
-              <li><strong>Prompt:</strong> describes la tarea con contexto (qué, para quién, restricciones).</li>
-              <li><strong>Crear:</strong> el agente propone o ejecuta cambios.</li>
-              <li><strong>Iterar:</strong> revisas el resultado, corriges el rumbo y repites hasta que esté bien.</li>
-            </ol>
-            <p>
-              Por qué importa: la calidad no sale del primer prompt, sale de <strong>iterar con
-              criterio</strong>. El «vibe coding» (aceptar la primera respuesta sin revisar) produce
-              software frágil; el método de especificar, revisar e iterar produce software robusto. La
-              documentación de OpenCode describe el ciclo plan → iterate → build → undo como la forma
-              prevista de trabajar.
-            </p>
-            <p>Dos cursos de MoureDev sobre este tema:</p>
-          </div>
-          <div class="video-card__grid" data-video-grid></div>
-        </div>
-
-        <div class="article__subsection">
-          <h3 id="permisos">4.3 Permisos (y por qué importan)</h3>
-          <div class="article__body">
-            <p>
-              El agente ejecuta <strong>comandos reales</strong> en tu máquina. Los permisos definen
-              qué puede hacer sin preguntar (<code>allow</code>), qué debe consultar (<code>ask</code>)
-              y qué tiene prohibido (<code>deny</code>). El bloque de permisos de este repositorio:
-            </p>
-          </div>
-          <div class="code-block" data-code-block-container></div>
-          <div class="callout" data-callout-container></div>
-        </div>
-
-        <div class="article__subsection">
-          <h3 id="spec-agents-design">4.4 SPEC.md / AGENTS.md / DESIGN.md (y por qué importan)</h3>
-          <div class="article__body">
-            <p>
-              Los agentes trabajan mejor cuando el proyecto <strong>les dice qué hacer</strong>. Tres
-              archivos de raíz cumplen ese rol en este repositorio:
-            </p>
-            <ul>
-              <li>
-                <strong><code>SPEC.md</code></strong> — <em>qué</em> construir: contenido, estructura,
-                fuentes y criterios de aceptación.
-              </li>
-              <li>
-                <strong><code>DESIGN.md</code></strong> — <em>cómo se ve</em>: paleta, tipografía,
-                espaciado, motion y tokens de diseño vinculantes.
-              </li>
-              <li>
-                <strong><code>AGENTS.md</code></strong> — <em>cómo se trabaja</em>: stack, estructura,
-                reglas por rol, flujo git y permisos de cada agente.
-              </li>
-            </ul>
-            <p>Un extracto real de <code>AGENTS.md</code>:</p>
-          </div>
-          <div class="code-block" data-code-block-container></div>
-          <div class="article__body">
-            <p>
-              Por qué importan: sin especificación, el agente <strong>improvisa</strong>. Con SPEC,
-              DESIGN y AGENTS, cada agente sabe qué construir, con qué estética y bajo qué reglas — y
-              el revisor (<code>@code-review</code>) puede rechazar lo que no cumpla. El método de
-              «software definido por especificaciones» lo popularizó MoureDev en su proyecto
-              <em>hello-sdd</em>.
-            </p>
-          </div>
-        </div>
-
-        <div class="article__subsection">
-          <h3 id="agentes-personalizados">4.5 Agentes personalizados: primary vs sub-agent</h3>
-          <div class="article__body">
-            <p>
-              OpenCode permite definir <strong>agentes propios</strong> en <code>opencode.json</code>.
-              Hay dos modos:
-            </p>
-            <ul>
-              <li>
-                <strong>Primary:</strong> aparece en el selector de agentes de la interfaz; coordina el
-                trabajo, delega y ve la conversación principal. En este repo, <code>orchestrator</code>.
-              </li>
-              <li>
-                <strong>Sub-agente:</strong> se ejecuta como tarea dentro de otra sesión; tiene
-                herramientas limitadas y devuelve un resultado. En este repo, <code>frontend-dev</code>,
-                <code>code-review</code> y <code>release-manager</code>.
-              </li>
-            </ul>
-            <p>Definiciones reales de este repositorio:</p>
-          </div>
-          <div class="code-block" data-code-block-container></div>
-          <div class="article__body">
-            <p>
-              Cada agente tiene una <strong>descripción</strong> (para que el modelo sepa cuándo
-              usarlo), un <strong>modo</strong>, un conjunto de <strong>herramientas</strong> y un
-              <strong>prompt</strong> opcional desde <code>.opencode/prompts/</code>. El detalle del rol
-              vive en <code>.opencode/agents/*.md</code>.
-            </p>
-          </div>
-        </div>
-
-        <div class="article__subsection">
-          <h3 id="skills">4.6 Skills (vs Claude Code)</h3>
-          <div class="article__body">
-            <p>
-              Una <strong>skill</strong> es un conjunto de instrucciones reutilizables que el agente
-              carga <em>bajo demanda</em> cuando la tarea coincide con su descripción: por ejemplo,
-              <code>accessibility-wcag</code>, <code>seo</code> o <code>frontend-design</code> en este
-              repositorio. En lugar de repetir reglas en cada prompt, el agente «abre» la skill cuando
-              la necesita.
-            </p>
-            <p>
-              <strong>vs Claude Code:</strong> ambos soportan skills de proyecto; Claude Code las llama
-              <em>agent skills</em> y las guarda en <code>.claude/skills/</code>. OpenCode mantiene un
-              registro abierto en <code>skills.sh</code> con skills compartidas por la comunidad.
-            </p>
-            <p>El curso de midudev introduce el concepto de skills con ejemplos prácticos.</p>
-          </div>
-          <div class="video-card__grid" data-video-grid></div>
-        </div>
-
-        <div class="article__subsection">
-          <h3 id="prompts">4.7 Prompts (vs Claude Code)</h3>
-          <div class="article__body">
-            <p>
-              Los <strong>prompts</strong> en OpenCode son plantillas de instrucción asociadas a un
-              agente, referenciadas desde <code>opencode.json</code> con la sintaxis
-              <code>{file:ruta}</code>. En este repo, todos los agentes usan
-              <code>.opencode/prompts/agent-knowledge-awareness.md</code>: un prompt que les recuerda
-              leer las reglas del proyecto antes de actuar.
-            </p>
-            <p>
-              <strong>vs Claude Code:</strong> la función equivalente son los <em>slash commands</em>:
-              comandos personalizados (a menudo prompts) que se invocan con <code>/</code> dentro de la
-              interfaz. En OpenCode, los comandos personalizados viven en
-              <code>.opencode/commands/</code>.
-            </p>
-          </div>
-        </div>
-
-        <div class="article__subsection">
-          <h3 id="plugins">4.8 Plugins (vs Claude Code)</h3>
-          <div class="article__body">
-            <p>
-              Los <strong>plugins</strong> de OpenCode son código JavaScript que extiende el
-              comportamiento del agente: hooks que se ejecutan en momentos del ciclo de vida
-              (arranque, cada mensaje, etc.). En este repo hay cuatro plugins activos:
-              <code>bootstrap.js</code>, <code>env-protection.js</code>, <code>load-rules.js</code> y
-              <code>ponytail-mode.js</code>, declarados en <code>opencode.json</code> con
-              <code>"plugin": ["@dietrichgebert/ponytail"]</code> y archivos locales.
-            </p>
-            <p>
-              <strong>vs Claude Code:</strong> la función equivalente son los <em>hooks</em>
-              (preToolUse, PostToolUse, etc.) definidos en <code>settings.json</code>. Ambos permiten
-              automatizar reglas y protecciones, con enfoques distintos: plugins JS en OpenCode, hooks
-              configurables en Claude Code.
-            </p>
-          </div>
-        </div>
-
-        <div class="article__subsection">
-          <h3 id="mcp">4.9 MCP (vs Claude Code)</h3>
-          <div class="article__body">
-            <p>
-              <strong>MCP</strong> (<em>Model Context Protocol</em>) es un estándar abierto para conectar
-              herramientas externas a agentes: servidores locales o remotos que exponen recursos y
-              funciones. En este repo hay tres servidores MCP configurados en
-              <code>opencode.json</code>: <code>playwright-test</code> (probar la interfaz),
-              <code>codegraph</code> (índice del código) y <code>context7</code> (documentación de
-              librerías).
-            </p>
-            <p>
-              <strong>vs Claude Code:</strong> Claude Code también soporta MCP y usa el mismo protocolo;
-              la diferencia está en la configuración (en <code>opencode.json</code> vs
-              <code>settings.json</code> / <code>.mcp.json</code>). El protocolo en sí es compartido:
-              aprenderlo sirve para ambos.
-            </p>
-          </div>
-          <div class="video-card__grid" data-video-grid></div>
-        </div>
+        <div data-subsection-grid data-section="agentes"></div>
 
         <div class="video-card__grid" data-video-grid></div>
 
@@ -734,59 +319,7 @@
       <section class="article__section reveal" id="ejemplo-real" aria-labelledby="ejemplo-titulo">
         <h2 id="ejemplo-titulo">5. Ejemplo real: este proyecto</h2>
 
-        <div class="article__subsection">
-          <h3 id="proyecto-real">5.1 El proyecto</h3>
-          <div class="article__body">
-            <p>
-              Este sitio es el <strong>ejemplo vivo</strong> de todo lo explicado: está construido con
-              Vite + HTML5 + CSS nativo + JS ES6, gestionado con pnpm y desplegado en
-              <strong>GitHub Pages</strong>. El repositorio implementa, de verdad, la estructura
-              <code>.opencode/</code>, el <code>opencode.json</code> y los agentes descritos arriba.
-            </p>
-            <p>El ciclo de desarrollo y despliegue, en comandos reales:</p>
-          </div>
-          <div class="code-block" data-code-block-container></div>
-          <div class="article__body">
-            <p>
-              El flujo completo del proyecto está documentado en <code>AGENTS.md</code>: rama
-              <code>main</code> = producción, <code>develop</code> = integración diaria, ramas
-              <code>feature/*</code> para trabajo nuevo, <code>release/*</code> para publicar y
-              <code>hotfix/*</code> para correcciones urgentes.
-            </p>
-          </div>
-        </div>
-
-        <div class="article__subsection">
-          <h3 id="flujo-real">5.2 Flujo de trabajo</h3>
-          <div class="article__body">
-            <p>Así trabaja este repositorio con sus agentes personalizados:</p>
-            <ol>
-              <li>
-                <strong><code>@orchestrator</code></strong> (agente primary) planifica, delega y decide
-                merge/release, con checkpoint del usuario antes de publicar.
-              </li>
-              <li>
-                <strong><code>@frontend-dev</code></strong> (sub-agente) escribe HTML, CSS y JS en ramas
-                <code>feature/*</code>, sujeto a los contratos de arquitectura y rendimiento.
-              </li>
-              <li>
-                <strong><code>@code-review</code></strong> (sub-agente) audita el código contra SPEC,
-                DESIGN y los checklists; sin su <code>STATUS: APPROVED</code> no hay merge.
-              </li>
-              <li>
-                <strong><code>@release-manager</code></strong> (sub-agente) crea ramas de release, merge
-                a <code>main</code>, tag + GitHub Release y despliegue con
-                <code>pnpm deploy</code> → rama <code>gh-pages</code> → sitio en vivo.
-              </li>
-            </ol>
-            <p>
-              Reglas del proyecto en <code>AGENTS.md</code>, contenido y fuentes en
-              <code>SPEC.md</code>, diseño vinculante en <code>DESIGN.md</code>, y la configuración de
-              todo (permisos, agentes, MCP, plugins) en <code>opencode.json</code>. Ese es el punto:
-              no es teoría, es cómo funciona este sitio.
-            </p>
-          </div>
-        </div>
+        <div data-subsection-grid data-section="ejemplo"></div>
 
         <section class="sources" aria-labelledby="fuentes-ejemplo">
           <h3 id="fuentes-ejemplo">Fuentes</h3>
@@ -854,6 +387,13 @@
 
   <template id="sources-item-template">
     <li><a data-sources-url target="_blank" rel="noopener noreferrer"></a></li>
+  </template>
+
+  <template id="subsection-template">
+    <div class="article__subsection">
+      <h3></h3>
+      <div class="article__body"></div>
+    </div>
   </template>
 
   <template id="code-block-template">
