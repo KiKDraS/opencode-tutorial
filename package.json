@@ -3,17 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@11.24.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "setup": "npm run ignore-key && npx @colbymchenry/codegraph init && npx playwright install",
+    "deploy": "pnpm build && gh-pages -d dist",
+    "setup": "pnpm run ignore-key && pnpm dlx @colbymchenry/codegraph init && pnpm exec playwright install",
     "ignore-key": "git update-index --skip-worktree .opencode/secrets/context7-api-key 2>/dev/null || true",
     "init": "node scripts/init.mjs",
     "postinstall": "node scripts/init.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.61.1",
+    "gh-pages": "^6.3.0",
     "vite": "^8.1.1"
   },
   "dependencies": {
