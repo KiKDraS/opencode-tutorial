@@ -5,7 +5,6 @@
     "bash": {
       "*": "ask",
       "git *": "allow",
-      "npm *": "allow",
       "pnpm *": "allow",
       "rm *": "deny",
       "grep *": "allow"

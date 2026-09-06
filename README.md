@@ -22,15 +22,15 @@ WCAG 2.1 AA compliant, modular architecture, and zero framework lock-in.
 1.  **Create Repository:** Use the
     [GitHub Template](https://github.com/KiKDraS/opencode-landing-page-template/generate).
 2.  **Clone & Install:**
-    `git clone <your-repo> && cd <your-repo> && npm install`
-    (`npm run setup` — codegraph index + Playwright browsers — runs
+    `git clone <your-repo> && cd <your-repo> && pnpm install`
+    (`pnpm run setup` — codegraph index + Playwright browsers — runs
     automatically on first opencode load.)
-    `npm install` prompts for a project name (defaults to the folder name) and
-    resets the version to 0.1.0 — if it doesn't prompt (e.g. `ignore-scripts`), run `npm run init`.
+    `pnpm install` prompts for a project name (defaults to the folder name) and
+    resets the version to 0.1.0 — if it doesn't prompt (e.g. `ignore-scripts`), run `pnpm run init`.
 3.  **Git Flow Setup:** `git checkout -b develop && git push -u origin develop`
 4.  **Authenticate:** Run `opencode` then `/connect` → sign in at
     [opencode.ai/auth](https://opencode.ai/auth)
-5.  **Development:** `npm run dev` → open `http://localhost:5173`
+5.  **Development:** `pnpm run dev` → open `http://localhost:5173`
 
 ---
 
@@ -42,7 +42,7 @@ environment variables required.
 
 | Secret / Token       | Setup Command                                       | Purpose & Notes                                                                                            |
 | -------------------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| **Context7 API Key** | `echo "<key>" > .opencode/secrets/context7-api-key` | Optional, project-local. File ships empty + git-hidden via `npm run ignore-key` (part of setup). Enable `"enabled": true` under `"context7"` in `opencode.json`. |
+| **Context7 API Key** | `echo "<key>" > .opencode/secrets/context7-api-key` | Optional, project-local. File ships empty + git-hidden via `pnpm run ignore-key` (part of setup). Enable `"enabled": true` under `"context7"` in `opencode.json`. |
 | **GitHub Token**     | `echo "<token>" > .opencode/secrets/github-token`   | Required by `@release-manager` for automated PRs. _(Fallback: Git credential helper → `GITHUB_TOKEN` env)_ |
 
 ---
@@ -103,7 +103,7 @@ workflow:
 | ----------------------------------------------------------------- | -------------------------------------------------------------- | ------------------------------------ |
 | **[Ponytail](https://github.com/DietrichGebert/ponytail)**        | Enforces minimal code diffs, YAGNI, and stdlib-first solutions | Pre-configured (`/ponytail`)         |
 | **[Caveman](https://github.com/anthonystepvoy/caveman-opencode)** | Token-efficient ultra-compressed communication mode            | Active by default (`/caveman`)       |
-| **[Codegraph](https://github.com/colbymchenry/codegraph)**        | SQLite codebase indexing for surgical AI context               | Indexed via `npm run setup`          |
+| **[Codegraph](https://github.com/colbymchenry/codegraph)**        | SQLite codebase indexing for surgical AI context               | Indexed via `pnpm run setup`          |
 | **[Playwright](https://playwright.dev)**                          | Browser automation, UI exploration, and self-healing tests     | Configured in `playwright.config.ts` |
 | **[Context7](https://context7.com)**                              | Live documentation fetching for modern libraries               | Optional; local key file + `enabled: true` |
 
@@ -114,6 +114,6 @@ workflow:
 | Issue                                          | Solution                                                                    |
 | ---------------------------------------------- | --------------------------------------------------------------------------- |
 | `bad file reference: "{file:...}"`             | Only if you added a `{file:}` ref to a missing file. Shipped `{file:.opencode/secrets/context7-api-key}` is a committed empty placeholder, so it can't occur out of the box. |
-| `opencode.json is not valid JSON`              | Validate syntax: `npx jsonlint opencode.json`                               |
-| `browserType.launch: Executable doesn't exist` | Install browsers: `npm run setup`                                           |
+| `opencode.json is not valid JSON`              | Validate syntax: `pnpm dlx jsonlint opencode.json`                          |
+| `browserType.launch: Executable doesn't exist` | Install browsers: `pnpm run setup`                                          |
 | MCP server tool unavailable                    | Check `"enabled": true` in `opencode.json` and restart session              |
