@@ -1,11 +1,11 @@
 # Agent Context
 
-Goal: **Docs site educativo** — qué es OpenCode y cómo trabajar con él. Contenido 100% español. Deploy: **GitHub Pages** (`gh-pages`).
+Goal: **Educational docs site** — what OpenCode is, how to work with it. Web content 100% Spanish. Project files 100% English. Deploy: **GitHub Pages** (`gh-pages`).
 
 ## Tech Stack
 
 Bund: Vite | Struct: HTML5 | Style: Native CSS (lightningcss) | Logic: JS (ES6+)
-PM: **pnpm solo** (install/run/exec/dlx). `npm` prohibido en scripts.
+PM: **pnpm only** (install/run/exec/dlx). `npm` banned in scripts.
 
 ## Project Structure
 
@@ -20,17 +20,17 @@ Strict. No files outside schema.
 ├── tests/{e2e,components}
 ├── public/{favicon,robots.txt}
 ├── scripts/{init.mjs}
-├── SPEC.md DESIGN.md            # Contrato contenido+diseño. DO NOT EDIT sin aprobación
+├── SPEC.md DESIGN.md            # Content+design contract. DO NOT EDIT without approval
 ├── index.html sitemap.xml playwright.config.js package.json
 ```
 
-## Content Rules (todos los agentes)
+## Content Rules (all agents)
 
-- 100% español.
-- Cada afirmación → URL fuente (bloque `Fuentes`). Ver SPEC.md §2+§4.
-- Vídeos: solo youtubers hispanohablantes. Prioridad MoureDev > midudev. Autoría marcada (canal+título+enlace).
-- Diseño: DESIGN.md obligatorio (estética documentación, WCAG 2.1 AA).
-- Ejemplo vivo: este repo `.opencode/` + `opencode.json` (SPEC.md §3.5).
+- Web content: 100% Spanish. Project files (code, docs, commits): English.
+- Every claim → source URL (`Sources` block). See SPEC.md §2+§4.
+- Videos: Spanish-speaking youtubers only. Priority MoureDev > midudev. Authorship marked (channel+title+link).
+- Design: DESIGN.md mandatory (documentation aesthetic, WCAG 2.1 AA).
+- Live example: this repo `.opencode/` + `opencode.json` (SPEC.md §3, section 5).
 
 ## Dev Rules by Owner
 
@@ -70,9 +70,9 @@ Never copy rules — copy = stale. Edit source only.
 Release→back-merge dev. `hotfix/*`→main tag+GH Release→back-merge dev. Never
 delete main/develop.
 
-**Deploy (GitHub Pages):** release/hotfix tras merge a main → `pnpm deploy`
-(build + `gh-pages -d dist`) → rama `gh-pages` → site live. Pages source:
-`gh-pages` branch (enable una vez, ver release-manager).
+**Deploy (GitHub Pages):** release/hotfix after merge to main → `pnpm deploy`
+(build + `gh-pages -d dist`) → `gh-pages` branch → site live. Pages source:
+`gh-pages` branch (enable once, see release-manager).
 
 **Agent perms:**
 

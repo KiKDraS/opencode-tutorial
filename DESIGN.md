@@ -1,68 +1,70 @@
-# DESIGN.md — Contrato de diseño
+# DESIGN.md — Design Contract
 
-**Estado:** Activo — todos los agentes DEBEN cumplirlo. Cambios: `@orchestrator` → aprobación usuario → editar aquí.
+**Status:** Active — all agents MUST comply. Changes: `@orchestrator` → user approval → edit here.
 
 ---
 
-## 1. IDENTIDAD Y FILOSOFÍA DE DISEÑO
+## 1. PROJECT IDENTITY & DESIGN PHILOSOPHY
 
-### 1.1 Propósito
-Documentación educativa: qué es OpenCode y cómo trabajar con él. Resuelve: dev hispanohablante que no sabe qué es un agente de código ni cómo empezar.
+### 1.1 Project Purpose
+Educational documentation: what OpenCode is and how to work with it. Problem solved: Spanish-speaking dev who doesn't know what a coding agent is or where to start.
 
-### 1.2 Audiencia
-Devs hispanohablantes, nivel inicial en IA. Lectura larga → priman legibilidad y navegación.
+### 1.2 Primary Audience
+Spanish-speaking devs, AI beginners. Long-form reading → legibility and navigation first.
 
-### 1.3 Objetivo principal
-Que el lector termine una sección entendiendo el concepto y sabiendo dónde seguir (fuente + vídeo).
+### 1.3 Primary Conversion Goal
+Reader finishes a section understanding the concept and knowing where to continue (source + video).
 
-### 1.4 Filosofía (mandato `frontend-design`)
+### 1.4 Design Philosophy (mandated by `frontend-design`)
 
-| Principio | Decisión |
+| Principle | Project Decision |
 |---|---|
-| **Dirección estética** | Documentación técnica limpia (referencia: opencode.ai/docs, docs.claude.com). Claridad > espectáculo |
-| **Tipografía** | Space Grotesk (display) + Inter (body) + JetBrains Mono (código) |
-| **Estrategia de color** | Neutros fríos (slate) + acento índigo. Alto contraste texto/fondo. Modo claro por defecto + oscuro automático |
-| **Enfoque de layout** | Sticky sidebar TOC (izq) + columna artículo (~72ch) + nav superior. Móvil: TOC colapsable |
-| **Tratamiento de fondo** | Plano, sutil división por secciones (bordes, no sombras pesadas) |
-| **Coreografía de movimiento** | Mínima: fade-in suave al hacer scroll (IntersectionObserver). Sin rebotes ni parallax |
-| **Diferenciador** | Trazabilidad: cada sección cierra con bloque `Fuentes` (URL) + tarjeta de vídeo con autoría |
+| **Aesthetic Direction** | Clean technical documentation (reference: opencode.ai/docs, docs.claude.com). Clarity > spectacle |
+| **Typography** | Space Grotesk (display) + Inter (body) + JetBrains Mono (code) |
+| **Color Strategy** | Cool neutrals (slate) + indigo accent. High text/background contrast. Light default + auto dark |
+| **Layout Approach** | Sticky sidebar TOC (left) + article column (~72ch) + top nav. Mobile: collapsible TOC |
+| **Background Treatment** | Flat, subtle section separation (borders, not heavy shadows) |
+| **Motion Choreography** | Minimal: soft fade-in on scroll (IntersectionObserver). No bounce, no parallax |
+| **Differentiator** | Traceability: every section ends with `Sources` block (URLs) + video card with authorship |
 
 ---
 
 ## 2. DESIGN TOKENS
 
-### 2.1 Paleta
+Fill into `src/styles/boilerplate/variables.css`.
 
-| Token | Light | Dark | Uso |
-|---|---|---|---|
-| `--color-bg` | `#ffffff` | `#0b1220` | Fondo página |
-| `--color-bg-alt` | `#f6f8fa` | `#0f172a` | Secciones alternas |
-| `--color-bg-elevated` | `#ffffff` | `#111c33` | Tarjetas, bloques código |
-| `--color-text` | `#1a202c` | `#e2e8f0` | Texto principal |
-| `--color-text-muted` | `#64748b` | `#94a3b8` | Texto secundario |
-| `--color-text-inverse` | `#ffffff` | `#0b1220` | Texto sobre oscuro |
-| `--color-primary` | `#4f46e5` | `#818cf8` | Marca dominante |
-| `--color-primary-hover` | `#4338ca` | `#a5b4fc` | Hover marca |
-| `--color-primary-active` | `#3730a3` | `#c7d2fe` | Active marca |
-| `--color-accent` | `#0284c7` | `#38bdf8` | Links, CTA |
-| `--color-accent-hover` | `#0369a1` | `#7dd3fc` | Hover accent |
-| `--color-border` | `#e2e8f0` | `#1e293b` | Bordes sutiles |
-| `--color-border-strong` | `#cbd5e1` | `#334155` | Bordes destacados |
-| `--color-focus` | `#4f46e5` | `#818cf8` | Anillos de foco |
-| `--color-error` | `#dc2626` | — | Errores |
-| `--color-success` | `#16a34a` | — | Éxitos |
-| `--color-warning` | `#d97706` | — | Avisos |
+### 2.1 Color Palette
 
-Modo oscuro: `@media (prefers-color-scheme: dark) { :root { ... } }`. Solo tokens de color.
+| Token | Light Value | Dark Value | Usage |
+|-------|-------------|------------|-------|
+| `--color-bg` | `#ffffff` | `#0b1220` | Page background |
+| `--color-bg-alt` | `#f6f8fa` | `#0f172a` | Alternate sections |
+| `--color-bg-elevated` | `#ffffff` | `#111c33` | Cards, code blocks |
+| `--color-text` | `#1a202c` | `#e2e8f0` | Primary text |
+| `--color-text-muted` | `#64748b` | `#94a3b8` | Secondary text |
+| `--color-text-inverse` | `#ffffff` | `#0b1220` | Text on dark backgrounds |
+| `--color-primary` | `#4f46e5` | `#818cf8` | Brand dominant |
+| `--color-primary-hover` | `#4338ca` | `#a5b4fc` | Brand hover state |
+| `--color-primary-active` | `#3730a3` | `#c7d2fe` | Brand active state |
+| `--color-accent` | `#0284c7` | `#38bdf8` | Links, CTAs |
+| `--color-accent-hover` | `#0369a1` | `#7dd3fc` | Accent hover |
+| `--color-border` | `#e2e8f0` | `#1e293b` | Subtle borders |
+| `--color-border-strong` | `#cbd5e1` | `#334155` | Emphasized borders |
+| `--color-focus` | `#4f46e5` | `#818cf8` | Focus rings |
+| `--color-error` | `#dc2626` | — | Error states |
+| `--color-success` | `#16a34a` | — | Success states |
+| `--color-warning` | `#d97706` | — | Warning states |
 
-### 2.2 Tipografía (fluid con `clamp()`)
+**Dark mode:** `@media (prefers-color-scheme: dark) { :root { ... } }`. Override only color tokens.
 
-| Token | Valor | Fuente |
-|---|---|---|
-| `--font-display` | Space Grotesk | `src/assets/fonts/` |
-| `--font-body` | Inter | `src/assets/fonts/` |
-| `--font-mono` | JetBrains Mono | `src/assets/fonts/` |
-| `--font-size-fluid-base` | `clamp(1rem, 0.95rem + 0.25vw, 1.0625rem)` | Body |
+### 2.2 Typography Scale (use `clamp()` for fluid sizing)
+
+| Token | Value | Font Family |
+|-------|-------|-------------|
+| `--font-display` | — | Space Grotesk |
+| `--font-body` | — | Inter |
+| `--font-mono` | — | JetBrains Mono |
+| `--font-size-fluid-base` | `clamp(1rem, 0.95rem + 0.25vw, 1.0625rem)` | Base for body |
 | `--font-size-display-1` | `clamp(2.25rem, 1.8rem + 2.2vw, 3.5rem)` | H1 |
 | `--font-size-display-2` | `clamp(1.75rem, 1.5rem + 1.2vw, 2.25rem)` | H2 |
 | `--font-size-display-3` | `clamp(1.375rem, 1.25rem + 0.6vw, 1.625rem)` | H3 |
@@ -72,19 +74,19 @@ Modo oscuro: `@media (prefers-color-scheme: dark) { :root { ... } }`. Solo token
 | `--font-size-body` | `var(--font-size-fluid-base)` | |
 | `--font-size-body-sm` | `clamp(0.875rem, 0.85rem + 0.15vw, 0.9375rem)` | |
 | `--font-size-caption` | `clamp(0.75rem, 0.74rem + 0.1vw, 0.8125rem)` | |
-| `--line-height-tight` | `1.2` | Títulos |
+| `--line-height-tight` | `1.2` | Headings |
 | `--line-height-base` | `1.6` | Body |
-| `--line-height-relaxed` | `1.75` | Texto largo |
+| `--line-height-relaxed` | `1.75` | Long-form |
 | `--letter-spacing-tight` | `-0.01em` | |
 | `--letter-spacing-normal` | `0` | |
 | `--letter-spacing-wide` | `0.08em` | Eyebrows, captions |
 
-`@font-face` en `boilerplate/fonts.css`, rutas relativas. Sin CDN. Formatos: woff2 (+ ttf fallback). Licencia OFL: Space Grotesk, Inter, JetBrains Mono.
+**Font files:** TTF/WOFF2 in `src/assets/fonts/`. `@font-face` in `boilerplate/fonts.css`, relative CSS paths. No CDN. OFL license: Space Grotesk, Inter, JetBrains Mono.
 
-### 2.3 Espaciado (base 8px)
+### 2.3 Spacing (8px base scale)
 
 | Token | Default |
-|---|---|
+|-------|---------|
 | `--space-1` | `0.25rem` |
 | `--space-2` | `0.5rem` |
 | `--space-3` | `0.75rem` |
@@ -96,63 +98,63 @@ Modo oscuro: `@media (prefers-color-scheme: dark) { :root { ... } }`. Solo token
 | `--space-9` | `6rem` |
 | `--space-10` | `8rem` |
 
-### 2.4 Dimensiones de sección
+### 2.4 Section Dimensions
 
-| Token | Valor |
-|---|---|
-| `--container-max` | `1280px` (nav+contenido) |
+| Token | Value |
+|-------|-------|
+| `--container-max` | `1280px` (nav + content) |
 | `--container-padding` | `clamp(1rem, 2vw, 2rem)` |
 | `--sidebar-width` | `260px` (desktop, sticky) |
-| `--reading-max` | `72ch` (columna artículo) |
+| `--reading-max` | `72ch` (article column) |
 | `--header-height` | `60px` |
 | `--footer-height` | `auto` |
 
-### 2.5 Movimiento
+### 2.5 Motion
 
-| Token | Default | Uso |
-|---|---|---|
-| `--duration-fast` | `150ms` | Hover, foco |
-| `--duration-base` | `250ms` | Transiciones |
-| `--duration-slow` | `400ms` | Reveal scroll |
+| Token | Default | Use |
+|-------|---------|-----|
+| `--duration-fast` | `150ms` | Hover, focus |
+| `--duration-base` | `250ms` | Transitions |
+| `--duration-slow` | `400ms` | Scroll reveal |
 | `--ease-standard` | `cubic-bezier(0.4, 0, 0.2, 1)` | UI |
-| `--ease-expressive` | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Entradas |
+| `--ease-expressive` | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Entrances |
 
-Reducir: `@media (prefers-reduced-motion: reduce)` → revela sin animación.
+Dropped `--duration-slower` + `--ease-spring`: motion policy = minimal, no bounce. Reduced motion: `@media (prefers-reduced-motion: reduce)` → reveals without animation.
 
-### 2.6 Z-Index (defaults)
+### 2.6 Z-Index Scale
 
-| Token | Default | Uso |
-|---|---|---|
-| `--z-base` | `1` | Base |
-| `--z-dropdown` | `100` | Menús |
+| Token | Default | Usage |
+|-------|---------|-------|
+| `--z-base` | `1` | Base layer |
+| `--z-dropdown` | `100` | Dropdown menus |
 | `--z-sticky` | `200` | Header, sidebar |
-| `--z-modal-backdrop` | `300` | — |
-| `--z-modal` | `400` | — |
-| `--z-toast` | `500` | — |
-| `--z-tooltip` | `600` | — |
+| `--z-modal-backdrop` | `300` | Unused (reserved) |
+| `--z-modal` | `400` | Unused (reserved) |
+| `--z-toast` | `500` | Unused (reserved) |
+| `--z-tooltip` | `600` | Unused (reserved) |
 
 ---
 
-## 3. INVENTARIO DE COMPONENTES
+## 3. COMPONENT INVENTORY
 
-| Componente | Estado | CSS | JS |
-|---|---|---|---|
-| Header sticky (logo + nav secciones + toggle tema) | ☐ Planned | `components/header.css` | `components/header.js` |
-| Sidebar TOC (activo por scroll, colapsable móvil) | ☐ Planned | `components/toc.css` | `components/toc.js` |
-| Sección artículo (encabezado + contenido + bloque Fuentes) | ☐ Planned | `components/section.css` | — |
-| Tarjeta vídeo (thumb/embed, título, canal, duración, enlace) | ☐ Planned | `components/video-card.css` | `components/video-card.js` |
-| Bloque fuentes (lista URLs clicables) | ☐ Planned | `components/sources.css` | — |
-| Tabla comparativa (vs ClaudeCode/Cursor/Codex) | ☐ Planned | `components/compare-table.css` | — |
-| Bloque código (highlight, botón copiar) | ☐ Planned | `components/code-block.css` | `components/code-block.js` |
-| Callout (nota/aviso) | ☐ Planned | `components/callout.css` | — |
-| Footer (autores fuentes, créditos vídeo) | ☐ Planned | `components/footer.css` | — |
+| Component | Status | CSS File | JS Module |
+|-----------|--------|----------|-----------|
+| Sticky header (logo + section nav + theme toggle) | ☐ Planned | `components/header.css` | `components/header.js` |
+| Sidebar TOC (scroll-active, mobile collapsible) | ☐ Planned | `components/toc.css` | `components/toc.js` |
+| Article section (heading + content + Sources block) | ☐ Planned | `components/section.css` | — |
+| Video card (thumb/embed, title, channel, duration, link) | ☐ Planned | `components/video-card.css` | `components/video-card.js` |
+| Sources block (clickable URL list) | ☐ Planned | `components/sources.css` | — |
+| Comparison table (vs ClaudeCode/Cursor/Codex) | ☐ Planned | `components/compare-table.css` | — |
+| Code block (highlight, copy button) | ☐ Planned | `components/code-block.css` | `components/code-block.js` |
+| Callout (note/warning) | ☐ Planned | `components/callout.css` | — |
+| Footer (video credits, sources note) | ☐ Planned | `components/footer.css` | — |
 
-Layout: `layout/*.css` (grid shell sidebar+article, breakpoints 1024/768).
+Layout: `layout/*.css` (shell grid sidebar+article, breakpoints 1024/768).
 
-## 4. CUMPLIMIENTO
+## 4. ENFORCEMENT
 
-Contrato vinculante. `@code-review` rechaza violaciones. ACCESIBILIDAD: WCAG 2.1 AA obligatorio (skill accessibility-wcag). SEO: meta + sitemap + datos estructurados (skill seo).
+Binding contract. `@code-review` rejects violations. ACCESSIBILITY: WCAG 2.1 AA mandatory (skill accessibility-wcag). SEO: meta + sitemap + structured data (skill seo).
 
 ---
 
-*Fin de DESIGN.md.*
+*End of DESIGN.md.*
