@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 
 export default defineConfig(({ command }) => {
   return {
-    base: "./",
+    base: "/opencode-tutorial/",
     publicDir: "public",
     build: {
       outDir: "dist",

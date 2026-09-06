@@ -27,6 +27,13 @@ Reader finishes a section understanding the concept and knowing where to continu
 | **Motion Choreography** | Minimal: soft fade-in on scroll (IntersectionObserver). No bounce, no parallax |
 | **Differentiator** | Traceability: every section ends with `Sources` block (URLs) + video card with authorship |
 
+### 1.5 Brand Assets
+
+| Asset | File | Usage |
+|---|---|---|
+| Logo (horizontal, RGBA, 783×337) | `src/assets/logo.png` | Header (sticky, left) + footer. Max height 32px header / 24px footer |
+| Favicon set | `public/favicon/` (svg, ico, 96×96, apple-touch-icon, webmanifest) | `<head>` icon links. Vite `base: "/opencode-tutorial/"` (GitHub Pages) → served under `/opencode-tutorial/favicon/` |
+
 ---
 
 ## 2. DESIGN TOKENS
@@ -139,7 +146,7 @@ Dropped `--duration-slower` + `--ease-spring`: motion policy = minimal, no bounc
 
 | Component | Status | CSS File | JS Module |
 |-----------|--------|----------|-----------|
-| Sticky header (logo + section nav + theme toggle) | ☐ Planned | `components/header.css` | `components/header.js` |
+| Sticky header (logo.png + section nav + theme toggle) | ☐ Planned | `components/header.css` | `components/header.js` |
 | Sidebar TOC (scroll-active, mobile collapsible) | ☐ Planned | `components/toc.css` | `components/toc.js` |
 | Article section (heading + content + Sources block) | ☐ Planned | `components/section.css` | — |
 | Video card (thumb/embed, title, channel, duration, link) | ☐ Planned | `components/video-card.css` | `components/video-card.js` |
