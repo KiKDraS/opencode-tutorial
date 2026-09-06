@@ -1,0 +1,145 @@
+/* DESIGN.md §2 — Design tokens. Light default, auto dark via media query,
+   manual override via data-theme attribute on <html> (JS toggles). */
+
+:root {
+  /* 2.1 Color palette — light */
+  --color-bg: #ffffff;
+  --color-bg-alt: #f6f8fa;
+  --color-bg-elevated: #ffffff;
+  --color-text: #1a202c;
+  --color-text-muted: #64748b;
+  --color-text-inverse: #ffffff;
+  --color-primary: #4f46e5;
+  --color-primary-hover: #4338ca;
+  --color-primary-active: #3730a3;
+  --color-accent: #0284c7;
+  --color-accent-hover: #0369a1;
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+  --color-focus: #4f46e5;
+  --color-error: #dc2626;
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+
+  /* 2.1 Dark palette — applied via media query, tokens only */
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0b1220;
+    --color-bg-alt: #0f172a;
+    --color-bg-elevated: #111c33;
+    --color-text: #e2e8f0;
+    --color-text-muted: #94a3b8;
+    --color-text-inverse: #0b1220;
+    --color-primary: #818cf8;
+    --color-primary-hover: #a5b4fc;
+    --color-primary-active: #c7d2fe;
+    --color-accent: #38bdf8;
+    --color-accent-hover: #7dd3fc;
+    --color-border: #1e293b;
+    --color-border-strong: #334155;
+    --color-focus: #818cf8;
+    color-scheme: dark;
+  }
+}
+
+/* Manual override (data-theme on <html>), wins over media query */
+:root[data-theme="light"] {
+  --color-bg: #ffffff;
+  --color-bg-alt: #f6f8fa;
+  --color-bg-elevated: #ffffff;
+  --color-text: #1a202c;
+  --color-text-muted: #64748b;
+  --color-text-inverse: #ffffff;
+  --color-primary: #4f46e5;
+  --color-primary-hover: #4338ca;
+  --color-primary-active: #3730a3;
+  --color-accent: #0284c7;
+  --color-accent-hover: #0369a1;
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+  --color-focus: #4f46e5;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #0b1220;
+  --color-bg-alt: #0f172a;
+  --color-bg-elevated: #111c33;
+  --color-text: #e2e8f0;
+  --color-text-muted: #94a3b8;
+  --color-text-inverse: #0b1220;
+  --color-primary: #818cf8;
+  --color-primary-hover: #a5b4fc;
+  --color-primary-active: #c7d2fe;
+  --color-accent: #38bdf8;
+  --color-accent-hover: #7dd3fc;
+  --color-border: #1e293b;
+  --color-border-strong: #334155;
+  --color-focus: #818cf8;
+  color-scheme: dark;
+}
+
+:root {
+  /* 2.2 Typography */
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --font-size-fluid-base: clamp(1rem, 0.95rem + 0.25vw, 1.0625rem);
+  --font-size-display-1: clamp(2.25rem, 1.8rem + 2.2vw, 3.5rem);
+  --font-size-display-2: clamp(1.75rem, 1.5rem + 1.2vw, 2.25rem);
+  --font-size-display-3: clamp(1.375rem, 1.25rem + 0.6vw, 1.625rem);
+  --font-size-heading-1: var(--font-size-display-2);
+  --font-size-heading-2: var(--font-size-display-3);
+  --font-size-heading-3: clamp(1.125rem, 1.05rem + 0.4vw, 1.25rem);
+  --font-size-body: var(--font-size-fluid-base);
+  --font-size-body-sm: clamp(0.875rem, 0.85rem + 0.15vw, 0.9375rem);
+  --font-size-caption: clamp(0.75rem, 0.74rem + 0.1vw, 0.8125rem);
+
+  --line-height-tight: 1.2;
+  --line-height-base: 1.6;
+  --line-height-relaxed: 1.75;
+
+  --letter-spacing-tight: -0.01em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.08em;
+
+  /* 2.3 Spacing (8px scale) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+
+  /* 2.4 Dimensions */
+  --container-max: 1280px;
+  --container-padding: clamp(1rem, 2vw, 2rem);
+  --sidebar-width: 260px;
+  --reading-max: 72ch;
+  --header-height: 60px;
+  --footer-height: auto;
+
+  /* 2.5 Motion */
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-expressive: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* 2.6 Z-index */
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal-backdrop: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+  --z-tooltip: 600;
+}

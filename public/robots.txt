@@ -1,0 +1,7 @@
+# robots.txt — opencode-tutorial
+# Allow all crawlers; single-page site, nothing to block.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://KiKDraS.github.io/opencode-tutorial/sitemap.xml
