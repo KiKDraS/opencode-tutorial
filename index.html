@@ -126,55 +126,7 @@
     <aside class="toc" id="toc" data-toc>
       <p class="toc__title">Contenido</p>
       <nav aria-label="Tabla de contenidos">
-        <ul class="toc__list" data-scrollspy>
-          <li>
-            <a class="toc__link" href="#fundamentos" data-spy-link>1. Fundamentos de LLMs</a>
-            <ul class="toc__sublist">
-              <li><a class="toc__link" href="#que-es-un-llm" data-spy-link>1.1 ¿Qué es un LLM?</a></li>
-              <li><a class="toc__link" href="#agente-vs-llm" data-spy-link>1.2 ¿Qué es un agente?</a></li>
-              <li><a class="toc__link" href="#medir-inteligencia" data-spy-link>1.3 Medir la inteligencia de un LLM</a></li>
-              <li><a class="toc__link" href="#conteo-tokens" data-spy-link>1.4 Conteo de tokens</a></li>
-            </ul>
-          </li>
-          <li>
-            <a class="toc__link" href="#opencode" data-spy-link>2. OpenCode</a>
-            <ul class="toc__sublist">
-              <li><a class="toc__link" href="#que-es-opencode" data-spy-link>2.1 ¿Qué es?</a></li>
-              <li><a class="toc__link" href="#opencode-zen" data-spy-link>2.2 OpenCode Zen</a></li>
-              <li><a class="toc__link" href="#conectar-zen" data-spy-link>2.3 Conectar modelos Zen</a></li>
-              <li><a class="toc__link" href="#multi-proveedor" data-spy-link>2.4 Multi-proveedor</a></li>
-            </ul>
-          </li>
-          <li>
-            <a class="toc__link" href="#estructura-opencode" data-spy-link>3. Estructura .opencode/</a>
-            <ul class="toc__sublist">
-              <li><a class="toc__link" href="#carpetas-uso" data-spy-link>3.1 Carpetas y uso</a></li>
-              <li><a class="toc__link" href="#vs-claude-code" data-spy-link>3.2 vs Claude Code</a></li>
-              <li><a class="toc__link" href="#opencode-json" data-spy-link>3.3 opencode.json</a></li>
-            </ul>
-          </li>
-          <li>
-            <a class="toc__link" href="#agentes" data-spy-link>4. Trabajar con agentes</a>
-            <ul class="toc__sublist">
-              <li><a class="toc__link" href="#plan-vs-build" data-spy-link>4.1 Plan vs Build</a></li>
-              <li><a class="toc__link" href="#loop-prompt" data-spy-link>4.2 Loop prompt → crear → iterar</a></li>
-              <li><a class="toc__link" href="#permisos" data-spy-link>4.3 Permisos</a></li>
-              <li><a class="toc__link" href="#spec-agents-design" data-spy-link>4.4 SPEC / AGENTS / DESIGN</a></li>
-              <li><a class="toc__link" href="#agentes-personalizados" data-spy-link>4.5 Agentes personalizados: primary vs sub-agent</a></li>
-              <li><a class="toc__link" href="#skills" data-spy-link>4.6 Skills</a></li>
-              <li><a class="toc__link" href="#prompts" data-spy-link>4.7 Prompts</a></li>
-              <li><a class="toc__link" href="#plugins" data-spy-link>4.8 Plugins</a></li>
-              <li><a class="toc__link" href="#mcp" data-spy-link>4.9 MCP</a></li>
-            </ul>
-          </li>
-          <li>
-            <a class="toc__link" href="#ejemplo-real" data-spy-link>5. Ejemplo real</a>
-            <ul class="toc__sublist">
-              <li><a class="toc__link" href="#proyecto-real" data-spy-link>5.1 El proyecto</a></li>
-              <li><a class="toc__link" href="#flujo-real" data-spy-link>5.2 Flujo de trabajo</a></li>
-            </ul>
-          </li>
-        </ul>
+        <ul class="toc__list" data-scrollspy data-toc-list></ul>
       </nav>
     </aside>
 
@@ -304,69 +256,11 @@
           </div>
         </div>
 
-        <div class="video-card__grid">
-          <figure class="video-card">
-            <a class="video-card__thumb" href="https://youtu.be/H3gH_Fe6xvs" target="_blank"
-              rel="noopener noreferrer">
-              <img data-video-thumb
-                src="https://i.ytimg.com/vi/H3gH_Fe6xvs/hqdefault.jpg"
-                alt="Miniatura: Aprende a Programar con Agentes de IA desde CERO (Curso Completo Gratis)"
-                loading="lazy" width="480" height="360" />
-            </a>
-            <figcaption>
-              <p class="video-card__title">
-                <a href="https://youtu.be/H3gH_Fe6xvs" target="_blank" rel="noopener noreferrer">
-                  Aprende a Programar con Agentes de IA desde CERO (Curso Completo Gratis)
-                </a>
-              </p>
-              <p class="video-card__channel">MoureDev by Brais Moure</p>
-              <a class="video-card__link" href="https://youtu.be/H3gH_Fe6xvs" target="_blank"
-                rel="noopener noreferrer">Ver en YouTube</a>
-            </figcaption>
-          </figure>
-
-          <figure class="video-card">
-            <a class="video-card__thumb" href="https://midu.dev/curso/intro-ia-para-devs/" target="_blank"
-              rel="noopener noreferrer" aria-label="Curso: Introducción a la IA para Developers (lessons: LLM, tokens, agents, Claude Code, MCP, skills)">
-              <div class="video-card__placeholder" aria-hidden="true">M</div>
-            </a>
-            <figcaption>
-              <p class="video-card__title">
-                <a href="https://midu.dev/curso/intro-ia-para-devs/" target="_blank"
-                  rel="noopener noreferrer">
-                  Curso: Introducción a la IA para Developers (lessons: LLM, tokens, agents, Claude Code, MCP, skills)
-                </a>
-              </p>
-              <p class="video-card__channel">midudev</p>
-              <a class="video-card__link" href="https://midu.dev/curso/intro-ia-para-devs/" target="_blank"
-                rel="noopener noreferrer">Abrir curso</a>
-            </figcaption>
-          </figure>
-        </div>
+        <div class="video-card__grid" data-video-grid></div>
 
         <section class="sources" aria-labelledby="fuentes-fundamentos">
           <h3 id="fuentes-fundamentos">Fuentes</h3>
-          <ul>
-            <li><a href="https://aws.amazon.com/es/what-is/large-language-model/" target="_blank"
-                rel="noopener noreferrer">AWS — ¿Qué es un modelo de lenguaje grande (LLM)?</a></li>
-            <li><a href="https://huggingface.co/learn/agents-course/es/unit1/what-are-llms" target="_blank"
-                rel="noopener noreferrer">Hugging Face Agents Course — ¿Qué son los LLMs?</a></li>
-            <li><a href="https://huggingface.co/learn/agents-course/es/unit1/" target="_blank"
-                rel="noopener noreferrer">Hugging Face Agents Course — Unidad 1: agentes</a></li>
-            <li><a href="https://www.anthropic.com/research/building-effective-agents" target="_blank"
-                rel="noopener noreferrer">Anthropic — Building Effective Agents</a></li>
-            <li><a href="https://opencode.ai/docs/agents/" target="_blank"
-                rel="noopener noreferrer">OpenCode Docs — Agents</a></li>
-            <li><a href="https://lmarena.ai/" target="_blank" rel="noopener noreferrer">LMArena — arena de modelos</a></li>
-            <li><a href="https://artificialanalysis.ai/" target="_blank" rel="noopener noreferrer">Artificial Analysis — comparativas de modelos</a></li>
-            <li><a href="https://www.swebench.com/" target="_blank" rel="noopener noreferrer">SWE-bench — benchmark de ingeniería de software</a></li>
-            <li><a href="https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard" target="_blank"
-                rel="noopener noreferrer">Open LLM Leaderboard — Hugging Face</a></li>
-            <li><a href="https://platform.openai.com/tokenizer" target="_blank"
-                rel="noopener noreferrer">OpenAI Tokenizer (demo interactiva)</a></li>
-            <li><a href="https://midu.dev/curso/intro-ia-para-devs/" target="_blank"
-                rel="noopener noreferrer">midudev — Curso: Introducción a la IA para Developers (lessons: LLM, tokens, agents, Claude Code, MCP, skills)</a></li>
-          </ul>
+          <ul data-sources-list data-sources="fundamentos"></ul>
         </section>
       </section>
 
@@ -446,12 +340,7 @@
               gratuita y obtienes acceso a modelos de varios proveedores con una cuota gratuita, sin
               tarjeta de crédito. Es la vía más rápida para probar OpenCode sin configurar claves de API.
             </p>
-            <div class="callout" data-kind="note">
-              <span class="callout__icon" aria-hidden="true">i</span>
-              <div class="callout__body">
-                <p><strong>Zen gratis = sin tarjeta.</strong> La cuenta gratuita no requiere método de pago.</p>
-              </div>
-            </div>
+            <div class="callout" data-callout-container></div>
             <p>
               La documentación oficial explica los límites de la cuota gratuita, los modelos
               disponibles y cómo escalar a planes de pago si los necesitas.
@@ -468,18 +357,7 @@
               flujo es:
             </p>
           </div>
-          <div class="code-block" data-code-block>
-            <div class="code-block__header"><span>terminal</span></div>
-            <pre><code># 1. Instala OpenCode y ejecútalo en tu proyecto
-$ opencode
-
-# 2. Dentro de la interfaz, escribe:
-/connect
-
-# 3. Elige "OpenCode Zen" → se abre el navegador para iniciar sesión
-# 4. Vuelve a la terminal y selecciona un modelo de la lista
-# Listo: el modelo Zen queda conectado sin claves de API manuales</code></pre>
-          </div>
+          <div class="code-block" data-code-block-container></div>
         </div>
 
         <div class="article__subsection">
@@ -504,78 +382,11 @@ $ opencode
           </div>
         </div>
 
-        <div class="video-card__grid">
-          <figure class="video-card">
-            <a class="video-card__thumb" href="https://youtube.com/live/aDJNG_f2C3E" target="_blank"
-              rel="noopener noreferrer">
-              <img data-video-thumb src="https://i.ytimg.com/vi/aDJNG_f2C3E/hqdefault.jpg"
-                alt="Miniatura: Curso completo de OpenCode desde cero"
-                loading="lazy" width="480" height="360" />
-            </a>
-            <figcaption>
-              <p class="video-card__title">
-                <a href="https://youtube.com/live/aDJNG_f2C3E" target="_blank" rel="noopener noreferrer">
-                  Curso completo de OpenCode desde cero: Modelos gratis, Comandos, Agentes y mucho más
-                </a>
-              </p>
-              <p class="video-card__channel">MoureDev by Brais Moure</p>
-              <a class="video-card__link" href="https://youtube.com/live/aDJNG_f2C3E" target="_blank"
-                rel="noopener noreferrer">Ver en YouTube</a>
-            </figcaption>
-          </figure>
-
-          <figure class="video-card">
-            <a class="video-card__thumb" href="https://youtu.be/-YAO3iFbuy0" target="_blank"
-              rel="noopener noreferrer">
-              <img data-video-thumb src="https://i.ytimg.com/vi/-YAO3iFbuy0/hqdefault.jpg"
-                alt="Miniatura: Curso Cursor desde cero"
-                loading="lazy" width="480" height="360" />
-            </a>
-            <figcaption>
-              <p class="video-card__title">
-                <a href="https://youtu.be/-YAO3iFbuy0" target="_blank" rel="noopener noreferrer">
-                  Curso: Cursor desde cero
-                </a>
-              </p>
-              <p class="video-card__channel">MoureDev by Brais Moure</p>
-              <a class="video-card__link" href="https://youtu.be/-YAO3iFbuy0" target="_blank"
-                rel="noopener noreferrer">Ver en YouTube</a>
-            </figcaption>
-          </figure>
-
-          <figure class="video-card">
-            <a class="video-card__thumb" href="https://fazt.dev/contenido/curso-practico-gpt-codex-agente-ia"
-              target="_blank" rel="noopener noreferrer" aria-label="Curso Práctico de GPT Codex (setup, modes, skills, MCP)">
-              <div class="video-card__placeholder" aria-hidden="true">F</div>
-            </a>
-            <figcaption>
-              <p class="video-card__title">
-                <a href="https://fazt.dev/contenido/curso-practico-gpt-codex-agente-ia" target="_blank"
-                  rel="noopener noreferrer">
-                  Curso Práctico de GPT Codex (setup, modes, skills, MCP)
-                </a>
-              </p>
-              <p class="video-card__channel">Fazt</p>
-              <a class="video-card__link"
-                href="https://fazt.dev/contenido/curso-practico-gpt-codex-agente-ia" target="_blank"
-                rel="noopener noreferrer">Abrir curso</a>
-            </figcaption>
-          </figure>
-        </div>
+        <div class="video-card__grid" data-video-grid></div>
 
         <section class="sources" aria-labelledby="fuentes-opencode">
           <h3 id="fuentes-opencode">Fuentes</h3>
-          <ul>
-            <li><a href="https://opencode.ai/docs/" target="_blank" rel="noopener noreferrer">OpenCode Docs — documentación oficial</a></li>
-            <li><a href="https://docs.claude.com/en/docs/claude-code/overview" target="_blank"
-                rel="noopener noreferrer">Claude Code Docs — overview</a></li>
-            <li><a href="https://www.cursor.com/docs" target="_blank" rel="noopener noreferrer">Cursor Docs</a></li>
-            <li><a href="https://openai.com/codex/" target="_blank" rel="noopener noreferrer">OpenAI Codex</a></li>
-            <li><a href="https://opencode.ai/zen" target="_blank" rel="noopener noreferrer">OpenCode Zen — sitio</a></li>
-            <li><a href="https://opencode.ai/docs/zen" target="_blank" rel="noopener noreferrer">OpenCode Docs — Zen</a></li>
-            <li><a href="https://opencode.ai/docs/providers/" target="_blank" rel="noopener noreferrer">OpenCode Docs — Providers</a></li>
-            <li><a href="https://opencode.ai/docs/models/" target="_blank" rel="noopener noreferrer">OpenCode Docs — Models</a></li>
-          </ul>
+          <ul data-sources-list data-sources="opencode"></ul>
         </section>
       </section>
 
@@ -591,17 +402,7 @@ $ opencode
               Este mismo repositorio es el ejemplo vivo: su estructura es la siguiente.
             </p>
           </div>
-          <div class="code-block" data-code-block>
-            <div class="code-block__header"><span>estructura (este repo)</span></div>
-            <pre><code>.opencode/
-├── agents/     # definiciones de agentes personalizados (orchestrator, frontend-dev, …)
-├── commands/   # comandos personalizados de la interfaz
-├── docs/       # documentación interna vinculante (trinity, perf, sync)
-├── plugins/    # plugins JS: hooks y lógica de arranque (bootstrap, env-protection, …)
-├── prompts/    # plantillas de prompt por agente (agent-knowledge-awareness.md, …)
-├── secrets/    # claves locales (ignoradas por git)
-└── skills/     # habilidades reutilizables (accessibility-wcag, seo, playwright, …)</code></pre>
-          </div>
+          <div class="code-block" data-code-block-container></div>
           <div class="article__body">
             <ul>
               <li>
@@ -699,34 +500,8 @@ $ opencode
             </p>
             <p>Un extracto real de este repositorio:</p>
           </div>
-          <div class="code-block" data-code-block>
-            <div class="code-block__header"><span>opencode.json (este repo)</span></div>
-            <pre><code>{
-  "$schema": "https://opencode.ai/config.json",
-  "instructions": [".opencode/docs/skills-settings-rules.md"],
-  "permission": {
-    "bash": {
-      "*": "ask",
-      "git *": "allow",
-      "pnpm *": "allow",
-      "rm *": "deny",
-      "grep *": "allow"
-    }
-  },
-  "default_agent": "orchestrator",
-  "tools": { "playwright*": false }
-}</code></pre>
-          </div>
-          <div class="callout" data-kind="warning">
-            <span class="callout__icon" aria-hidden="true">!</span>
-            <div class="callout__body">
-              <p>
-                <strong>No se edita sin aprobación.</strong> En este proyecto,
-                <code>opencode.json</code> es un contrato (SPEC.md §4): los cambios los decide el
-                orquestador con aprobación del usuario, porque de ahí salen permisos y agentes.
-              </p>
-            </div>
-          </div>
+          <div class="code-block" data-code-block-container></div>
+          <div class="callout" data-callout-container></div>
           <div class="article__body">
             <p>
               Por qué importa: <strong>permisos</strong> (qué puede ejecutar el agente), <strong>agentes</strong>
@@ -736,77 +511,11 @@ $ opencode
           </div>
         </div>
 
-        <div class="video-card__grid">
-          <figure class="video-card">
-            <a class="video-card__thumb" href="https://youtu.be/H3gH_Fe6xvs" target="_blank"
-              rel="noopener noreferrer">
-              <img data-video-thumb src="https://i.ytimg.com/vi/H3gH_Fe6xvs/hqdefault.jpg"
-                alt="Miniatura: Aprende a Programar con Agentes de IA desde CERO"
-                loading="lazy" width="480" height="360" />
-            </a>
-            <figcaption>
-              <p class="video-card__title">
-                <a href="https://youtu.be/H3gH_Fe6xvs" target="_blank" rel="noopener noreferrer">
-                  Aprende a Programar con Agentes de IA desde CERO (Curso Completo Gratis)
-                </a>
-              </p>
-              <p class="video-card__channel">MoureDev by Brais Moure</p>
-              <a class="video-card__link" href="https://youtu.be/H3gH_Fe6xvs" target="_blank"
-                rel="noopener noreferrer">Ver en YouTube</a>
-            </figcaption>
-          </figure>
-
-          <figure class="video-card">
-            <a class="video-card__thumb" href="https://youtube.com/live/aDJNG_f2C3E" target="_blank"
-              rel="noopener noreferrer">
-              <img data-video-thumb src="https://i.ytimg.com/vi/aDJNG_f2C3E/hqdefault.jpg"
-                alt="Miniatura: Curso completo de OpenCode desde cero"
-                loading="lazy" width="480" height="360" />
-            </a>
-            <figcaption>
-              <p class="video-card__title">
-                <a href="https://youtube.com/live/aDJNG_f2C3E" target="_blank" rel="noopener noreferrer">
-                  Curso completo de OpenCode desde cero: Modelos gratis, Comandos, Agentes y mucho más
-                </a>
-              </p>
-              <p class="video-card__channel">MoureDev by Brais Moure</p>
-              <a class="video-card__link" href="https://youtube.com/live/aDJNG_f2C3E" target="_blank"
-                rel="noopener noreferrer">Ver en YouTube</a>
-            </figcaption>
-          </figure>
-
-          <figure class="video-card">
-            <a class="video-card__thumb" href="https://midu.dev/curso/intro-ia-para-devs/" target="_blank"
-              rel="noopener noreferrer" aria-label="Curso: Introducción a la IA para Developers (lessons: LLM, tokens, agents, Claude Code, MCP, skills)">
-              <div class="video-card__placeholder" aria-hidden="true">M</div>
-            </a>
-            <figcaption>
-              <p class="video-card__title">
-                <a href="https://midu.dev/curso/intro-ia-para-devs/" target="_blank"
-                  rel="noopener noreferrer">
-                  Curso: Introducción a la IA para Developers (lessons: LLM, tokens, agents, Claude Code, MCP, skills)
-                </a>
-              </p>
-              <p class="video-card__channel">midudev</p>
-              <a class="video-card__link" href="https://midu.dev/curso/intro-ia-para-devs/" target="_blank"
-                rel="noopener noreferrer">Abrir curso</a>
-            </figcaption>
-          </figure>
-        </div>
+        <div class="video-card__grid" data-video-grid></div>
 
         <section class="sources" aria-labelledby="fuentes-estructura">
           <h3 id="fuentes-estructura">Fuentes</h3>
-          <ul>
-            <li><a href="https://opencode.ai/docs/" target="_blank" rel="noopener noreferrer">OpenCode Docs — navegación completa</a></li>
-            <li><a href="https://docs.claude.com/en/docs/claude-code/memory" target="_blank"
-                rel="noopener noreferrer">Claude Code Docs — memory (CLAUDE.md)</a></li>
-            <li><a href="https://opencode.ai/docs/rules/" target="_blank" rel="noopener noreferrer">OpenCode Docs — Rules</a></li>
-            <li><a href="https://opencode.ai/docs/config/" target="_blank" rel="noopener noreferrer">OpenCode Docs — Config</a></li>
-            <li><a href="https://github.com/KiKDraS/opencode-tutorial/tree/develop/.opencode" target="_blank"
-                rel="noopener noreferrer">Este repositorio — carpeta .opencode/</a></li>
-            <li><a href="https://github.com/KiKDraS/opencode-tutorial/blob/develop/opencode.json" target="_blank"
-                rel="noopener noreferrer">Este repositorio — opencode.json</a></li>
-          </ul>
+          <ul data-sources-list data-sources="estructura"></ul>
         </section>
       </section>
 
@@ -851,46 +560,7 @@ $ opencode
             </p>
             <p>Dos cursos de MoureDev sobre este tema:</p>
           </div>
-          <div class="video-card__grid">
-            <figure class="video-card">
-              <a class="video-card__thumb" href="https://youtube.com/live/5HaOxAAA5qI" target="_blank"
-                rel="noopener noreferrer">
-                <img data-video-thumb src="https://i.ytimg.com/vi/5HaOxAAA5qI/hqdefault.jpg"
-                  alt="Miniatura: El fin del Vibe Coding: crea software robusto con este método"
-                  loading="lazy" width="480" height="360" />
-              </a>
-              <figcaption>
-                <p class="video-card__title">
-                  <a href="https://youtube.com/live/5HaOxAAA5qI" target="_blank" rel="noopener noreferrer">
-                    El fin del Vibe Coding: Crea software robusto con este método
-                  </a>
-                </p>
-                <p class="video-card__channel">MoureDev by Brais Moure</p>
-                <a class="video-card__link" href="https://youtube.com/live/5HaOxAAA5qI" target="_blank"
-                  rel="noopener noreferrer">Ver en YouTube</a>
-              </figcaption>
-            </figure>
-
-            <figure class="video-card">
-              <a class="video-card__thumb" href="https://www.youtube.com/watch?v=jresR0hZ_Hs" target="_blank"
-                rel="noopener noreferrer">
-                <img data-video-thumb src="https://i.ytimg.com/vi/jresR0hZ_Hs/hqdefault.jpg"
-                  alt="Miniatura: El fin del VIBE CODING: la realidad de la IA en 2026"
-                  loading="lazy" width="480" height="360" />
-              </a>
-              <figcaption>
-                <p class="video-card__title">
-                  <a href="https://www.youtube.com/watch?v=jresR0hZ_Hs" target="_blank"
-                    rel="noopener noreferrer">
-                    El fin del VIBE CODING: la realidad de la IA en 2026
-                  </a>
-                </p>
-                <p class="video-card__channel">MoureDev by Brais Moure</p>
-                <a class="video-card__link" href="https://www.youtube.com/watch?v=jresR0hZ_Hs"
-                  target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
-              </figcaption>
-            </figure>
-          </div>
+          <div class="video-card__grid" data-video-grid></div>
         </div>
 
         <div class="article__subsection">
@@ -902,29 +572,8 @@ $ opencode
               y qué tiene prohibido (<code>deny</code>). El bloque de permisos de este repositorio:
             </p>
           </div>
-          <div class="code-block" data-code-block>
-            <div class="code-block__header"><span>opencode.json → permission (este repo)</span></div>
-            <pre><code>"permission": {
-  "bash": {
-    "*": "ask",        // todo comando desconocido pregunta antes
-    "git *": "allow",  // git no pregunta
-    "pnpm *": "allow", // pnpm no pregunta
-    "rm *": "deny",    // rm está prohibido
-    "grep *": "allow"  // búsquedas sin pregunta
-  }
-}</code></pre>
-          </div>
-          <div class="callout" data-kind="note">
-            <span class="callout__icon" aria-hidden="true">i</span>
-            <div class="callout__body">
-              <p>
-                <strong>Por qué importan:</strong> <code>"*": "ask"</code> significa que cualquier
-                comando fuera de la lista blanca requiere tu aprobación. Es el límite de daño: un error
-                del agente no puede borrar archivos (<code>rm</code> denegado) ni ejecutar nada raro sin
-                que tú lo veas.
-              </p>
-            </div>
-          </div>
+          <div class="code-block" data-code-block-container></div>
+          <div class="callout" data-callout-container></div>
         </div>
 
         <div class="article__subsection">
@@ -950,27 +599,7 @@ $ opencode
             </ul>
             <p>Un extracto real de <code>AGENTS.md</code>:</p>
           </div>
-          <div class="code-block" data-code-block>
-            <div class="code-block__header"><span>AGENTS.md (este repo)</span></div>
-            <pre><code># Agent Context
-Goal: **Educational docs site** — what OpenCode is, how to work with it.
-Web content 100% Spanish. Project files 100% English.
-Deploy: **GitHub Pages** (`gh-pages`).
-
-## Tech Stack
-Bund: Vite | Struct: HTML5 | Style: Native CSS (lightningcss) |
-Logic: JS (ES6+)  PM: **pnpm only**
-
-## Dev Rules by Owner
-| Area      | Owner           | File                               |
-| --------- | --------------- | ---------------------------------- |
-| HTML+CSS+JS | @frontend-dev | .opencode/agents/frontend-dev.md |
-| Audit     | @code-review    | .opencode/agents/code-review.md    |
-
-## Git Flow
-**main**=prod. Merge from `release/*`/`hotfix/*` only.
-**develop**=daily integ. All merges via PR.</code></pre>
-          </div>
+          <div class="code-block" data-code-block-container></div>
           <div class="article__body">
             <p>
               Por qué importan: sin especificación, el agente <strong>improvisa</strong>. Con SPEC,
@@ -1002,26 +631,7 @@ Logic: JS (ES6+)  PM: **pnpm only**
             </ul>
             <p>Definiciones reales de este repositorio:</p>
           </div>
-          <div class="code-block" data-code-block>
-            <div class="code-block__header"><span>opencode.json → agent (este repo)</span></div>
-            <pre><code>"agent": {
-  "orchestrator": {
-    "description": "Main orchestrator. Brainstorms, maps architectural
-      blueprints, and executes the sequential development pipeline.",
-    "mode": "primary",
-    "tools": { "task": true, "read": true },
-    "prompt": "{file:.opencode/prompts/agent-knowledge-awareness.md}"
-  },
-  "frontend-dev": {
-    "description": "Consolidated developer sub-agent. Builds cohesive
-      features writing HTML structures, modular styles, and JS
-      interaction in tandem.",
-    "mode": "subagent",
-    "tools": { "write": true, "edit": true, "read": true, "task": true },
-    "prompt": "{file:.opencode/prompts/agent-knowledge-awareness.md}"
-  }
-}</code></pre>
-          </div>
+          <div class="code-block" data-code-block-container></div>
           <div class="article__body">
             <p>
               Cada agente tiene una <strong>descripción</strong> (para que el modelo sepa cuándo
@@ -1049,25 +659,7 @@ Logic: JS (ES6+)  PM: **pnpm only**
             </p>
             <p>El curso de midudev introduce el concepto de skills con ejemplos prácticos.</p>
           </div>
-          <div class="video-card__grid">
-            <figure class="video-card">
-              <a class="video-card__thumb" href="https://midu.dev/curso/intro-ia-para-devs/" target="_blank"
-                rel="noopener noreferrer" aria-label="Curso: Introducción a la IA para Developers (lessons: LLM, tokens, agents, Claude Code, MCP, skills)">
-                <div class="video-card__placeholder" aria-hidden="true">M</div>
-              </a>
-              <figcaption>
-                <p class="video-card__title">
-                  <a href="https://midu.dev/curso/intro-ia-para-devs/" target="_blank"
-                    rel="noopener noreferrer">
-                    Curso: Introducción a la IA para Developers (lessons: LLM, tokens, agents, Claude Code, MCP, skills)
-                  </a>
-                </p>
-                <p class="video-card__channel">midudev</p>
-                <a class="video-card__link" href="https://midu.dev/curso/intro-ia-para-devs/" target="_blank"
-                  rel="noopener noreferrer">Abrir curso</a>
-              </figcaption>
-            </figure>
-          </div>
+          <div class="video-card__grid" data-video-grid></div>
         </div>
 
         <div class="article__subsection">
@@ -1127,118 +719,14 @@ Logic: JS (ES6+)  PM: **pnpm only**
               aprenderlo sirve para ambos.
             </p>
           </div>
-          <div class="video-card__grid">
-            <figure class="video-card">
-              <a class="video-card__thumb" href="https://www.youtube.com/watch?v=wnHczxwukYY" target="_blank"
-                rel="noopener noreferrer">
-                <img data-video-thumb src="https://i.ytimg.com/vi/wnHczxwukYY/hqdefault.jpg"
-                  alt="Miniatura: ¡Aprende MCP! Para principiantes + primer MCP DESDE CERO"
-                  loading="lazy" width="480" height="360" />
-              </a>
-              <figcaption>
-                <p class="video-card__title">
-                  <a href="https://www.youtube.com/watch?v=wnHczxwukYY" target="_blank"
-                    rel="noopener noreferrer">
-                    ¡Aprende MCP! Para principiantes + primer MCP DESDE CERO
-                  </a>
-                </p>
-                <p class="video-card__channel">midudev</p>
-                <a class="video-card__link" href="https://www.youtube.com/watch?v=wnHczxwukYY"
-                  target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
-              </figcaption>
-            </figure>
-
-            <figure class="video-card">
-              <a class="video-card__thumb" href="https://midu.dev/curso/intro-ia-para-devs/" target="_blank"
-                rel="noopener noreferrer" aria-label="Curso: Introducción a la IA para Developers (lessons: LLM, tokens, agents, Claude Code, MCP, skills)">
-                <div class="video-card__placeholder" aria-hidden="true">M</div>
-              </a>
-              <figcaption>
-                <p class="video-card__title">
-                  <a href="https://midu.dev/curso/intro-ia-para-devs/" target="_blank"
-                    rel="noopener noreferrer">
-                    Curso: Introducción a la IA para Developers (lessons: LLM, tokens, agents, Claude Code, MCP, skills)
-                  </a>
-                </p>
-                <p class="video-card__channel">midudev</p>
-                <a class="video-card__link" href="https://midu.dev/curso/intro-ia-para-devs/" target="_blank"
-                  rel="noopener noreferrer">Abrir curso</a>
-              </figcaption>
-            </figure>
-          </div>
+          <div class="video-card__grid" data-video-grid></div>
         </div>
 
-        <div class="video-card__grid">
-          <figure class="video-card">
-            <a class="video-card__thumb" href="https://youtu.be/H3gH_Fe6xvs" target="_blank"
-              rel="noopener noreferrer">
-              <img data-video-thumb src="https://i.ytimg.com/vi/H3gH_Fe6xvs/hqdefault.jpg"
-                alt="Miniatura: Aprende a Programar con Agentes de IA desde CERO"
-                loading="lazy" width="480" height="360" />
-            </a>
-            <figcaption>
-              <p class="video-card__title">
-                <a href="https://youtu.be/H3gH_Fe6xvs" target="_blank" rel="noopener noreferrer">
-                  Aprende a Programar con Agentes de IA desde CERO (Curso Completo Gratis)
-                </a>
-              </p>
-              <p class="video-card__channel">MoureDev by Brais Moure</p>
-              <a class="video-card__link" href="https://youtu.be/H3gH_Fe6xvs" target="_blank"
-                rel="noopener noreferrer">Ver en YouTube</a>
-            </figcaption>
-          </figure>
-
-          <figure class="video-card">
-            <a class="video-card__thumb" href="https://youtube.com/live/aDJNG_f2C3E" target="_blank"
-              rel="noopener noreferrer">
-              <img data-video-thumb src="https://i.ytimg.com/vi/aDJNG_f2C3E/hqdefault.jpg"
-                alt="Miniatura: Curso completo de OpenCode desde cero"
-                loading="lazy" width="480" height="360" />
-            </a>
-            <figcaption>
-              <p class="video-card__title">
-                <a href="https://youtube.com/live/aDJNG_f2C3E" target="_blank" rel="noopener noreferrer">
-                  Curso completo de OpenCode desde cero: Modelos gratis, Comandos, Agentes y mucho más
-                </a>
-              </p>
-              <p class="video-card__channel">MoureDev by Brais Moure</p>
-              <a class="video-card__link" href="https://youtube.com/live/aDJNG_f2C3E" target="_blank"
-                rel="noopener noreferrer">Ver en YouTube</a>
-            </figcaption>
-          </figure>
-        </div>
+        <div class="video-card__grid" data-video-grid></div>
 
         <section class="sources" aria-labelledby="fuentes-agentes">
           <h3 id="fuentes-agentes">Fuentes</h3>
-          <ul>
-            <li><a href="https://opencode.ai/docs/" target="_blank" rel="noopener noreferrer">OpenCode Docs — plan/iterate/build/undo</a></li>
-            <li><a href="https://opencode.ai/docs/agents/" target="_blank" rel="noopener noreferrer">OpenCode Docs — Agents</a></li>
-            <li><a href="https://opencode.ai/docs/permissions/" target="_blank" rel="noopener noreferrer">OpenCode Docs — Permissions</a></li>
-            <li><a href="https://opencode.ai/docs/rules/" target="_blank" rel="noopener noreferrer">OpenCode Docs — Rules</a></li>
-            <li><a href="https://opencode.ai/docs/skills/" target="_blank" rel="noopener noreferrer">OpenCode Docs — Skills</a></li>
-            <li><a href="https://skills.sh/" target="_blank" rel="noopener noreferrer">skills.sh — registro de skills</a></li>
-            <li><a href="https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview" target="_blank"
-                rel="noopener noreferrer">Claude Code Docs — Agent Skills</a></li>
-            <li><a href="https://opencode.ai/docs/config/" target="_blank" rel="noopener noreferrer">OpenCode Docs — Config (instrucciones/prompts)</a></li>
-            <li><a href="https://docs.claude.com/en/docs/claude-code/slash-commands" target="_blank"
-                rel="noopener noreferrer">Claude Code Docs — Slash commands</a></li>
-            <li><a href="https://opencode.ai/docs/plugins/" target="_blank" rel="noopener noreferrer">OpenCode Docs — Plugins</a></li>
-            <li><a href="https://docs.claude.com/en/docs/claude-code/hooks" target="_blank"
-                rel="noopener noreferrer">Claude Code Docs — Hooks</a></li>
-            <li><a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer">Model Context Protocol — sitio oficial</a></li>
-            <li><a href="https://opencode.ai/docs/mcp-servers/" target="_blank" rel="noopener noreferrer">OpenCode Docs — MCP servers</a></li>
-            <li><a href="https://docs.claude.com/en/docs/claude-code/mcp" target="_blank"
-                rel="noopener noreferrer">Claude Code Docs — MCP</a></li>
-            <li><a href="https://github.com/mouredev/hello-sdd" target="_blank" rel="noopener noreferrer">MoureDev — hello-sdd (software definido por especificaciones)</a></li>
-            <li><a href="https://github.com/KiKDraS/opencode-tutorial/blob/develop/AGENTS.md" target="_blank"
-                rel="noopener noreferrer">Este repositorio — AGENTS.md</a></li>
-            <li><a href="https://github.com/KiKDraS/opencode-tutorial/blob/develop/SPEC.md" target="_blank"
-                rel="noopener noreferrer">Este repositorio — SPEC.md</a></li>
-            <li><a href="https://github.com/KiKDraS/opencode-tutorial/blob/develop/DESIGN.md" target="_blank"
-                rel="noopener noreferrer">Este repositorio — DESIGN.md</a></li>
-            <li><a href="https://github.com/KiKDraS/opencode-tutorial/blob/develop/opencode.json" target="_blank"
-                rel="noopener noreferrer">Este repositorio — opencode.json</a></li>
-          </ul>
+          <ul data-sources-list data-sources="agentes"></ul>
         </section>
       </section>
 
@@ -1257,20 +745,7 @@ Logic: JS (ES6+)  PM: **pnpm only**
             </p>
             <p>El ciclo de desarrollo y despliegue, en comandos reales:</p>
           </div>
-          <div class="code-block" data-code-block>
-            <div class="code-block__header"><span>terminal</span></div>
-            <pre><code># Instalar dependencias (pnpm, no npm)
-pnpm install
-
-# Desarrollo local con recarga en caliente
-pnpm run dev
-
-# Build de producción (Vite → dist/, con base /opencode-tutorial/)
-pnpm run build
-
-# Desplegar: build + publicar la carpeta dist/ en la rama gh-pages
-pnpm deploy</code></pre>
-          </div>
+          <div class="code-block" data-code-block-container></div>
           <div class="article__body">
             <p>
               El flujo completo del proyecto está documentado en <code>AGENTS.md</code>: rama
@@ -1315,19 +790,7 @@ pnpm deploy</code></pre>
 
         <section class="sources" aria-labelledby="fuentes-ejemplo">
           <h3 id="fuentes-ejemplo">Fuentes</h3>
-          <ul>
-            <li><a href="https://github.com/KiKDraS/opencode-tutorial/blob/develop/AGENTS.md" target="_blank"
-                rel="noopener noreferrer">Este repositorio — AGENTS.md (flujo git, roles, permisos)</a></li>
-            <li><a href="https://github.com/KiKDraS/opencode-tutorial/blob/develop/SPEC.md" target="_blank"
-                rel="noopener noreferrer">Este repositorio — SPEC.md (contenido y fuentes)</a></li>
-            <li><a href="https://github.com/KiKDraS/opencode-tutorial/blob/develop/DESIGN.md" target="_blank"
-                rel="noopener noreferrer">Este repositorio — DESIGN.md (tokens y componentes)</a></li>
-            <li><a href="https://github.com/KiKDraS/opencode-tutorial/blob/develop/opencode.json" target="_blank"
-                rel="noopener noreferrer">Este repositorio — opencode.json (permisos, agentes, MCP)</a></li>
-            <li><a href="https://github.com/KiKDraS/opencode-tutorial/tree/develop/.opencode" target="_blank"
-                rel="noopener noreferrer">Este repositorio — .opencode/ (agentes, skills, plugins, prompts)</a></li>
-            <li><a href="https://opencode.ai/docs/" target="_blank" rel="noopener noreferrer">OpenCode Docs — documentación oficial</a></li>
-          </ul>
+          <ul data-sources-list data-sources="ejemplo"></ul>
         </section>
       </section>
     </main>
@@ -1361,6 +824,7 @@ pnpm deploy</code></pre>
           <li><a href="https://opencode.ai/docs/" target="_blank" rel="noopener noreferrer">Documentación de OpenCode</a></li>
           <li><a href="https://github.com/KiKDraS/opencode-tutorial" target="_blank"
               rel="noopener noreferrer">Este repositorio</a></li>
+          <li><a href="accessibility-statement.html">Declaración de accesibilidad</a></li>
         </ul>
       </div>
 
@@ -1371,6 +835,57 @@ pnpm deploy</code></pre>
       </p>
     </div>
   </footer>
+<!-- ============ TEMPLATES (repeated blocks; cloned by JS at init) ============ -->
+  <template id="video-card-template">
+    <figure class="video-card">
+      <a class="video-card__thumb" data-video-thumb-link target="_blank" rel="noopener noreferrer">
+        <img data-video-thumb alt="" loading="lazy" width="480" height="360" hidden />
+        <div class="video-card__placeholder" data-video-placeholder aria-hidden="true" hidden></div>
+      </a>
+      <figcaption>
+        <p class="video-card__title">
+          <a data-video-title target="_blank" rel="noopener noreferrer"></a>
+        </p>
+        <p class="video-card__channel" data-video-channel></p>
+        <a class="video-card__link" data-video-link target="_blank" rel="noopener noreferrer"></a>
+      </figcaption>
+    </figure>
+  </template>
+
+  <template id="sources-item-template">
+    <li><a data-sources-url target="_blank" rel="noopener noreferrer"></a></li>
+  </template>
+
+  <template id="code-block-template">
+    <div class="code-block" data-code-block>
+      <div class="code-block__header">
+        <span data-code-block-label></span>
+        <button class="copy-button" type="button" data-copy-button>Copiar</button>
+      </div>
+      <pre><code data-code-block-content></code></pre>
+      <span class="code-status" role="status"></span>
+    </div>
+  </template>
+
+  <template id="callout-template">
+    <div class="callout" data-callout>
+      <span class="callout__icon" aria-hidden="true" data-callout-icon></span>
+      <div class="callout__body">
+        <p><strong data-callout-strong></strong> <span data-callout-body></span></p>
+      </div>
+    </div>
+  </template>
+
+  <template id="toc-group-template">
+    <li>
+      <a class="toc__link" href="" data-spy-link data-toc-group-link></a>
+      <ul class="toc__sublist" data-toc-sublist></ul>
+    </li>
+  </template>
+
+  <template id="toc-item-template">
+    <li><a class="toc__link" href="" data-spy-link></a></li>
+  </template>
 </body>
 
 </html>

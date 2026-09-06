@@ -61,8 +61,9 @@ export function init() {
   const themeButton = document.querySelector("[data-theme-toggle]");
   if (!themeButton) return;
 
-  const storedTheme = isKnownTheme(readStoredTheme()) ? readStoredTheme() : "auto";
-  applyTheme(storedTheme);
+  const storedTheme = readStoredTheme();
+  const theme = isKnownTheme(storedTheme) ? storedTheme : "auto";
+  applyTheme(theme);
 
   themeButton.addEventListener("click", cycleTheme);
 

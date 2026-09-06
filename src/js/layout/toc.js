@@ -2,6 +2,103 @@
 
 import { prefersReducedMotion } from "../utils/prefers-reduced-motion.js";
 
+const TOC_SECTIONS = [
+  {
+    href: "#fundamentos",
+    label: "1. Fundamentos de LLMs",
+    items: [
+      { href: "#que-es-un-llm", label: "1.1 ¿Qué es un LLM?" },
+      { href: "#agente-vs-llm", label: "1.2 ¿Qué es un agente?" },
+      { href: "#medir-inteligencia", label: "1.3 Medir la inteligencia de un LLM" },
+      { href: "#conteo-tokens", label: "1.4 Conteo de tokens" },
+    ],
+  },
+  {
+    href: "#opencode",
+    label: "2. OpenCode",
+    items: [
+      { href: "#que-es-opencode", label: "2.1 ¿Qué es?" },
+      { href: "#opencode-zen", label: "2.2 OpenCode Zen" },
+      { href: "#conectar-zen", label: "2.3 Conectar modelos Zen" },
+      { href: "#multi-proveedor", label: "2.4 Multi-proveedor" },
+    ],
+  },
+  {
+    href: "#estructura-opencode",
+    labelParts: [{ text: "3. Estructura " }, { code: ".opencode/" }],
+    items: [
+      { href: "#carpetas-uso", label: "3.1 Carpetas y uso" },
+      { href: "#vs-claude-code", label: "3.2 vs Claude Code" },
+      { href: "#opencode-json", label: "3.3 opencode.json" },
+    ],
+  },
+  {
+    href: "#agentes",
+    label: "4. Trabajar con agentes",
+    items: [
+      { href: "#plan-vs-build", label: "4.1 Plan vs Build" },
+      { href: "#loop-prompt", label: "4.2 Loop prompt → crear → iterar" },
+      { href: "#permisos", label: "4.3 Permisos" },
+      { href: "#spec-agents-design", label: "4.4 SPEC / AGENTS / DESIGN" },
+      { href: "#agentes-personalizados", label: "4.5 Agentes personalizados: primary vs sub-agent" },
+      { href: "#skills", label: "4.6 Skills" },
+      { href: "#prompts", label: "4.7 Prompts" },
+      { href: "#plugins", label: "4.8 Plugins" },
+      { href: "#mcp", label: "4.9 MCP" },
+    ],
+  },
+  {
+    href: "#ejemplo-real",
+    label: "5. Ejemplo real",
+    items: [
+      { href: "#proyecto-real", label: "5.1 El proyecto" },
+      { href: "#flujo-real", label: "5.2 Flujo de trabajo" },
+    ],
+  },
+];
+
+// Group link for section 3 renders an inline <code> (matches the original
+// markup); labelParts carries text/code segments, plain labels are strings.
+function fillTocLabel(link, label) {
+  if (typeof label === "string") {
+    link.textContent = label;
+    return;
+  }
+  label.forEach((part) => {
+    if (part.code) {
+      const codeElement = document.createElement("code");
+      codeElement.textContent = part.code;
+      link.appendChild(codeElement);
+    } else {
+      link.appendChild(document.createTextNode(part.text));
+    }
+  });
+}
+
+function renderToc() {
+  const groupTemplate = document.getElementById("toc-group-template");
+  const itemTemplate = document.getElementById("toc-item-template");
+  const tocList = document.querySelector("[data-toc-list]");
+  if (!groupTemplate || !itemTemplate || !tocList) return;
+  const fragment = document.createDocumentFragment();
+  TOC_SECTIONS.forEach((section) => {
+    const group = groupTemplate.content.firstElementChild.cloneNode(true);
+    const groupLink = group.querySelector("[data-toc-group-link]");
+    groupLink.href = section.href;
+    fillTocLabel(groupLink, section.label);
+    const sublist = group.querySelector("[data-toc-sublist]");
+    section.items.forEach((item) => {
+      const itemNode = itemTemplate.content.firstElementChild.cloneNode(true);
+      const itemLink = itemNode.querySelector("a");
+      itemLink.href = item.href;
+      itemLink.textContent = item.label;
+      sublist.appendChild(itemNode);
+    });
+    fragment.appendChild(group);
+  });
+  tocList.appendChild(fragment);
+}
+
 function setTocOpen(isOpen) {
   const toc = document.querySelector("[data-toc]");
   const toggleButton = document.querySelector("[data-toc-toggle]");
@@ -101,6 +198,7 @@ export function init() {
   const scrollSpyList = document.querySelector("[data-scrollspy]");
   if (!scrollSpyList) return;
 
+  renderToc();
   document.addEventListener("click", handleToggleClick);
   document.addEventListener("click", handleBackdropClick);
   document.addEventListener("keydown", handleKeydown);
