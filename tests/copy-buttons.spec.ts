@@ -23,9 +23,9 @@ test.describe('Copy buttons', () => {
 
     // 2-3. Click → success status (transient ~2 s) + aria-pressed="true".
     // Note: clicks on below-the-fold content are dispatched via element.click()
-    // because the app's scroll-lock defect (toc.js revealActiveLink scrolls the
-    // active header link into view, reverting page scrolls — see
-    // navigation.spec.ts) makes Playwright's real click + auto-scroll flaky.
+    // for determinism (avoids auto-scroll timing). The former scroll-lock defect
+    // is fixed: toc.js revealActiveLink scrolls the TOC container via scrollTop
+    // instead of scrolling the active header link into view (see navigation.spec.ts).
     // The copy handler is a delegated document listener, so a synthetic click
     // exercises the exact same code path.
     await copyButton.evaluate((btn) => btn.click());

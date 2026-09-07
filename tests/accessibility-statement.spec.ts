@@ -35,10 +35,10 @@ test.describe('Accessibility statement page', () => {
     await main.goto();
 
     // From the main page footer, click "Declaración de accesibilidad" → statement page.
-    // Dispatched via element.click(): the footer sits at the page bottom and the
-    // app's scroll-lock defect (see navigation.spec.ts) makes Playwright's real
-    // click + auto-scroll flaky. An anchor element.click() triggers the same
-    // navigation.
+    // Dispatched via element.click() for determinism: the footer sits at the page
+    // bottom and auto-scroll timing is flaky. The former scroll-lock defect is
+    // fixed (toc.js revealActiveLink scrolls the TOC container via scrollTop, not
+    // the page). An anchor element.click() triggers the same navigation.
     const footerLink = page.locator('.site-footer a[href="accessibility-statement.html"]');
     await expect(footerLink).toHaveText('Declaración de accesibilidad');
     await footerLink.evaluate((el) => el.click());

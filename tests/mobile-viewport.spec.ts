@@ -6,8 +6,9 @@ import { MainPage, expectDrawer } from './helpers/main-page';
 // KNOWN DEFECT (P1) — FIXED 2026-09-06 on feature/page-build: the closed
 // off-canvas drawer (.toc, position: fixed; translateX(100%)) extended the
 // document's scrollable overflow at ≤1024px (measured 656 vs 390). Fixed with
-// overflow-x: hidden on body (propagates to the viewport, clips the drawer,
-// body stays the scroller). TC-6.4 re-enabled; the assertions confirm the fix.
+// overflow-x: clip on html/body (clip, unlike hidden, does not turn body into
+// a scroll container, so sticky positioning keeps working). TC-6.4 re-enabled;
+// the assertions confirm the fix.
 
 test.describe('Mobile viewport', () => {
   test.use({ viewport: { width: 390, height: 844 } });

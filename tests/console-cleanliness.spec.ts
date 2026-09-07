@@ -25,8 +25,8 @@ test.describe('Console cleanliness', () => {
     await main.themeToggle.click();
     await main.themeToggle.click();
 
-    // Copy button success (synthetic click — see copy-buttons.spec.ts note on
-    // the scroll-lock defect making real clicks below the fold flaky)
+    // Copy button success (synthetic click for determinism — the former
+    // scroll-lock defect is fixed, see copy-buttons.spec.ts note)
     await page.context().grantPermissions(['clipboard-read', 'clipboard-write']);
     await main.copyButton(0).evaluate((btn) => btn.click());
     await expect(main.codeStatus(0)).toHaveText('Copiado al portapapeles');
@@ -41,8 +41,9 @@ test.describe('Console cleanliness', () => {
     await main.tocBackdrop.click({ position: { x: 30, y: 100 } });
     await expect(main.toc).not.toHaveClass(/is-open/);
 
-    // Scroll through all 5 sections (no scroll assertions — the page scroll is
-    // locked by the app defect; this only exercises the scroll event path)
+    // Scroll through all 5 sections (no scroll assertions — the former
+    // scroll-lock defect is fixed via toc.js scrollTop reveal; this only
+    // exercises the scroll event path)
     await page.setViewportSize({ width: 1280, height: 720 });
     for (const id of ['fundamentos-titulo', 'opencode-titulo', 'estructura-titulo', 'agentes-titulo', 'ejemplo-titulo']) {
       await scrollHeadingToProbe(page, id, 0.3);

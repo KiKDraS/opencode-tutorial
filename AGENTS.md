@@ -18,6 +18,7 @@ Strict. No files outside schema.
 |   ├── js/{layout,components,utils}
 |   ├── main.js
 ├── tests/{e2e,components}
+├── specs/                          # Playwright test plans
 ├── public/{favicon,robots.txt}
 ├── scripts/{init.mjs}
 ├── SPEC.md DESIGN.md            # Content+design contract. DO NOT EDIT without approval
