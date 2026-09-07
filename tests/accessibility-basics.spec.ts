@@ -128,26 +128,26 @@ test.describe('Accessibility basics', () => {
     await expect(page.locator('[data-code-block] .code-status').first()).toHaveAttribute('role', 'status');
   });
 
-  test('TC-7.5 Reduced motion (styles; scroll part fixme\'d)', async ({ page }) => {
-    // reveal.js reads the preference at init → set before navigation
+  test('TC-7.5 Reduced motion (no reveal; scroll part fixme\'d)', async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     const main = new MainPage(page);
     await main.goto();
 
-    // 1. All .reveal sections get .is-visible immediately on load (no scroll needed)
-    await expect(page.locator('.reveal')).toHaveCount(5);
-    for (let i = 0; i < 5; i++) {
-      await expect(page.locator('.reveal').nth(i)).toHaveClass(/is-visible/);
-    }
+    // 1. No scroll-reveal: zero .reveal elements; sections render fully visible
+    await expect(page.locator('.reveal')).toHaveCount(0);
 
     // 2. html scroll-behavior: auto; transitions effectively disabled
     const styles = await page.evaluate(() => {
-      const reveal = document.querySelector('.reveal')!;
+      const section = document.querySelector('.article__section')!;
       return {
-        transitionDuration: getComputedStyle(reveal).transitionDuration,
+        opacity: getComputedStyle(section).opacity,
+        transform: getComputedStyle(section).transform,
+        transitionDuration: getComputedStyle(section).transitionDuration,
         htmlScrollBehavior: getComputedStyle(document.documentElement).scrollBehavior,
       };
     });
+    expect(styles.opacity).toBe('1');
+    expect(styles.transform).toBe('none');
     expect(parseFloat(styles.transitionDuration)).toBeLessThan(0.001);
     expect(styles.htmlScrollBehavior).toBe('auto');
   });

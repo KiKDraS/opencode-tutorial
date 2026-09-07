@@ -24,7 +24,7 @@ Reader finishes a section understanding the concept and knowing where to continu
 | **Color Strategy** | Cool neutrals (slate) + indigo accent. High text/background contrast. Light default + auto dark |
 | **Layout Approach** | Sticky sidebar TOC (left) + article column (~72ch) + top nav. Mobile: collapsible TOC |
 | **Background Treatment** | Flat, subtle section separation (borders, not heavy shadows) |
-| **Motion Choreography** | Minimal: soft fade-in on scroll (IntersectionObserver). No bounce, no parallax |
+| **Motion Choreography** | None — no scroll-driven animation. Hover/focus transitions only (short, token-based) |
 | **Differentiator** | Traceability: every section ends with `Sources` block (URLs) + video card with authorship |
 
 ### 1.5 Brand Assets
@@ -122,13 +122,12 @@ Fill into `src/styles/boilerplate/variables.css`.
 |-------|---------|-----|
 | `--duration-fast` | `150ms` | Hover, focus |
 | `--duration-base` | `250ms` | Transitions |
-| `--duration-slow` | `400ms` | Scroll reveal |
 | `--ease-standard` | `cubic-bezier(0.4, 0, 0.2, 1)` | UI |
 | `--ease-expressive` | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Entrances |
 
-Dropped `--duration-slower` + `--ease-spring`: motion policy = minimal, no bounce. Reduced motion: `@media (prefers-reduced-motion: reduce)` → reveals without animation.
+Dropped `--duration-slower` + `--ease-spring` + `--duration-slow`: motion policy = minimal, no scroll-driven animation. Reduced motion: `@media (prefers-reduced-motion: reduce)` strips animations/transitions.
 
-- No smooth-scroll hijack on anchor clicks: nav/TOC links use native instant jump (hash deep-linking). JS scrollIntoView banned for page scrolling.
+- No scroll-driven behavior: no reveal-on-scroll animations, no smooth-scroll hijack. Anchor clicks = native instant jump. JS scrollIntoView/IntersectionObserver banned for page scrolling and entrance effects (scroll-spy may use IO).
 
 ### 2.6 Z-Index Scale
 

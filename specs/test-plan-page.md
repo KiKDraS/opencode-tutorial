@@ -291,11 +291,11 @@ columns `Función | OpenCode | Claude Code`. Rows:
 
 **TC-7.5 Reduced motion**
 1. Set `page.emulateMedia({ reducedMotion: 'reduce' })` before load.
-2. Assert all `.reveal` sections get `.is-visible` immediately on load (no scroll needed), `html` computed `scroll-behavior: auto`, and transitions effectively disabled (`transition-duration ≈ 0.01ms` or no animation).
+2. Assert no `.reveal` elements exist (no scroll-reveal), all 5 `.article__section` blocks fully visible (`opacity: 1`, `transform: none`), `html` computed `scroll-behavior: auto`, and transitions effectively disabled (`transition-duration ≈ 0.01ms`).
 3. Click TOC item → scroll behavior `auto` (no smooth animation; assert `scrollBehavior` computed style or that scroll settles without animation frames).
 
 **TC-7.6 No-JS fallback (optional)**
-1. Load with JS disabled (`javaScriptEnabled: false`): assert all 5 sections + h3s + tables + sources visible (content static in DOM), `.reveal` not hidden (gated on `html.js`).
+1. Load with JS disabled (`javaScriptEnabled: false`): assert all 5 sections + h3s + tables + sources visible (content static in DOM), no `.reveal` gating (content never hidden without JS).
 
 ---
 
@@ -346,7 +346,7 @@ columns `Función | OpenCode | Claude Code`. Rows:
 - Clipboard: grant `clipboard-read`/`clipboard-write` permissions in the test context
   (`context.grantPermissions(['clipboard-read', 'clipboard-write'])`).
 - Reduced motion: `page.emulateMedia({ reducedMotion: 'reduce' })` must be set BEFORE
-  navigation (reveal.js reads the preference at init).
+  navigation (transition/scroll assertions depend on it).
 - Anchor navigation: no smooth-scroll hijack — nav/TOC links use the native instant
   hash jump (`scroll-padding-top` on `html` keeps targets clear of the sticky header);
   anchor assertions can read hash + position right after the click (still poll for
