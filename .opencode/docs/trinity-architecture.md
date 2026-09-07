@@ -83,5 +83,5 @@ never overrides.
 ## Assets
 
 - `src/assets/`: Vite-processed (images, fonts). Relative CSS paths.
-- `public/`: as-is (favicon, robots.txt).
+- `favicon/`: as-is (static: favicon set, logo, robots, sitemap, a11y statement). `publicDir` in vite.config.
 - Fonts: `src/assets/fonts/` only. No CDN.
