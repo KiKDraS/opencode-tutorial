@@ -63,7 +63,7 @@ test.describe('Navigation', () => {
       await main.goto();
 
       // 1-2. Desktop: click TOC items → native hash jump; target lands at the
-      // scroll-padding-top offset (instant, no smooth phase)
+      // scroll-padding-top offset (CSS smooth ~400ms, no JS phase)
       for (const item of ['2.2 OpenCode Zen', '4.9 MCP', '5.2 Flujo de trabajo']) {
         const href = TOC_SECTIONS.flatMap((s) => s.items).find((i) => i.label === item)!.href;
         await main.tocLinks.filter({ hasText: item }).click();

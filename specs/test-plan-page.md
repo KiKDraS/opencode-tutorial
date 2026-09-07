@@ -127,7 +127,7 @@ columns `Función | OpenCode | Claude Code`. Rows:
 
 **TC-1.3 TOC item click jumps to heading (native) and closes drawer**
 1. Desktop viewport. Click TOC item `2.2 OpenCode Zen`.
-2. Expect: native anchor navigation — `location.hash === "#opencode-zen"`, target lands at the `scroll-padding-top` offset (instant jump, no JS smooth-scroll; poll hash + bounding rect).
+2. Expect: native anchor navigation — `location.hash === "#opencode-zen"`, target lands at the `scroll-padding-top` offset (CSS smooth jump, no JS smooth-scroll; poll hash + bounding rect).
 3. On mobile viewport (repeat with drawer open): click item → drawer closes (`.is-open` removed, `aria-expanded=false`).
 4. Repeat for a deep item `4.9 MCP` and `5.2 Flujo de trabajo`.
 
@@ -291,7 +291,7 @@ columns `Función | OpenCode | Claude Code`. Rows:
 
 **TC-7.5 Reduced motion**
 1. Set `page.emulateMedia({ reducedMotion: 'reduce' })` before load.
-2. Assert no `.reveal` elements exist (no scroll-reveal), all 5 `.article__section` blocks fully visible (`opacity: 1`, `transform: none`), `html` computed `scroll-behavior: auto`, and transitions effectively disabled (`transition-duration ≈ 0.01ms`).
+2. Assert no `.reveal` elements exist (no scroll-reveal), all 5 `.article__section` blocks fully visible (`opacity: 1`, `transform: none`); normal mode `html` computed `scroll-behavior: smooth` (CSS-only native anchor smoothing), reduced motion `auto`; transitions effectively disabled (`transition-duration ≈ 0.01ms`).
 3. Click TOC item → scroll behavior `auto` (no smooth animation; assert `scrollBehavior` computed style or that scroll settles without animation frames).
 
 **TC-7.6 No-JS fallback (optional)**
@@ -347,9 +347,9 @@ columns `Función | OpenCode | Claude Code`. Rows:
   (`context.grantPermissions(['clipboard-read', 'clipboard-write'])`).
 - Reduced motion: `page.emulateMedia({ reducedMotion: 'reduce' })` must be set BEFORE
   navigation (transition/scroll assertions depend on it).
-- Anchor navigation: no smooth-scroll hijack — nav/TOC links use the native instant
-  hash jump (`scroll-padding-top` on `html` keeps targets clear of the sticky header);
-  anchor assertions can read hash + position right after the click (still poll for
-  layout settle).
+- Anchor navigation: no JS smooth-scroll — nav/TOC links use the native hash
+  jump (CSS `scroll-behavior: smooth`, `scroll-padding-top` on `html` keeps
+  targets clear of the sticky header); anchor assertions poll hash + position
+  until the scroll settles (~400ms).
 - Harness caveat: in the interactive Playwright-MCP planner session, document scrolling is
   pinned by the harness (programmatic scrolls revert); this does not affect spec execution.

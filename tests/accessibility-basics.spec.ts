@@ -128,15 +128,22 @@ test.describe('Accessibility basics', () => {
     await expect(page.locator('[data-code-block] .code-status').first()).toHaveAttribute('role', 'status');
   });
 
-  test('TC-7.5 Reduced motion (no reveal; scroll part fixme\'d)', async ({ page }) => {
-    await page.emulateMedia({ reducedMotion: 'reduce' });
+  test('TC-7.5 Reduced motion (no reveal; CSS smooth only in normal mode)', async ({ page }) => {
     const main = new MainPage(page);
     await main.goto();
+
+    // 0. Normal mode: CSS scroll-behavior smooth (native anchor jumps only, no JS)
+    const normalScrollBehavior = await page.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior);
+    expect(normalScrollBehavior).toBe('smooth');
+
+    // Reduced-motion assertions need the media feature set before (re)load
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.reload();
 
     // 1. No scroll-reveal: zero .reveal elements; sections render fully visible
     await expect(page.locator('.reveal')).toHaveCount(0);
 
-    // 2. html scroll-behavior: auto; transitions effectively disabled
+    // 2. Reduced motion: html scroll-behavior auto; transitions effectively disabled
     const styles = await page.evaluate(() => {
       const section = document.querySelector('.article__section')!;
       return {

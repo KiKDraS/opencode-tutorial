@@ -122,12 +122,13 @@ Fill into `src/styles/boilerplate/variables.css`.
 |-------|---------|-----|
 | `--duration-fast` | `150ms` | Hover, focus |
 | `--duration-base` | `250ms` | Transitions |
+| `--duration-slow` | `400ms` | Slower transitions |
 | `--ease-standard` | `cubic-bezier(0.4, 0, 0.2, 1)` | UI |
 | `--ease-expressive` | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Entrances |
 
-Dropped `--duration-slower` + `--ease-spring` + `--duration-slow`: motion policy = minimal, no scroll-driven animation. Reduced motion: `@media (prefers-reduced-motion: reduce)` strips animations/transitions.
+Dropped `--duration-slower` + `--ease-spring`: motion policy = minimal, no scroll-driven animation. Reduced motion: `@media (prefers-reduced-motion: reduce)` strips animations/transitions.
 
-- No scroll-driven behavior: no reveal-on-scroll animations, no smooth-scroll hijack. Anchor clicks = native instant jump. JS scrollIntoView/IntersectionObserver banned for page scrolling and entrance effects (scroll-spy may use IO).
+- No scroll-driven behavior: no reveal-on-scroll animations, no JS scrollIntoView. Native anchor jumps may be smooth via CSS `scroll-behavior: smooth` (reduced motion: `auto`); JS scrollIntoView/reveal-on-scroll banned for page scrolling and entrance effects (scroll-spy may use IO).
 
 ### 2.6 Z-Index Scale
 
