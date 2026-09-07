@@ -128,6 +128,8 @@ Fill into `src/styles/boilerplate/variables.css`.
 
 Dropped `--duration-slower` + `--ease-spring`: motion policy = minimal, no bounce. Reduced motion: `@media (prefers-reduced-motion: reduce)` → reveals without animation.
 
+- No smooth-scroll hijack on anchor clicks: nav/TOC links use native instant jump (hash deep-linking). JS scrollIntoView banned for page scrolling.
+
 ### 2.6 Z-Index Scale
 
 | Token | Default | Usage |

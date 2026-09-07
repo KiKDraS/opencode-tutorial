@@ -125,9 +125,9 @@ columns `Función | OpenCode | Claude Code`. Rows:
 3. Assert 22 item links; every TOC link `href` (groups + items) points to an existing element id (see map in ground truth). Use `expect(locator).toHaveAttribute('href')` + `document.querySelector(href)` non-null loop.
 4. Assert item texts match the TOC labels column of the map (e.g. `1.4 Conteo de tokens`, `4.9 MCP`).
 
-**TC-1.3 TOC item click scrolls to heading (smooth) and closes drawer**
+**TC-1.3 TOC item click jumps to heading (native) and closes drawer**
 1. Desktop viewport. Click TOC item `2.2 OpenCode Zen`.
-2. Expect: page scrolls so `#opencode-zen` heading top is in view (allow smooth-scroll settle; poll `scrollY`/bounding rect with timeout ≥1 s); URL hash unchanged (smooth-scroll implementation does not set hash — verify current behavior).
+2. Expect: native anchor navigation — `location.hash === "#opencode-zen"`, target lands at the `scroll-padding-top` offset (instant jump, no JS smooth-scroll; poll hash + bounding rect).
 3. On mobile viewport (repeat with drawer open): click item → drawer closes (`.is-open` removed, `aria-expanded=false`).
 4. Repeat for a deep item `4.9 MCP` and `5.2 Flujo de trabajo`.
 
@@ -347,7 +347,9 @@ columns `Función | OpenCode | Claude Code`. Rows:
   (`context.grantPermissions(['clipboard-read', 'clipboard-write'])`).
 - Reduced motion: `page.emulateMedia({ reducedMotion: 'reduce' })` must be set BEFORE
   navigation (reveal.js reads the preference at init).
-- Smooth scroll: `html { scroll-behavior: smooth }` (auto under reduced motion); anchor
-  assertions need polling with timeouts, not instant reads.
+- Anchor navigation: no smooth-scroll hijack — nav/TOC links use the native instant
+  hash jump (`scroll-padding-top` on `html` keeps targets clear of the sticky header);
+  anchor assertions can read hash + position right after the click (still poll for
+  layout settle).
 - Harness caveat: in the interactive Playwright-MCP planner session, document scrolling is
   pinned by the harness (programmatic scrolls revert); this does not affect spec execution.

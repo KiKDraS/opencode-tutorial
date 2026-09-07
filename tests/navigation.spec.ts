@@ -1,7 +1,7 @@
 // spec: specs/test-plan-page.md — Suite 1 Navigation (header nav + TOC anchors)
 
 import { test, expect } from '@playwright/test';
-import { MainPage, NAV_LINKS, TOC_SECTIONS, expectDrawer } from './helpers/main-page';
+import { MainPage, NAV_LINKS, TOC_SECTIONS, expectDrawer, expectNativeAnchorJump } from './helpers/main-page';
 
 // KNOWN APP DEFECT — FIXED 2026-09-06 on feature/page-build: toc.js
 // revealActiveLink() called link.scrollIntoView({ block: 'nearest' }) on EVERY
@@ -57,25 +57,17 @@ test.describe('Navigation', () => {
   });
 
   test(
-    'TC-1.3 TOC item click scrolls to heading (smooth) and closes drawer',
+    'TC-1.3 TOC item click jumps to heading (native) and closes drawer',
     async ({ page }) => {
       const main = new MainPage(page);
       await main.goto();
 
-      // 1-2. Desktop: click TOC items, heading top lands in view; URL hash unchanged
-      const hashBefore = await page.evaluate(() => location.hash);
+      // 1-2. Desktop: click TOC items → native hash jump; target lands at the
+      // scroll-padding-top offset (instant, no smooth phase)
       for (const item of ['2.2 OpenCode Zen', '4.9 MCP', '5.2 Flujo de trabajo']) {
         const href = TOC_SECTIONS.flatMap((s) => s.items).find((i) => i.label === item)!.href;
         await main.tocLinks.filter({ hasText: item }).click();
-        await expect.poll(
-          () =>
-            main.page.locator(`#${href.slice(1)}`).evaluate((el) => {
-              const top = el.getBoundingClientRect().top;
-              return top >= 0 && top <= window.innerHeight * 0.4;
-            }),
-          { timeout: 5000 },
-        ).toBe(true);
-        expect(await page.evaluate(() => location.hash), `hash unchanged after ${item}`).toBe(hashBefore);
+        await expectNativeAnchorJump(page, href);
       }
 
       // 3. Mobile: repeat with drawer open — click closes the drawer
@@ -84,44 +76,23 @@ test.describe('Navigation', () => {
       await expectDrawer(page, true);
       await main.tocLinks.filter({ hasText: '4.9 MCP' }).click();
       await expectDrawer(page, false);
-      await expect.poll(
-        () =>
-          main.page.locator('#mcp').evaluate((el) => {
-            const top = el.getBoundingClientRect().top;
-            return top >= 0 && top <= window.innerHeight * 0.4;
-          }),
-        { timeout: 5000 },
-      ).toBe(true);
+      await expectNativeAnchorJump(page, '#mcp');
     },
   );
 
   test(
-    'TC-1.4 Header nav link click scrolls to section',
+    'TC-1.4 Header nav link click jumps to section',
     async ({ page }) => {
       const main = new MainPage(page);
       await main.goto();
 
-      // 1-2. Click header link "Agentes" → section h2 scrolls into view
+      // 1-2. Click header link "Agentes" → native hash jump to the section
       await main.headerNav.getByRole('link', { name: 'Agentes' }).click();
-      await expect.poll(
-        () =>
-          main.page.locator('#agentes-titulo').evaluate((el) => {
-            const top = el.getBoundingClientRect().top;
-            return top >= 0 && top <= window.innerHeight * 0.4;
-          }),
-        { timeout: 5000 },
-      ).toBe(true);
+      await expectNativeAnchorJump(page, '#agentes');
 
       // 3. Repeat for "Fundamentos" (top of the page)
       await main.headerNav.getByRole('link', { name: 'Fundamentos' }).click();
-      await expect.poll(
-        () =>
-          main.page.locator('#fundamentos-titulo').evaluate((el) => {
-            const top = el.getBoundingClientRect().top;
-            return top >= 0 && top <= window.innerHeight * 0.4;
-          }),
-        { timeout: 5000 },
-      ).toBe(true);
+      await expectNativeAnchorJump(page, '#fundamentos');
     },
   );
 

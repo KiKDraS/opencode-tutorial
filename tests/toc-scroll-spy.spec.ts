@@ -1,7 +1,7 @@
 // spec: specs/test-plan-page.md — Suite 5 TOC scroll-spy (aria-current follows scroll)
 
 import { test, expect } from '@playwright/test';
-import { MainPage, scrollHeadingToProbe } from './helpers/main-page';
+import { MainPage, scrollHeadingToProbe, expectNativeAnchorJump } from './helpers/main-page';
 
 // KNOWN APP DEFECT — FIXED 2026-09-06 on feature/page-build: the page was
 // effectively unscrollable because toc.js revealActiveLink() scrolled the
@@ -48,23 +48,16 @@ test.describe('TOC scroll-spy', () => {
   );
 
   test(
-    'TC-5.3 Clicking an active TOC link still scrolls correctly',
+    'TC-5.3 Clicking an active TOC link still jumps correctly',
     async ({ page }) => {
       const main = new MainPage(page);
       await main.goto();
 
-      // 1. Click TOC item "3.3 opencode.json" → heading scrolls into view
+      // 1. Click TOC item "3.3 opencode.json" → native hash jump to the h3
       await main.tocLinks.filter({ hasText: '3.3 opencode.json' }).click();
-      await expect.poll(
-        () =>
-          main.page.locator('#opencode-json').evaluate((el) => {
-            const top = el.getBoundingClientRect().top;
-            return top >= 0 && top <= window.innerHeight * 0.4;
-          }),
-        { timeout: 5000 },
-      ).toBe(true);
+      await expectNativeAnchorJump(page, '#opencode-json');
 
-      // aria-current moves to the item after the smooth-scroll settle
+      // aria-current moves to the item after the jump settles
       await expect.poll(() => main.activeTocLink.textContent(), { timeout: 5000 }).toBe('3.3 opencode.json');
     },
   );
