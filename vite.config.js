@@ -2,7 +2,8 @@ import { defineConfig } from "vite";
 
 export default defineConfig(({ command }) => {
   return {
-    publicDir: "public",
+    base: "/opencode-tutorial/",
+    publicDir: "favicon",
     build: {
       outDir: "dist",
       cssMinify: "lightningcss",

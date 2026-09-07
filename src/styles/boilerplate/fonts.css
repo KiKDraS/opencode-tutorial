@@ -1,0 +1,26 @@
+/* Local OFL fonts (Space Grotesk, Inter, JetBrains Mono), woff2 variable
+   files. Relative paths — Vite resolves from src/assets/fonts/. No CDN. */
+
+@font-face {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../../assets/fonts/space-grotesk-var-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../../assets/fonts/inter-var-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url("../../assets/fonts/jetbrains-mono-var-latin.woff2") format("woff2");
+}

@@ -102,6 +102,25 @@ git checkout main && git pull origin main
 git checkout -b hotfix/fix-name && git push -u origin hotfix/fix-name
 ```
 
+## Deploy (GitHub Pages)
+
+Run after release/hotfix merged to main + tagged. Order: pull main → deploy.
+
+```bash
+git checkout main && git pull origin main
+pnpm deploy   # vite build + gh-pages -d dist → rama gh-pages
+```
+
+**First deploy only — enable Pages (once):**
+```bash
+curl -s -X POST -H "Authorization: token $TOKEN" -H "Accept: application/vnd.github.v3+json" \
+  "https://api.github.com/repos/$OWNER_REPO/pages" \
+  -d '{"source":{"branch":"gh-pages","path":"/"}}'
+```
+
+Verify: `https://<owner>.github.io/<repo>/` (status 200). Pages source: `gh-pages` branch.
+`dist/` gitignored — `gh-pages` pushes it directly. Deploy only from main. Never develop.
+
 ## PR Operations
 
 ### `gh` available — use gh commands. Missing → curl fallback.
