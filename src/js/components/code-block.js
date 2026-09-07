@@ -98,17 +98,17 @@ Logic: JS (ES6+)  PM: **pnpm only**
   },
   {
     label: "terminal",
-    code: `# Instalar dependencias (pnpm, no npm)
-pnpm install
+    code: `# Instalar dependencias
+npm install
 
 # Desarrollo local con recarga en caliente
-pnpm run dev
+npm run dev
 
 # Build de producción (Vite → dist/, con base /opencode-tutorial/)
-pnpm run build
+npm run build
 
 # Desplegar: build + publicar la carpeta dist/ en la rama gh-pages
-pnpm deploy`,
+npm deploy`,
   },
 ];
 
