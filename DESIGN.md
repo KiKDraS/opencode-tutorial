@@ -32,7 +32,7 @@ Reader finishes a section understanding the concept and knowing where to continu
 | Asset | File | Usage |
 |---|---|---|
 | Logo (horizontal, RGBA, 783×337) | `src/assets/logo.png` | Header (sticky, left) + footer. Max height 32px header / 24px footer |
-| Favicon set | `public/favicon/` (svg, ico, 96×96, apple-touch-icon, webmanifest) | `<head>` icon links. Vite `base: "/opencode-tutorial/"` (GitHub Pages) → served under `/opencode-tutorial/favicon/` |
+| Favicon set | `favicon/` (svg, ico, 96×96, apple-touch-icon, webmanifest) | `<head>` icon links. Vite `publicDir: "favicon"` + `base: "/opencode-tutorial/"` (GitHub Pages) → copied to dist root, served under `/opencode-tutorial/` |
 
 ---
 
