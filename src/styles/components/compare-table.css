@@ -1,0 +1,52 @@
+/* Comparison tables (vs ClaudeCode / Cursor / Codex). Table itself is the
+   horizontal scroll container on mobile; first column sticky within it. */
+
+.compare-table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  margin: var(--space-5) 0;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  -webkit-overflow-scrolling: touch;
+  border-collapse: collapse;
+  font-size: var(--font-size-body-sm);
+  background: var(--color-bg-elevated);
+  min-width: 640px;
+
+  caption {
+    text-align: left;
+    font-size: var(--font-size-caption);
+    color: var(--color-text-muted);
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  th,
+  td {
+    padding: var(--space-3) var(--space-4);
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  th {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--color-text);
+    background: var(--color-bg-alt);
+    white-space: nowrap;
+  }
+
+  td:first-child {
+    font-weight: 600;
+    color: var(--color-text);
+    background: var(--color-bg-alt);
+    white-space: nowrap;
+  }
+
+  tbody tr:last-child th,
+  tbody tr:last-child td {
+    border-bottom: 0;
+  }
+}

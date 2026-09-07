@@ -1,0 +1,17 @@
+/* Entry point. Order: variables → fonts → base → layout → components.
+   Imported from HTML only, never from JS. */
+
+@import "./boilerplate/variables.css";
+@import "./boilerplate/fonts.css";
+@import "./boilerplate/base.css";
+
+@import "./layout/header.css";
+@import "./layout/toc.css";
+@import "./layout/article.css";
+@import "./layout/footer.css";
+
+@import "./components/video-card.css";
+@import "./components/sources.css";
+@import "./components/compare-table.css";
+@import "./components/code-block.css";
+@import "./components/callout.css";
