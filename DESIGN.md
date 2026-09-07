@@ -24,7 +24,7 @@ Reader finishes a section understanding the concept and knowing where to continu
 | **Color Strategy** | Cool neutrals (slate) + indigo accent. High text/background contrast. Light default + auto dark |
 | **Layout Approach** | Sticky sidebar TOC (left) + article column (~72ch) + top nav. Mobile: collapsible TOC |
 | **Background Treatment** | Flat, subtle section separation (borders, not heavy shadows) |
-| **Motion Choreography** | Minimal: soft fade-in on scroll (IntersectionObserver). No bounce, no parallax |
+| **Motion Choreography** | None — no scroll-driven animation. Hover/focus transitions only (short, token-based) |
 | **Differentiator** | Traceability: every section ends with `Sources` block (URLs) + video card with authorship |
 
 ### 1.5 Brand Assets
@@ -32,7 +32,7 @@ Reader finishes a section understanding the concept and knowing where to continu
 | Asset | File | Usage |
 |---|---|---|
 | Logo (horizontal, RGBA, 783×337) | `src/assets/logo.png` | Header (sticky, left) + footer. Max height 32px header / 24px footer |
-| Favicon set | `public/favicon/` (svg, ico, 96×96, apple-touch-icon, webmanifest) | `<head>` icon links. Vite `base: "/opencode-tutorial/"` (GitHub Pages) → served under `/opencode-tutorial/favicon/` |
+| Favicon set | `favicon/` (svg, ico, 96×96, apple-touch-icon, webmanifest) | `<head>` icon links. Vite `publicDir: "favicon"` + `base: "/opencode-tutorial/"` (GitHub Pages) → copied to dist root, served under `/opencode-tutorial/` |
 
 ---
 
@@ -122,11 +122,13 @@ Fill into `src/styles/boilerplate/variables.css`.
 |-------|---------|-----|
 | `--duration-fast` | `150ms` | Hover, focus |
 | `--duration-base` | `250ms` | Transitions |
-| `--duration-slow` | `400ms` | Scroll reveal |
+| `--duration-slow` | `400ms` | Slower transitions |
 | `--ease-standard` | `cubic-bezier(0.4, 0, 0.2, 1)` | UI |
 | `--ease-expressive` | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Entrances |
 
-Dropped `--duration-slower` + `--ease-spring`: motion policy = minimal, no bounce. Reduced motion: `@media (prefers-reduced-motion: reduce)` → reveals without animation.
+Dropped `--duration-slower` + `--ease-spring`: motion policy = minimal, no scroll-driven animation. Reduced motion: `@media (prefers-reduced-motion: reduce)` strips animations/transitions.
+
+- No scroll-driven behavior: no reveal-on-scroll animations, no JS scrollIntoView. Native anchor jumps may be smooth via CSS `scroll-behavior: smooth` (reduced motion: `auto`); JS scrollIntoView/reveal-on-scroll banned for page scrolling and entrance effects (scroll-spy may use IO).
 
 ### 2.6 Z-Index Scale
 

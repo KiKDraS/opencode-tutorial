@@ -125,9 +125,9 @@ columns `Función | OpenCode | Claude Code`. Rows:
 3. Assert 22 item links; every TOC link `href` (groups + items) points to an existing element id (see map in ground truth). Use `expect(locator).toHaveAttribute('href')` + `document.querySelector(href)` non-null loop.
 4. Assert item texts match the TOC labels column of the map (e.g. `1.4 Conteo de tokens`, `4.9 MCP`).
 
-**TC-1.3 TOC item click scrolls to heading (smooth) and closes drawer**
+**TC-1.3 TOC item click jumps to heading (native) and closes drawer**
 1. Desktop viewport. Click TOC item `2.2 OpenCode Zen`.
-2. Expect: page scrolls so `#opencode-zen` heading top is in view (allow smooth-scroll settle; poll `scrollY`/bounding rect with timeout ≥1 s); URL hash unchanged (smooth-scroll implementation does not set hash — verify current behavior).
+2. Expect: native anchor navigation — `location.hash === "#opencode-zen"`, target lands at the `scroll-padding-top` offset (CSS smooth jump, no JS smooth-scroll; poll hash + bounding rect).
 3. On mobile viewport (repeat with drawer open): click item → drawer closes (`.is-open` removed, `aria-expanded=false`).
 4. Repeat for a deep item `4.9 MCP` and `5.2 Flujo de trabajo`.
 
@@ -291,11 +291,11 @@ columns `Función | OpenCode | Claude Code`. Rows:
 
 **TC-7.5 Reduced motion**
 1. Set `page.emulateMedia({ reducedMotion: 'reduce' })` before load.
-2. Assert all `.reveal` sections get `.is-visible` immediately on load (no scroll needed), `html` computed `scroll-behavior: auto`, and transitions effectively disabled (`transition-duration ≈ 0.01ms` or no animation).
+2. Assert no `.reveal` elements exist (no scroll-reveal), all 5 `.article__section` blocks fully visible (`opacity: 1`, `transform: none`); normal mode `html` computed `scroll-behavior: smooth` (CSS-only native anchor smoothing), reduced motion `auto`; transitions effectively disabled (`transition-duration ≈ 0.01ms`).
 3. Click TOC item → scroll behavior `auto` (no smooth animation; assert `scrollBehavior` computed style or that scroll settles without animation frames).
 
 **TC-7.6 No-JS fallback (optional)**
-1. Load with JS disabled (`javaScriptEnabled: false`): assert all 5 sections + h3s + tables + sources visible (content static in DOM), `.reveal` not hidden (gated on `html.js`).
+1. Load with JS disabled (`javaScriptEnabled: false`): assert all 5 sections + h3s + tables + sources visible (content static in DOM), no `.reveal` gating (content never hidden without JS).
 
 ---
 
@@ -346,8 +346,10 @@ columns `Función | OpenCode | Claude Code`. Rows:
 - Clipboard: grant `clipboard-read`/`clipboard-write` permissions in the test context
   (`context.grantPermissions(['clipboard-read', 'clipboard-write'])`).
 - Reduced motion: `page.emulateMedia({ reducedMotion: 'reduce' })` must be set BEFORE
-  navigation (reveal.js reads the preference at init).
-- Smooth scroll: `html { scroll-behavior: smooth }` (auto under reduced motion); anchor
-  assertions need polling with timeouts, not instant reads.
+  navigation (transition/scroll assertions depend on it).
+- Anchor navigation: no JS smooth-scroll — nav/TOC links use the native hash
+  jump (CSS `scroll-behavior: smooth`, `scroll-padding-top` on `html` keeps
+  targets clear of the sticky header); anchor assertions poll hash + position
+  until the scroll settles (~400ms).
 - Harness caveat: in the interactive Playwright-MCP planner session, document scrolling is
   pinned by the harness (programmatic scrolls revert); this does not affect spec execution.

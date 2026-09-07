@@ -245,6 +245,24 @@ export async function headingInView(page: Page, headingId: string, maxRatio = 0.
     });
 }
 
+// Native anchor jump contract: the browser sets the hash and scrolls the
+// target element to the scroll-padding-top offset. CSS scroll-behavior: smooth
+// animates the jump (~400ms) in normal mode, auto under reduced motion — no JS
+// smooth-scroll. Polls until the position settles at the offset.
+export async function expectNativeAnchorJump(page: Page, href: string): Promise<void> {
+  const targetId = href.slice(1);
+  await expect.poll(() => page.evaluate(() => location.hash), { timeout: 5000 }).toBe(href);
+  await expect.poll(
+    () =>
+      page.locator(`#${targetId}`).evaluate((el) => {
+        const top = el.getBoundingClientRect().top;
+        const scrollPadding = Number.parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop);
+        return Math.abs(top - scrollPadding) <= 24;
+      }),
+    { timeout: 5000 },
+  ).toBe(true);
+}
+
 export interface ConsoleSink {
   errors: string[];
   warnings: string[];

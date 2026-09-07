@@ -8,7 +8,9 @@
 
 html {
   font-size: 100%;
+  /* Native anchor jumps smooth via CSS, no JS hijack. */
   scroll-behavior: smooth;
+  /* Native hash jumps land below the sticky header. */
   scroll-padding-top: calc(var(--header-height) + var(--space-4));
   /* Off-canvas drawer (fixed + translateX) must not extend the document
      scroll width; clip (unlike hidden) does not turn body into a scroll
@@ -16,6 +18,7 @@ html {
   overflow-x: clip;
 }
 
+/* Reduced motion: instant jumps (override smooth) */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -128,7 +131,7 @@ ol {
   border: 0;
 }
 
-/* Reduced motion: strip reveal/entrance animations */
+/* Reduced motion: strip animations and transitions */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

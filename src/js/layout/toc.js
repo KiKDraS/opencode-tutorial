@@ -1,6 +1,4 @@
-// TOC: mobile open/close, scroll-spy with aria-current, smooth anchor scroll.
-
-import { prefersReducedMotion } from "../utils/prefers-reduced-motion.js";
+// TOC: mobile open/close, scroll-spy with aria-current, native anchor navigation.
 
 const TOC_SECTIONS = [
   {
@@ -129,17 +127,10 @@ function handleKeydown(event) {
   setTocOpen(false);
 }
 
-function scrollToHeading(event) {
-  const link = event.target.closest("[data-spy-link]");
-  if (!link) return;
-  const heading = document.querySelector(link.getAttribute("href"));
-  if (!heading) return;
-  event.preventDefault();
-  heading.scrollIntoView({
-    behavior: prefersReducedMotion() ? "auto" : "smooth",
-    block: "start",
-  });
-  setTocOpen(false);
+// Native anchor navigation (hash deep-linking) handles the jump; this only
+// closes the mobile drawer when a spy link is chosen.
+function closeTocOnLinkClick(event) {
+  if (event.target.closest("[data-toc] a[data-spy-link]")) setTocOpen(false);
 }
 
 // h2s carry aria-labelledby ids ("fundamentos-titulo"); links target the
@@ -216,7 +207,7 @@ export function init() {
   document.addEventListener("click", handleToggleClick);
   document.addEventListener("click", handleBackdropClick);
   document.addEventListener("keydown", handleKeydown);
-  document.addEventListener("click", scrollToHeading);
+  document.addEventListener("click", closeTocOnLinkClick);
 
   const observer = new IntersectionObserver(markActiveHeading, {
     rootMargin: `-${SPY_BAND_TOP}px 0px -80% 0px`,
@@ -231,7 +222,7 @@ export function init() {
     document.removeEventListener("click", handleToggleClick);
     document.removeEventListener("click", handleBackdropClick);
     document.removeEventListener("keydown", handleKeydown);
-    document.removeEventListener("click", scrollToHeading);
+    document.removeEventListener("click", closeTocOnLinkClick);
     observer.disconnect();
   };
 }

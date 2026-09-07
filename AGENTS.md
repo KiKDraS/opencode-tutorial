@@ -19,7 +19,7 @@ Strict. No files outside schema.
 |   ├── main.js
 ├── tests/{e2e,components}
 ├── specs/                          # Playwright test plans
-├── public/{favicon,robots.txt}
+├── favicon/                        # static root assets (favicon set, logo, robots, sitemap)
 ├── scripts/{init.mjs}
 ├── SPEC.md DESIGN.md            # Content+design contract. DO NOT EDIT without approval
 ├── index.html sitemap.xml playwright.config.js package.json
