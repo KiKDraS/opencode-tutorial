@@ -153,15 +153,29 @@ function resolveLinkTargetId(heading) {
 
 function revealActiveLink(heading) {
   const targetHref = `#${resolveLinkTargetId(heading)}`;
+  let activeTocLink = null;
   document.querySelectorAll("[data-spy-link]").forEach((link) => {
     const isActive = link.getAttribute("href") === targetHref;
     if (isActive) {
       link.setAttribute("aria-current", "true");
-      link.scrollIntoView({ block: "nearest" });
+      if (link.closest("[data-toc]")) activeTocLink = link;
     } else {
       link.removeAttribute("aria-current");
     }
   });
+  revealInTocContainer(activeTocLink);
+}
+
+// Reveal the active link inside the sidebar only, without touching page
+// scroll. scrollIntoView is banned here: header links sit at the document top
+// (any scroll would yank the page back) and Blink moves its sequential-focus
+// starting point to the scrolled element (first Tab would land inside the TOC
+// instead of the skip link). scrollTop assignment does neither.
+function revealInTocContainer(link) {
+  if (!link) return;
+  const tocContainer = link.closest("[data-toc]");
+  if (!tocContainer) return;
+  tocContainer.scrollTop = link.offsetTop - tocContainer.clientHeight / 2;
 }
 
 // Scan-based active detection: the last heading whose top is above the probe
