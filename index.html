@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OpenCode Tutorial — Agentes de IA para desarrolladores</title>
   <meta name="description"
-    content="Aprende qué son los LLMs y los agentes de IA, cómo funciona OpenCode, su configuración, los agentes personalizados y un ejemplo real. Con fuentes y videos en español." />
+    content="Empieza desde cero con los LLMs y agentes de IA: qué son, cómo usar OpenCode, configurarlo, crear agentes y un ejemplo real. Con fuentes y videos en español." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://KiKDraS.github.io/opencode-tutorial/" />
 
@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://KiKDraS.github.io/opencode-tutorial/" />
   <meta property="og:title" content="OpenCode Tutorial — Agentes de IA para desarrolladores" />
   <meta property="og:description"
-    content="Guía educativa en español: LLMs, agentes de IA, OpenCode, configuración .opencode/ y agentes personalizados. Cada sección cita sus fuentes." />
+    content="Guía educativa en español para empezar con LLMs y agentes de IA: OpenCode, configuración .opencode/, agentes personalizados y ejemplo real. Cada sección cita sus fuentes." />
   <meta property="og:image" content="https://KiKDraS.github.io/opencode-tutorial/logo.png" />
   <meta property="og:locale" content="es_ES" />
 
@@ -24,7 +24,7 @@
   <meta name="twitter:image" content="https://KiKDraS.github.io/opencode-tutorial/logo.png" />
   <meta name="twitter:title" content="OpenCode Tutorial — Agentes de IA para desarrolladores" />
   <meta name="twitter:description"
-    content="Guía educativa en español: LLMs, agentes de IA, OpenCode y agentes personalizados, con fuentes y videos." />
+    content="Guía educativa en español para empezar: LLMs, agentes de IA, OpenCode y agentes personalizados, con fuentes y videos." />
 
   <!-- Favicon set (kept as-is) -->
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
@@ -43,14 +43,14 @@
           "name": "OpenCode Tutorial",
           "url": "https://KiKDraS.github.io/opencode-tutorial/",
           "inLanguage": "es",
-          "description": "Documentación educativa sobre OpenCode y agentes de IA, en español."
+          "description": "Documentación educativa en español para empezar con OpenCode y agentes de IA."
         },
         {
           "@type": "LearningResource",
           "name": "OpenCode Tutorial — Agentes de IA para desarrolladores",
           "url": "https://KiKDraS.github.io/opencode-tutorial/",
           "inLanguage": "es",
-          "description": "Guía completa: fundamentos de LLMs, OpenCode, estructura .opencode/, agentes personalizados y ejemplo real.",
+          "description": "Guía para empezar desde cero: fundamentos de LLMs, OpenCode, estructura .opencode/, agentes personalizados y ejemplo real.",
           "learningResourceType": "tutorial",
           "educationalLevel": "beginner",
           "about": [
@@ -135,10 +135,10 @@
     <main class="article" id="main-content" tabindex="-1">
       <!-- ============ HERO ============ -->
       <div class="article__hero" id="inicio">
-        <span class="article__eyebrow">Guía educativa · Español</span>
+        <span class="article__eyebrow">Guía educativa para empezar · Español</span>
         <h1>OpenCode: aprende a trabajar con agentes de IA</h1>
         <p>
-          Qué es un modelo de lenguaje, qué es un agente y cómo usar
+          Empieza desde cero: qué es un modelo de lenguaje, qué es un agente de IA y cómo usar
           <strong>OpenCode</strong>, el agente de código abierto que corre en tu terminal. Cada sección
           termina con un bloque de <strong>fuentes verificables</strong> y videos en español con su autoría.
         </p>
@@ -167,9 +167,10 @@
           <div class="article__body">
             <p>
               <strong>OpenCode</strong> es un agente de IA de <strong>código abierto</strong> que se usa
-              desde la terminal: una interfaz de texto (TUI) donde le describes una tarea y el agente
-              edita archivos, ejecuta comandos y propone cambios. Es multi-proveedor: funciona con
-              Anthropic, OpenAI, Google, modelos locales y el servicio gratuito OpenCode Zen.
+              desde la terminal. La terminal es una interfaz de texto (TUI): tú le describes una tarea y el
+              agente edita archivos, ejecuta comandos y propone cambios. Es <strong>multi-proveedor</strong>:
+              funciona con varios proveedores a la vez — Anthropic, OpenAI, Google, modelos locales y el
+              servicio gratuito OpenCode Zen.
             </p>
             <p>Comparación objetiva con las alternativas más conocidas:</p>
           </div>
@@ -189,7 +190,7 @@
                 <th scope="row">Tipo</th>
                 <td>Agente de terminal (TUI), open source</td>
                 <td>Agente de terminal, propietario</td>
-                <td>Editor/IDE con IA integrada</td>
+                <td>Editor/IDE (entorno de desarrollo) con IA integrada</td>
                 <td>Agente de terminal + integración en GitHub</td>
               </tr>
               <tr>
@@ -211,14 +212,14 @@
                 <td>opencode.json + AGENTS.md</td>
                 <td>settings.json + CLAUDE.md</td>
                 <td>Interfaz gráfica + reglas por proyecto</td>
-                <td>Config por CLI + reglas</td>
+                <td>Config por CLI (línea de comandos) + reglas</td>
               </tr>
               <tr>
                 <th scope="row">Modelos gratuitos</th>
                 <td>Sí, vía OpenCode Zen</td>
                 <td>No (suscripción o API)</td>
                 <td>Prueba limitada</td>
-                <td>Cuota en planes</td>
+                <td>Cuota en planes de pago</td>
               </tr>
             </tbody>
           </table>
@@ -244,7 +245,7 @@
           <h3 id="vs-claude-code">3.2 vs ClaudeCode (estructura/config)</h3>
           <div class="article__body">
             <p>
-              Claude Code y OpenCode resuelven lo mismo con nombres distintos. La tabla ayuda a
+              Claude Code y OpenCode resuelven lo mismo, pero usan nombres distintos. La tabla te ayuda a
               traducir entre uno y otro:
             </p>
           </div>
@@ -331,8 +332,8 @@
       <div class="site-footer__brand">
         <img src="/src/assets/logo.png" alt="Logo de OpenCode Tutorial" width="120" height="52" />
         <p>
-          Guía educativa y neutral sobre OpenCode y agentes de IA, en español. Sin afiliación con las
-          herramientas mencionadas.
+          Guía educativa y neutral para empezar con OpenCode y agentes de IA, en español. Sin afiliación con
+          las herramientas mencionadas.
         </p>
       </div>
 
