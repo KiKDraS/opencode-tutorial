@@ -20,7 +20,7 @@ const SUBSECTIONS = {
             { t: "em", v: "large language model" },
             {
               t: "text",
-              v: ", modelo de lenguaje grande) es un modelo de aprendizaje automático entrenado con enormes cantidades de texto. Su tarea básica es predecir la siguiente pieza de texto (token) dado lo que ya vio; al repetir esa predicción, genera respuestas completas.",
+              v: ", «modelo de lenguaje grande») es un programa de aprendizaje automático entrenado con enormes cantidades de texto. Su tarea básica es predecir la siguiente pieza de texto —un token— a partir de lo que ya vio; al repetir esa predicción una y otra vez, genera respuestas completas.",
             },
           ],
         },
@@ -29,11 +29,11 @@ const SUBSECTIONS = {
           inline: [
             { t: "text", v: "El mecanismo central es el " },
             { t: "strong", v: "transformador" },
-            { t: "text", v: " y su mecanismo de " },
+            { t: "text", v: ", un tipo de red neuronal diseñado para procesar texto. Su mecanismo de " },
             { t: "strong", v: "atención" },
             {
               t: "text",
-              v: ": el modelo pondera qué palabras del contexto son relevantes para predecir la siguiente. No «piensa» ni «entiende» como una persona: reconoce patrones estadísticos aprendidos durante el entrenamiento. Después del entrenamiento inicial, se ajusta con instrucciones y retroalimentación humana para seguir indicaciones de forma útil.",
+              v: " pondera qué palabras del contexto son relevantes para predecir la siguiente. El modelo no «piensa» ni «entiende» como una persona: reconoce patrones estadísticos aprendidos durante el entrenamiento. Después del entrenamiento inicial, se ajusta con instrucciones y retroalimentación humana. Así aprende a seguir indicaciones de forma útil.",
             },
           ],
         },
@@ -61,13 +61,13 @@ const SUBSECTIONS = {
           inline: [
             { t: "text", v: "El LLM es el " },
             { t: "strong", v: "motor de texto" },
-            { t: "text", v: ": recibe un prompt y devuelve texto. Un " },
+            { t: "text", v: ": recibe un prompt (tu instrucción) y devuelve texto. Un " },
             { t: "strong", v: "agente" },
             { t: "text", v: " es ese LLM " },
             { t: "em", v: "más" },
             {
               t: "text",
-              v: " herramientas y un bucle de trabajo: puede leer y escribir archivos, ejecutar comandos, consultar la web y decidir qué hacer con el resultado.",
+              v: " herramientas y un bucle de trabajo. Puede leer y escribir archivos, ejecutar comandos, consultar la web y decidir qué hacer con el resultado.",
             },
           ],
         },
@@ -103,7 +103,7 @@ const SUBSECTIONS = {
             { t: "strong", v: "agente" },
             {
               t: "text",
-              v: ": usa uno o varios LLMs como cerebro y les añade acceso al sistema de archivos, terminal, navegador y herramientas de desarrollo. El patrón «LLM + herramientas + bucle» está documentado en la guía de Anthropic sobre agentes efectivos y en el curso de agentes de Hugging Face.",
+              v: ": usa uno o varios LLMs como cerebro y les añade acceso al sistema de archivos, terminal, navegador y herramientas de desarrollo. Ese patrón —«LLM + herramientas + bucle»— está documentado en la guía de Anthropic sobre agentes efectivos y en el curso de agentes de Hugging Face.",
             },
           ],
         },
@@ -119,7 +119,7 @@ const SUBSECTIONS = {
           inline: [
             { t: "text", v: "No existe una única medida. Se combinan " },
             { t: "strong", v: "benchmarks" },
-            { t: "text", v: " y criterios prácticos:" },
+            { t: "text", v: " (pruebas estandarizadas que comparan modelos) y criterios prácticos:" },
           ],
         },
         {
@@ -143,14 +143,14 @@ const SUBSECTIONS = {
               { t: "strong", v: "SWE-bench:" },
               {
                 t: "text",
-                v: " resuelve issues reales de repositorios de software; muy relevante si vas a usar el modelo para programar.",
+                v: " resuelve incidencias reales de repositorios de software. Muy relevante si vas a usar el modelo para programar.",
               },
             ],
             [
               { t: "strong", v: "Open LLM Leaderboard (Hugging Face):" },
               {
                 t: "text",
-                v: " tablas de benchmarks abiertos para modelos, incluidos los abiertos.",
+                v: " tablas de benchmarks abiertos para modelos, incluidos los de código abierto.",
               },
             ],
           ],
@@ -178,12 +178,12 @@ const SUBSECTIONS = {
               { t: "strong", v: "Velocidad" },
               {
                 t: "text",
-                v: ": tokens por segundo; afecta el tiempo de cada iteración.",
+                v: ": tokens por segundo. Afecta el tiempo de cada iteración.",
               },
             ],
             [
               { t: "strong", v: "Ventana de contexto" },
-              { t: "text", v: ": cuánto código/prompt cabe." },
+              { t: "text", v: ": cuánto texto (código o prompt) cabe de una vez." },
             ],
             [
               { t: "strong", v: "Costo" },
@@ -214,7 +214,7 @@ const SUBSECTIONS = {
             { t: "strong", v: "tokens" },
             {
               t: "text",
-              v: ", unidades que pueden ser palabras completas, fragmentos de palabra o signos. Como regla general, un token equivale a unas ",
+              v: ". Un token es una unidad que puede ser una palabra completa, un fragmento de palabra o un signo. Como regla general, un token equivale a unas ",
             },
             { t: "strong", v: "4 letras" },
             {
@@ -230,7 +230,7 @@ const SUBSECTIONS = {
             { t: "strong", v: "tokenizador" },
             {
               t: "text",
-              v: " es la pieza que hace esa división, y es específico de cada modelo. El conteo importa por tres motivos:",
+              v: " es la pieza que hace esa división. Es específico de cada modelo. El conteo importa por tres motivos:",
             },
           ],
         },
@@ -259,7 +259,7 @@ const SUBSECTIONS = {
           inline: [
             {
               t: "text",
-              v: "Puedes probar la división en el tokenizador interactivo de OpenAI, y el curso de midudev explica el concepto con ejemplos para desarrolladores.",
+              v: "Puedes probar la división en el tokenizador interactivo de OpenAI. El curso de midudev explica el concepto con ejemplos para desarrolladores.",
             },
           ],
         },
@@ -278,7 +278,7 @@ const SUBSECTIONS = {
             { t: "strong", v: "OpenCode Zen" },
             {
               t: "text",
-              v: " es el servicio de modelos de OpenCode: creas una cuenta gratuita y obtienes acceso a modelos de varios proveedores con una cuota gratuita, sin tarjeta de crédito. Es la vía más rápida para probar OpenCode sin configurar claves de API.",
+              v: " es el servicio de modelos de OpenCode. Creas una cuenta gratuita y obtienes acceso a modelos de varios proveedores con una cuota gratuita, sin tarjeta de crédito. Es la vía más rápida para probar OpenCode sin configurar claves de API (credenciales de acceso a los modelos).",
             },
           ],
         },
@@ -305,7 +305,7 @@ const SUBSECTIONS = {
             { t: "code", v: "/connect" },
             {
               t: "text",
-              v: " abre el asistente de conexión: eliges proveedor, autorizas con tu cuenta y seleccionas modelo. Para Zen, el flujo es:",
+              v: " abre el asistente de conexión. Ahí eliges proveedor, autorizas con tu cuenta y seleccionas modelo. Para Zen, el flujo es:",
             },
           ],
         },
@@ -391,7 +391,7 @@ const SUBSECTIONS = {
               { t: "strong", children: [{ t: "code", v: "agents/" }] },
               {
                 t: "text",
-                v: " — archivos Markdown que definen el rol de cada agente: responsabilidades, reglas y límites. En este repo hay cuatro: ",
+                v: " — archivos Markdown (texto con formato simple) que definen el rol de cada agente: responsabilidades, reglas y límites. En este repositorio hay cuatro: ",
               },
               { t: "code", v: "orchestrator" },
               { t: "text", v: ", " },
@@ -442,7 +442,7 @@ const SUBSECTIONS = {
               { t: "strong", children: [{ t: "code", v: "prompts/" }] },
               {
                 t: "text",
-                v: " — plantillas de prompt que los agentes usan como base, referenciadas desde ",
+                v: " — plantillas de prompt que los agentes usan como base. Se referencian desde ",
               },
               { t: "code", v: "opencode.json" },
               { t: "text", v: " con " },
@@ -458,7 +458,7 @@ const SUBSECTIONS = {
             ],
             [
               { t: "strong", children: [{ t: "code", v: "secrets/" }] },
-              { t: "text", v: " — claves y tokens locales; está en " },
+              { t: "text", v: " — claves y tokens locales (credenciales de acceso); está en " },
               { t: "code", v: ".gitignore" },
               { t: "text", v: " y nunca se sube al repositorio." },
             ],
@@ -479,7 +479,7 @@ const SUBSECTIONS = {
             { t: "strong", v: "archivo de configuración central" },
             {
               t: "text",
-              v: " de OpenCode en un proyecto: define qué instrucciones leer, qué permisos tiene el agente, qué agentes existen, qué plugins y servidores MCP se cargan y cuál es el agente por defecto.",
+              v: " de OpenCode en un proyecto. Define qué instrucciones leer, qué permisos tiene el agente y qué agentes existen. También define qué plugins y servidores MCP (conexión a herramientas externas) se cargan, y cuál es el agente por defecto.",
             },
           ],
         },
@@ -599,7 +599,7 @@ const SUBSECTIONS = {
             { t: "strong", v: "iterar con criterio" },
             {
               t: "text",
-              v: ". El «vibe coding» (aceptar la primera respuesta sin revisar) produce software frágil; el método de especificar, revisar e iterar produce software robusto. La documentación de OpenCode describe el ciclo plan → iterate → build → undo como la forma prevista de trabajar.",
+              v: ". El «vibe coding» (aceptar la primera respuesta sin revisar) produce software frágil. El método de especificar, revisar e iterar produce software robusto. La documentación de OpenCode describe el ciclo plan → iterate → build → undo como la forma prevista de trabajar.",
             },
           ],
         },
@@ -702,7 +702,7 @@ const SUBSECTIONS = {
             { t: "strong", v: "improvisa" },
             {
               t: "text",
-              v: ". Con SPEC, DESIGN y AGENTS, cada agente sabe qué construir, con qué estética y bajo qué reglas — y el revisor (",
+              v: ". Con SPEC, DESIGN y AGENTS, cada agente sabe qué construir, con qué estética y bajo qué reglas. El revisor (",
             },
             { t: "code", v: "@code-review" },
             {
@@ -737,7 +737,7 @@ const SUBSECTIONS = {
               { t: "strong", v: "Primary:" },
               {
                 t: "text",
-                v: " aparece en el selector de agentes de la interfaz; coordina el trabajo, delega y ve la conversación principal. En este repo, ",
+                v: " aparece en el selector de agentes de la interfaz. Coordina el trabajo, delega tareas y ve la conversación principal. En este repositorio, ",
               },
               { t: "code", v: "orchestrator" },
               { t: "text", v: "." },
@@ -746,7 +746,7 @@ const SUBSECTIONS = {
               { t: "strong", v: "Sub-agente:" },
               {
                 t: "text",
-                v: " se ejecuta como tarea dentro de otra sesión; tiene herramientas limitadas y devuelve un resultado. En este repo, ",
+                v: " se ejecuta como tarea dentro de otra sesión. Tiene herramientas limitadas y devuelve un resultado. En este repositorio, ",
               },
               { t: "code", v: "frontend-dev" },
               { t: "text", v: ", " },
@@ -774,7 +774,7 @@ const SUBSECTIONS = {
             { t: "strong", v: "herramientas" },
             { t: "text", v: " y un " },
             { t: "strong", v: "prompt" },
-            { t: "text", v: " opcional desde " },
+            { t: "text", v: " opcional. El prompt se carga desde " },
             { t: "code", v: ".opencode/prompts/" },
             { t: "text", v: ". El detalle del rol vive en " },
             { t: "code", v: ".opencode/agents/*.md" },
@@ -795,12 +795,12 @@ const SUBSECTIONS = {
             { t: "strong", v: "skill" },
             {
               t: "text",
-              v: " es un conjunto de instrucciones reutilizables que el agente carga ",
+              v: " es un conjunto de instrucciones reutilizables. El agente la carga ",
             },
             { t: "em", v: "bajo demanda" },
             {
               t: "text",
-              v: " cuando la tarea coincide con su descripción: por ejemplo, ",
+              v: " cuando la tarea coincide con su descripción. Por ejemplo, ",
             },
             { t: "code", v: "accessibility-wcag" },
             { t: "text", v: ", " },
@@ -819,7 +819,7 @@ const SUBSECTIONS = {
             { t: "strong", v: "vs Claude Code:" },
             {
               t: "text",
-              v: " ambos soportan skills de proyecto; Claude Code las llama ",
+              v: " ambos soportan skills de proyecto. Claude Code las llama ",
             },
             { t: "em", v: "agent skills" },
             { t: "text", v: " y las guarda en " },
@@ -852,12 +852,12 @@ const SUBSECTIONS = {
             { t: "strong", v: "prompts" },
             {
               t: "text",
-              v: " en OpenCode son plantillas de instrucción asociadas a un agente, referenciadas desde ",
+              v: " en OpenCode son plantillas de instrucción asociadas a un agente. Se referencian desde ",
             },
             { t: "code", v: "opencode.json" },
             { t: "text", v: " con la sintaxis " },
             { t: "code", v: "{file:ruta}" },
-            { t: "text", v: ". En este repo, todos los agentes usan " },
+            { t: "text", v: ". En este repositorio, todos los agentes usan " },
             { t: "code", v: ".opencode/prompts/agent-knowledge-awareness.md" },
             {
               t: "text",
@@ -873,7 +873,7 @@ const SUBSECTIONS = {
             { t: "em", v: "slash commands" },
             {
               t: "text",
-              v: ": comandos personalizados (a menudo prompts) que se invocan con ",
+              v: ". Son comandos personalizados (a menudo prompts) que se invocan con ",
             },
             { t: "code", v: "/" },
             {
@@ -897,7 +897,7 @@ const SUBSECTIONS = {
             { t: "strong", v: "plugins" },
             {
               t: "text",
-              v: " de OpenCode son código JavaScript que extiende el comportamiento del agente: hooks que se ejecutan en momentos del ciclo de vida (arranque, cada mensaje, etc.). En este repo hay cuatro plugins activos: ",
+              v: " de OpenCode son código JavaScript que extiende el comportamiento del agente. Son hooks que se ejecutan en momentos del ciclo de vida: el arranque, cada mensaje, etc. En este repositorio hay cuatro plugins activos: ",
             },
             { t: "code", v: "bootstrap.js" },
             { t: "text", v: ", " },
@@ -923,7 +923,7 @@ const SUBSECTIONS = {
             { t: "code", v: "settings.json" },
             {
               t: "text",
-              v: ". Ambos permiten automatizar reglas y protecciones, con enfoques distintos: plugins JS en OpenCode, hooks configurables en Claude Code.",
+              v: ". Ambos permiten automatizar reglas y protecciones. La diferencia: plugins JS en OpenCode, hooks configurables en Claude Code.",
             },
           ],
         },
@@ -941,7 +941,7 @@ const SUBSECTIONS = {
             { t: "em", v: "Model Context Protocol" },
             {
               t: "text",
-              v: ") es un estándar abierto para conectar herramientas externas a agentes: servidores locales o remotos que exponen recursos y funciones. En este repo hay tres servidores MCP configurados en ",
+              v: ") es un estándar abierto para conectar herramientas externas a agentes. Son servidores, locales o remotos, que exponen recursos y funciones. En este repositorio hay tres servidores MCP configurados en ",
             },
             { t: "code", v: "opencode.json" },
             { t: "text", v: ": " },
@@ -959,7 +959,7 @@ const SUBSECTIONS = {
             { t: "strong", v: "vs Claude Code:" },
             {
               t: "text",
-              v: " Claude Code también soporta MCP y usa el mismo protocolo; la diferencia está en la configuración (en ",
+              v: " Claude Code también soporta MCP y usa el mismo protocolo. La diferencia está en la configuración: en ",
             },
             { t: "code", v: "opencode.json" },
             { t: "text", v: " vs " },
@@ -968,7 +968,7 @@ const SUBSECTIONS = {
             { t: "code", v: ".mcp.json" },
             {
               t: "text",
-              v: "). El protocolo en sí es compartido: aprenderlo sirve para ambos.",
+              v: ". El protocolo en sí es compartido: aprenderlo sirve para ambos.",
             },
           ],
         },
@@ -989,7 +989,7 @@ const SUBSECTIONS = {
             { t: "strong", v: "ejemplo vivo" },
             {
               t: "text",
-              v: " de todo lo explicado: está construido con Vite + HTML5 + CSS nativo + JS ES6, gestionado con pnpm y desplegado en ",
+              v: " de todo lo explicado. Está construido con Vite + HTML5 + CSS nativo + JS ES6, gestionado con pnpm y desplegado en ",
             },
             { t: "strong", v: "GitHub Pages" },
             {
@@ -1019,11 +1019,11 @@ const SUBSECTIONS = {
               v: "El flujo completo del proyecto está documentado en ",
             },
             { t: "code", v: "AGENTS.md" },
-            { t: "text", v: ": rama " },
+            { t: "text", v: ". Rama " },
             { t: "code", v: "main" },
             { t: "text", v: " = producción, " },
             { t: "code", v: "develop" },
-            { t: "text", v: " = integración diaria, ramas " },
+            { t: "text", v: " = integración diaria. Las ramas " },
             { t: "code", v: "feature/*" },
             { t: "text", v: " para trabajo nuevo, " },
             { t: "code", v: "release/*" },
@@ -1055,7 +1055,7 @@ const SUBSECTIONS = {
               { t: "strong", children: [{ t: "code", v: "@orchestrator" }] },
               {
                 t: "text",
-                v: " (agente primary) planifica, delega y decide merge/release, con checkpoint del usuario antes de publicar.",
+                v: " (agente primary) planifica, delega y decide merge/release (fusionar ramas y publicar versiones). Pide una confirmación al usuario antes de publicar.",
               },
             ],
             [
@@ -1067,23 +1067,23 @@ const SUBSECTIONS = {
               { t: "code", v: "feature/*" },
               {
                 t: "text",
-                v: ", sujeto a los contratos de arquitectura y rendimiento.",
+                v: ". Está sujeto a los contratos de arquitectura y rendimiento.",
               },
             ],
             [
               { t: "strong", children: [{ t: "code", v: "@code-review" }] },
               {
                 t: "text",
-                v: " (sub-agente) audita el código contra SPEC, DESIGN y los checklists; sin su ",
+                v: " (sub-agente) audita el código contra SPEC, DESIGN y los checklists. Sin su ",
               },
               { t: "code", v: "STATUS: APPROVED" },
               { t: "text", v: " no hay merge." },
             ],
             [
               { t: "strong", children: [{ t: "code", v: "@release-manager" }] },
-              { t: "text", v: " (sub-agente) crea ramas de release, merge a " },
+              { t: "text", v: " (sub-agente) crea ramas de release y fusiona a " },
               { t: "code", v: "main" },
-              { t: "text", v: ", tag + GitHub Release y despliegue con " },
+              { t: "text", v: ". Hace tag + GitHub Release y despliega con " },
               { t: "code", v: "pnpm deploy" },
               { t: "text", v: " → rama " },
               { t: "code", v: "gh-pages" },
@@ -1096,13 +1096,13 @@ const SUBSECTIONS = {
           inline: [
             { t: "text", v: "Reglas del proyecto en " },
             { t: "code", v: "AGENTS.md" },
-            { t: "text", v: ", contenido y fuentes en " },
+            { t: "text", v: ". Contenido y fuentes en " },
             { t: "code", v: "SPEC.md" },
-            { t: "text", v: ", diseño vinculante en " },
+            { t: "text", v: ". Diseño vinculante en " },
             { t: "code", v: "DESIGN.md" },
             {
               t: "text",
-              v: ", y la configuración de todo (permisos, agentes, MCP, plugins) en ",
+              v: ". La configuración de todo (permisos, agentes, MCP, plugins) en ",
             },
             { t: "code", v: "opencode.json" },
             {

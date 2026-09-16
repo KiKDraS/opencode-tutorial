@@ -102,13 +102,13 @@ test.describe('Mobile viewport', () => {
     await expect(table).toHaveCSS('overflow-x', 'auto');
     await expect.poll(() => table.evaluate((el) => el.scrollWidth > el.clientWidth)).toBe(true);
 
-    // Swipe/scroll table 1 to reveal the Codex column ("Cuota en planes")
+    // Swipe/scroll table 1 to reveal the Codex column ("Cuota en planes de pago")
     await table.evaluate((el) => {
       el.scrollLeft = el.scrollWidth;
     });
     const codexVisible = await page.evaluate(() => {
       const tbl = document.querySelector('table.compare-table')!;
-      const cell = [...tbl.querySelectorAll('td')].find((td) => td.textContent === 'Cuota en planes')!;
+      const cell = [...tbl.querySelectorAll('td')].find((td) => td.textContent === 'Cuota en planes de pago')!;
       const tr = tbl.getBoundingClientRect();
       const cr = cell.getBoundingClientRect();
       return cr.left >= tr.left && cr.right <= tr.right;
