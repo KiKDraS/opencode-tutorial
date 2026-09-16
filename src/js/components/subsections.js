@@ -380,8 +380,10 @@ const SUBSECTIONS = {
             { t: "code", v: ".opencode/" },
             {
               t: "text",
-              v: " concentra la configuración del proyecto para OpenCode. Este mismo repositorio es el ejemplo vivo: su estructura es la siguiente.",
+              v: " concentra la configuración del proyecto para OpenCode. ",
             },
+            { t: "link", v: "Este mismo repositorio", href: "https://github.com/KiKDraS/opencode-tutorial" },
+            { t: "text", v: " es el ejemplo vivo: su estructura es la siguiente." },
           ],
         },
         {
@@ -391,8 +393,10 @@ const SUBSECTIONS = {
               { t: "strong", children: [{ t: "code", v: "agents/" }] },
               {
                 t: "text",
-                v: " — archivos Markdown (texto con formato simple) que definen el rol de cada agente: responsabilidades, reglas y límites. En este repositorio hay cuatro: ",
+                v: " — archivos Markdown (texto con formato simple) que definen el rol de cada agente: responsabilidades, reglas y límites. En ",
               },
+              { t: "link", v: "este repositorio", href: "https://github.com/KiKDraS/opencode-tutorial" },
+              { t: "text", v: " hay cuatro: " },
               { t: "code", v: "orchestrator" },
               { t: "text", v: ", " },
               { t: "code", v: "frontend-dev" },
@@ -485,7 +489,11 @@ const SUBSECTIONS = {
         },
         {
           type: "p",
-          inline: [{ t: "text", v: "Un extracto real de este repositorio:" }],
+          inline: [
+            { t: "text", v: "Un extracto real de " },
+            { t: "link", v: "este repositorio", href: "https://github.com/KiKDraS/opencode-tutorial" },
+            { t: "text", v: ":" },
+          ],
         },
         {
           type: "p",
@@ -628,7 +636,9 @@ const SUBSECTIONS = {
             { t: "code", v: "ask" },
             { t: "text", v: ") y qué tiene prohibido (" },
             { t: "code", v: "deny" },
-            { t: "text", v: "). El bloque de permisos de este repositorio:" },
+            { t: "text", v: "). El bloque de permisos de " },
+            { t: "link", v: "este repositorio", href: "https://github.com/KiKDraS/opencode-tutorial" },
+            { t: "text", v: ":" },
           ],
         },
       ],
@@ -648,8 +658,10 @@ const SUBSECTIONS = {
             { t: "strong", v: "les dice qué hacer" },
             {
               t: "text",
-              v: ". Tres archivos de raíz cumplen ese rol en este repositorio:",
+              v: ". Tres archivos de raíz cumplen ese rol en ",
             },
+            { t: "link", v: "este repositorio", href: "https://github.com/KiKDraS/opencode-tutorial" },
+            { t: "text", v: ":" },
           ],
         },
         {
@@ -737,8 +749,10 @@ const SUBSECTIONS = {
               { t: "strong", v: "Primary:" },
               {
                 t: "text",
-                v: " aparece en el selector de agentes de la interfaz. Coordina el trabajo, delega tareas y ve la conversación principal. En este repositorio, ",
+                v: " aparece en el selector de agentes de la interfaz. Coordina el trabajo, delega tareas y ve la conversación principal. En ",
               },
+              { t: "link", v: "este repositorio", href: "https://github.com/KiKDraS/opencode-tutorial" },
+              { t: "text", v: ", " },
               { t: "code", v: "orchestrator" },
               { t: "text", v: "." },
             ],
@@ -746,8 +760,10 @@ const SUBSECTIONS = {
               { t: "strong", v: "Sub-agente:" },
               {
                 t: "text",
-                v: " se ejecuta como tarea dentro de otra sesión. Tiene herramientas limitadas y devuelve un resultado. En este repositorio, ",
+                v: " se ejecuta como tarea dentro de otra sesión. Tiene herramientas limitadas y devuelve un resultado. En ",
               },
+              { t: "link", v: "este repositorio", href: "https://github.com/KiKDraS/opencode-tutorial" },
+              { t: "text", v: ", " },
               { t: "code", v: "frontend-dev" },
               { t: "text", v: ", " },
               { t: "code", v: "code-review" },
@@ -760,7 +776,9 @@ const SUBSECTIONS = {
         {
           type: "p",
           inline: [
-            { t: "text", v: "Definiciones reales de este repositorio:" },
+            { t: "text", v: "Definiciones reales de " },
+            { t: "link", v: "este repositorio", href: "https://github.com/KiKDraS/opencode-tutorial" },
+            { t: "text", v: ":" },
           ],
         },
         {
@@ -809,8 +827,10 @@ const SUBSECTIONS = {
             { t: "code", v: "frontend-design" },
             {
               t: "text",
-              v: " en este repositorio. En lugar de repetir reglas en cada prompt, el agente «abre» la skill cuando la necesita.",
+              v: " en ",
             },
+            { t: "link", v: "este repositorio", href: "https://github.com/KiKDraS/opencode-tutorial" },
+            { t: "text", v: ". En lugar de repetir reglas en cada prompt, el agente «abre» la skill cuando la necesita." },
           ],
         },
         {
@@ -857,7 +877,9 @@ const SUBSECTIONS = {
             { t: "code", v: "opencode.json" },
             { t: "text", v: " con la sintaxis " },
             { t: "code", v: "{file:ruta}" },
-            { t: "text", v: ". En este repositorio, todos los agentes usan " },
+            { t: "text", v: ". En " },
+            { t: "link", v: "este repositorio", href: "https://github.com/KiKDraS/opencode-tutorial" },
+            { t: "text", v: ", todos los agentes usan " },
             { t: "code", v: ".opencode/prompts/agent-knowledge-awareness.md" },
             {
               t: "text",
@@ -897,8 +919,10 @@ const SUBSECTIONS = {
             { t: "strong", v: "plugins" },
             {
               t: "text",
-              v: " de OpenCode son código JavaScript que extiende el comportamiento del agente. Son hooks que se ejecutan en momentos del ciclo de vida: el arranque, cada mensaje, etc. En este repositorio hay cuatro plugins activos: ",
+              v: " de OpenCode son código JavaScript que extiende el comportamiento del agente. Son hooks que se ejecutan en momentos del ciclo de vida: el arranque, cada mensaje, etc. En ",
             },
+            { t: "link", v: "este repositorio", href: "https://github.com/KiKDraS/opencode-tutorial" },
+            { t: "text", v: " hay cuatro plugins activos: " },
             { t: "code", v: "bootstrap.js" },
             { t: "text", v: ", " },
             { t: "code", v: "env-protection.js" },
@@ -941,8 +965,10 @@ const SUBSECTIONS = {
             { t: "em", v: "Model Context Protocol" },
             {
               t: "text",
-              v: ") es un estándar abierto para conectar herramientas externas a agentes. Son servidores, locales o remotos, que exponen recursos y funciones. En este repositorio hay tres servidores MCP configurados en ",
+              v: ") es un estándar abierto para conectar herramientas externas a agentes. Son servidores, locales o remotos, que exponen recursos y funciones. En ",
             },
+            { t: "link", v: "este repositorio", href: "https://github.com/KiKDraS/opencode-tutorial" },
+            { t: "text", v: " hay tres servidores MCP configurados en " },
             { t: "code", v: "opencode.json" },
             { t: "text", v: ": " },
             { t: "code", v: "playwright-test" },
@@ -985,16 +1011,18 @@ const SUBSECTIONS = {
         {
           type: "p",
           inline: [
-            { t: "text", v: "Este sitio es el " },
+            { t: "text", v: "Esta página web es el " },
             { t: "strong", v: "ejemplo vivo" },
             {
               t: "text",
-              v: " de todo lo explicado. Está construido con Vite + HTML5 + CSS nativo + JS ES6, gestionado con pnpm y desplegado en ",
+              v: " de todo lo explicado: está construida con Vite + HTML5 + CSS nativo + JS ES6, gestionada con pnpm y desplegada en ",
             },
             { t: "strong", v: "GitHub Pages" },
+            { t: "text", v: ". El " },
+            { t: "link", v: "repositorio que la genera", href: "https://github.com/KiKDraS/opencode-tutorial" },
             {
               t: "text",
-              v: ". El repositorio implementa, de verdad, la estructura ",
+              v: " implementa, de verdad, la estructura ",
             },
             { t: "code", v: ".opencode/" },
             { t: "text", v: ", el " },
@@ -1044,8 +1072,10 @@ const SUBSECTIONS = {
           inline: [
             {
               t: "text",
-              v: "Así trabaja este repositorio con sus agentes personalizados:",
+              v: "Así trabaja ",
             },
+            { t: "link", v: "este repositorio", href: "https://github.com/KiKDraS/opencode-tutorial" },
+            { t: "text", v: " con sus agentes personalizados:" },
           ],
         },
         {
@@ -1107,7 +1137,7 @@ const SUBSECTIONS = {
             { t: "code", v: "opencode.json" },
             {
               t: "text",
-              v: ". Ese es el punto: no es teoría, es cómo funciona este sitio.",
+              v: ". Ese es el punto: no es teoría, es cómo se construye esta página.",
             },
           ],
         },
@@ -1129,7 +1159,11 @@ function buildInlineNodes(container, parts) {
     } else {
       node.textContent = part.v;
     }
-    if (part.href) node.href = part.href;
+    if (part.href) {
+      node.href = part.href;
+      node.target = "_blank";
+      node.rel = "noopener noreferrer";
+    }
     container.appendChild(node);
   });
 }
