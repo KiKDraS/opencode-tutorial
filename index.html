@@ -91,8 +91,8 @@
     </nav>
 
     <div class="site-header__actions">
-      <button class="icon-button toc-toggle" type="button" data-toc-toggle aria-expanded="false"
-        aria-controls="toc" aria-label="Abrir tabla de contenidos">
+      <button class="icon-button toc-toggle" type="button" data-toc-toggle aria-expanded="false" aria-controls="toc"
+        aria-label="Abrir tabla de contenidos">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
           aria-hidden="true">
           <line x1="4" y1="6" x2="20" y2="6" />
@@ -174,54 +174,54 @@
             <p>Comparación objetiva con las alternativas más conocidas:</p>
           </div>
           <table class="compare-table">
-              <caption>Comparativa: OpenCode vs Claude Code vs Cursor vs Codex</caption>
-              <thead>
-                <tr>
-                  <th scope="col">Criterio</th>
-                  <th scope="col">OpenCode</th>
-                  <th scope="col">Claude Code</th>
-                  <th scope="col">Cursor</th>
-                  <th scope="col">Codex</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Tipo</th>
-                  <td>Agente de terminal (TUI), open source</td>
-                  <td>Agente de terminal, propietario</td>
-                  <td>Editor/IDE con IA integrada</td>
-                  <td>Agente de terminal + integración en GitHub</td>
-                </tr>
-                <tr>
-                  <th scope="row">Código abierto</th>
-                  <td>Sí</td>
-                  <td>No</td>
-                  <td>No</td>
-                  <td>No</td>
-                </tr>
-                <tr>
-                  <th scope="row">Proveedores de modelo</th>
-                  <td>Multi: Anthropic, OpenAI, Google, Zen, locales</td>
-                  <td>Anthropic (Claude)</td>
-                  <td>Multi (trae modelos propios + trae el tuyo)</td>
-                  <td>OpenAI</td>
-                </tr>
-                <tr>
-                  <th scope="row">Configuración</th>
-                  <td>opencode.json + AGENTS.md</td>
-                  <td>settings.json + CLAUDE.md</td>
-                  <td>Interfaz gráfica + reglas por proyecto</td>
-                  <td>Config por CLI + reglas</td>
-                </tr>
-                <tr>
-                  <th scope="row">Modelos gratuitos</th>
-                  <td>Sí, vía OpenCode Zen</td>
-                  <td>No (suscripción o API)</td>
-                  <td>Prueba limitada</td>
-                  <td>Cuota en planes</td>
-                </tr>
-              </tbody>
-            </table>
+            <caption>Comparativa: OpenCode vs Claude Code vs Cursor vs Codex</caption>
+            <thead>
+              <tr>
+                <th scope="col">Criterio</th>
+                <th scope="col">OpenCode</th>
+                <th scope="col">Claude Code</th>
+                <th scope="col">Cursor</th>
+                <th scope="col">Codex</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Tipo</th>
+                <td>Agente de terminal (TUI), open source</td>
+                <td>Agente de terminal, propietario</td>
+                <td>Editor/IDE con IA integrada</td>
+                <td>Agente de terminal + integración en GitHub</td>
+              </tr>
+              <tr>
+                <th scope="row">Código abierto</th>
+                <td>Sí</td>
+                <td>No</td>
+                <td>No</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <th scope="row">Proveedores de modelo</th>
+                <td>Multi: Anthropic, OpenAI, Google, Zen, locales</td>
+                <td>Anthropic (Claude)</td>
+                <td>Multi (trae modelos propios + trae el tuyo)</td>
+                <td>OpenAI</td>
+              </tr>
+              <tr>
+                <th scope="row">Configuración</th>
+                <td>opencode.json + AGENTS.md</td>
+                <td>settings.json + CLAUDE.md</td>
+                <td>Interfaz gráfica + reglas por proyecto</td>
+                <td>Config por CLI + reglas</td>
+              </tr>
+              <tr>
+                <th scope="row">Modelos gratuitos</th>
+                <td>Sí, vía OpenCode Zen</td>
+                <td>No (suscripción o API)</td>
+                <td>Prueba limitada</td>
+                <td>Cuota en planes</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         <div data-subsection-grid data-section="opencode"></div>
@@ -249,42 +249,42 @@
             </p>
           </div>
           <table class="compare-table">
-              <caption>Traducción de estructura: OpenCode vs Claude Code</caption>
-              <thead>
-                <tr>
-                  <th scope="col">Función</th>
-                  <th scope="col">OpenCode</th>
-                  <th scope="col">Claude Code</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Reglas del proyecto</th>
-                  <td><code>AGENTS.md</code> (y <code>.opencode/docs/</code>)</td>
-                  <td><code>CLAUDE.md</code> (memoria del proyecto)</td>
-                </tr>
-                <tr>
-                  <th scope="row">Carpeta de configuración</th>
-                  <td><code>.opencode/</code></td>
-                  <td><code>.claude/</code></td>
-                </tr>
-                <tr>
-                  <th scope="row">Configuración principal</th>
-                  <td><code>opencode.json</code> (permisos, agentes, MCP, plugins)</td>
-                  <td><code>settings.json</code> (permisos, hooks, MCP)</td>
-                </tr>
-                <tr>
-                  <th scope="row">Skills / habilidades</th>
-                  <td><code>.opencode/skills/</code></td>
-                  <td><code>.claude/skills/</code> (agent skills)</td>
-                </tr>
-                <tr>
-                  <th scope="row">Comandos personalizados</th>
-                  <td><code>.opencode/commands/</code></td>
-                  <td>Slash commands</td>
-                </tr>
-              </tbody>
-            </table>
+            <caption>Traducción de estructura: OpenCode vs Claude Code</caption>
+            <thead>
+              <tr>
+                <th scope="col">Función</th>
+                <th scope="col">OpenCode</th>
+                <th scope="col">Claude Code</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Reglas del proyecto</th>
+                <td><code>AGENTS.md</code> (y <code>.opencode/docs/</code>)</td>
+                <td><code>CLAUDE.md</code> (memoria del proyecto)</td>
+              </tr>
+              <tr>
+                <th scope="row">Carpeta de configuración</th>
+                <td><code>.opencode/</code></td>
+                <td><code>.claude/</code></td>
+              </tr>
+              <tr>
+                <th scope="row">Configuración principal</th>
+                <td><code>opencode.json</code> (permisos, agentes, MCP, plugins)</td>
+                <td><code>settings.json</code> (permisos, hooks, MCP)</td>
+              </tr>
+              <tr>
+                <th scope="row">Skills / habilidades</th>
+                <td><code>.opencode/skills/</code></td>
+                <td><code>.claude/skills/</code> (agent skills)</td>
+              </tr>
+              <tr>
+                <th scope="row">Comandos personalizados</th>
+                <td><code>.opencode/commands/</code></td>
+                <td>Slash commands</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         <div data-subsection-grid data-section="estructura" data-subtopics="opencode-json"></div>
@@ -339,9 +339,13 @@
       <div>
         <p class="site-footer__heading">Videos</p>
         <ul class="site-footer__list">
-          <li><a href="https://youtu.be/H3gH_Fe6xvs" target="_blank" rel="noopener noreferrer">MoureDev — Curso de agentes de IA</a></li>
-          <li><a href="https://youtube.com/live/aDJNG_f2C3E" target="_blank" rel="noopener noreferrer">MoureDev — Curso de OpenCode</a></li>
-          <li><a href="https://midu.dev/curso/intro-ia-para-devs/" target="_blank" rel="noopener noreferrer">midudev — Curso: Introducción a la IA para Developers (lessons: LLM, tokens, agents, Claude Code, MCP, skills)</a></li>
+          <li><a href="https://youtu.be/H3gH_Fe6xvs" target="_blank" rel="noopener noreferrer">MoureDev — Curso de
+              agentes de IA</a></li>
+          <li><a href="https://youtube.com/live/aDJNG_f2C3E" target="_blank" rel="noopener noreferrer">MoureDev — Curso
+              de OpenCode</a></li>
+          <li><a href="https://midu.dev/curso/intro-ia-para-devs/" target="_blank" rel="noopener noreferrer">midudev —
+              Curso: Introducción a la IA para Developers (lessons: LLM, tokens, agents, Claude Code, MCP, skills)</a>
+          </li>
           <li><a href="https://fazt.dev/contenido/curso-practico-gpt-codex-agente-ia" target="_blank"
               rel="noopener noreferrer">Fazt — Curso práctico de GPT Codex</a></li>
         </ul>
@@ -350,9 +354,10 @@
       <div>
         <p class="site-footer__heading">Fuentes</p>
         <ul class="site-footer__list">
-          <li><a href="https://opencode.ai/docs/" target="_blank" rel="noopener noreferrer">Documentación de OpenCode</a></li>
-          <li><a href="https://github.com/KiKDraS/opencode-tutorial" target="_blank"
-              rel="noopener noreferrer">Este repositorio</a></li>
+          <li><a href="https://opencode.ai/docs/" target="_blank" rel="noopener noreferrer">Documentación de
+              OpenCode</a></li>
+          <li><a href="https://github.com/KiKDraS/opencode-tutorial" target="_blank" rel="noopener noreferrer">Este
+              repositorio</a></li>
           <li><a href="accessibility-statement.html">Declaración de accesibilidad</a></li>
         </ul>
       </div>
@@ -364,7 +369,7 @@
       </p>
     </div>
   </footer>
-<!-- ============ TEMPLATES (repeated blocks; cloned by JS at init) ============ -->
+  <!-- ============ TEMPLATES (repeated blocks; cloned by JS at init) ============ -->
   <template id="video-card-template">
     <figure class="video-card">
       <a class="video-card__thumb" data-video-thumb-link target="_blank" rel="noopener noreferrer">
