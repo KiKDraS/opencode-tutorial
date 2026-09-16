@@ -140,7 +140,7 @@ export const FOOTER_LINKS = [
   'midudev — Curso: Introducción a la IA para Developers (lessons: LLM, tokens, agents, Claude Code, MCP, skills)',
   'Fazt — Curso práctico de GPT Codex',
   'Documentación de OpenCode',
-  'Este repositorio',
+  'Repositorio de esta página',
   'Declaración de accesibilidad',
 ];
 
