@@ -1,6 +1,6 @@
 # Agent Context
 
-Goal: **Educational docs site** — what OpenCode is, how to work with it. Web content 100% Spanish. Project files 100% English. Deploy: **GitHub Pages** (`gh-pages`).
+Goal: **Educational docs site** — what OpenCode is, how to work with it.
 
 ## Tech Stack
 
@@ -25,14 +25,6 @@ Strict. No files outside schema.
 ├── index.html sitemap.xml playwright.config.js package.json
 ```
 
-## Content Rules (all agents)
-
-- Web content: 100% Spanish. Project files (code, docs, commits): English.
-- Every claim → source URL (`Sources` block). See SPEC.md §2+§4.
-- Videos: Spanish-speaking youtubers only. Priority MoureDev > midudev. Authorship marked (channel+title+link).
-- Design: DESIGN.md mandatory (documentation aesthetic, WCAG 2.1 AA).
-- Live example: this repo `.opencode/` + `opencode.json` (SPEC.md §3, section 5).
-
 ## Dev Rules by Owner
 
 | Area                | Owner              | File                                  |
@@ -47,8 +39,11 @@ Strict. No files outside schema.
 | Scope                             | Location                                    |
 | --------------------------------- | ------------------------------------------- |
 | All agents                        | this AGENTS.md                              |
+| Content (all agents)              | `SPEC.md` §2 + §4                           |
+| Design (all agents)               | `DESIGN.md`                                 |
 | `frontend-dev`+`code-review` arch | `.opencode/docs/trinity-architecture.md`    |
 | `frontend-dev`+`code-review` perf | `.opencode/docs/performance-reliability.md` |
+| Writing (UI copy + docs prose)    | `.opencode/skills/no-ai-slop/SKILL.md`      |
 | Single agent                      | its agent file                              |
 
 Convention: directive for all agents → AGENTS.md. ≥2 agents → doc in
@@ -70,10 +65,6 @@ Never copy rules — copy = stale. Edit source only.
 **All merges via PR.** `feat/*`→dev delete branch. `release/*`→main tag+GH
 Release→back-merge dev. `hotfix/*`→main tag+GH Release→back-merge dev. Never
 delete main/develop.
-
-**Deploy (GitHub Pages):** release/hotfix after merge to main → `pnpm deploy`
-(build + `gh-pages -d dist`) → `gh-pages` branch → site live. Pages source:
-`gh-pages` branch (enable once, see release-manager).
 
 **Agent perms:**
 

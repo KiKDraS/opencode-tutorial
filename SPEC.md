@@ -61,15 +61,15 @@
 | 2.3 Connect Zen | https://opencode.ai/docs/ (Configure section) · https://opencode.ai/docs/zen/ |
 | 2.4 Multi-provider | https://opencode.ai/docs/providers/ · https://opencode.ai/docs/models/ |
 | 3.1 Structure | https://opencode.ai/docs/ (full nav) · this repo `.opencode/` |
-| 3.2 vs ClaudeCode | https://docs.claude.com/en/docs/claude-code/memory · https://opencode.ai/docs/rules/ |
+| 3.2 vs ClaudeCode | https://docs.claude.com/en/docs/claude-code/memory · https://opencode.ai/docs/instructions/ |
 | 3.3 opencode.json | https://opencode.ai/docs/config/ · this repo `opencode.json` |
 | 4.1 Plan vs Build | https://opencode.ai/docs/ (Plan mode / Tab) · https://opencode.ai/docs/agents/ |
 | 4.2 Loop | https://opencode.ai/docs/ (plan → iterate → build → undo) |
-| 4.3 Permissions | https://opencode.ai/docs/permissions/ · this repo `opencode.json` `permission` block |
-| 4.4 SPEC/AGENTS/DESIGN | https://opencode.ai/docs/rules/ · https://github.com/mouredev/hello-sdd · this repo `AGENTS.md` `SPEC.md` `DESIGN.md` |
-| 4.5 Agents | https://opencode.ai/docs/agents/ · this repo `opencode.json` `agent` block + `.opencode/agents/*.md` |
+| 4.3 Permissions | https://opencode.ai/docs/permissions/ · this repo `opencode.json` `permissions` list |
+| 4.4 SPEC/AGENTS/DESIGN | https://opencode.ai/docs/instructions/ · https://github.com/mouredev/hello-sdd · this repo `AGENTS.md` `SPEC.md` `DESIGN.md` |
+| 4.5 Agents | https://opencode.ai/docs/agents/ · this repo `opencode.json` `agents` block + `.opencode/agents/*.md` |
 | 4.6 Skills | https://opencode.ai/docs/skills/ · https://skills.sh · vs: https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview |
-| 4.7 Prompts | https://opencode.ai/docs/config/ (instructions/prompts) · this repo `.opencode/prompts/*.md` · vs: https://docs.claude.com/en/docs/claude-code/slash-commands |
+| 4.7 Prompts | https://opencode.ai/docs/config/ (system) · https://opencode.ai/docs/instructions/ · this repo `.opencode/prompts/*.md` · vs: https://docs.claude.com/en/docs/claude-code/slash-commands |
 | 4.8 Plugins | https://opencode.ai/docs/plugins/ · this repo `.opencode/plugins/*.js` · vs: https://docs.claude.com/en/docs/claude-code/hooks |
 | 4.9 MCP | https://modelcontextprotocol.io/ · https://opencode.ai/docs/mcp-servers/ · vs: https://docs.claude.com/en/docs/claude-code/mcp |
 | 5 Example | This repo: `AGENTS.md`, `SPEC.md`, `DESIGN.md`, `opencode.json`, `.opencode/` |
