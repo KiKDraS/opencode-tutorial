@@ -1,5 +1,5 @@
-/* DESIGN.md §2 — Design tokens. Light default, auto dark via media query,
-   manual override via data-theme attribute on <html> (JS toggles). */
+/* DESIGN.md §2 — Design tokens. Light default, system dark via media query
+   (pre-JS/no-JS fallback), explicit data-theme="light"|"dark" on <html> set by JS. */
 
 :root {
   /* 2.1 Color palette — light */

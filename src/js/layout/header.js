@@ -1,54 +1,47 @@
-// Header: theme toggle (auto → light → dark) + sticky shadow on scroll.
+// Header: theme toggle (light ↔ dark, system default) + sticky shadow on scroll.
 
 const THEME_STORAGE_KEY = "theme";
-const THEME_ORDER = ["auto", "light", "dark"];
 const SCROLL_SHADOW_THRESHOLD = 8;
 
 function isKnownTheme(value) {
-  return THEME_ORDER.includes(value);
+  return value === "light" || value === "dark";
+}
+
+function systemTheme() {
+  const query = globalThis.matchMedia?.("(prefers-color-scheme: dark)");
+  return query?.matches ? "dark" : "light";
 }
 
 function readStoredTheme() {
   try {
-    return globalThis.localStorage?.getItem(THEME_STORAGE_KEY) ?? "auto";
+    const value = globalThis.localStorage?.getItem(THEME_STORAGE_KEY);
+    return isKnownTheme(value) ? value : null;
   } catch {
-    return "auto";
+    return null;
   }
 }
 
 function storeTheme(theme) {
   try {
-    if (theme === "auto") {
-      globalThis.localStorage?.removeItem(THEME_STORAGE_KEY);
-    } else {
-      globalThis.localStorage?.setItem(THEME_STORAGE_KEY, theme);
-    }
+    globalThis.localStorage?.setItem(THEME_STORAGE_KEY, theme);
   } catch {
-    // Storage unavailable (private mode): theme still applies for this session.
+    // Storage unavailable: theme applies for this session.
   }
 }
 
 function applyTheme(theme) {
-  const root = document.documentElement;
-  if (theme === "auto") {
-    delete root.dataset.theme;
-  } else {
-    root.dataset.theme = theme;
-  }
-  const button = document.querySelector("[data-theme-toggle]");
-  button?.setAttribute("aria-label", `Tema: ${theme}`);
+  document.documentElement.dataset.theme = theme;
+  document.querySelector("[data-theme-toggle]")?.setAttribute(
+    "aria-label",
+    theme === "dark" ? "Tema: oscuro" : "Tema: claro",
+  );
 }
 
-function nextTheme(currentTheme) {
-  const currentIndex = THEME_ORDER.indexOf(currentTheme);
-  return THEME_ORDER[(currentIndex + 1) % THEME_ORDER.length];
-}
-
-function cycleTheme() {
-  const currentTheme = document.documentElement.dataset.theme ?? "auto";
-  const theme = nextTheme(currentTheme);
-  applyTheme(theme);
-  storeTheme(theme);
+function toggleTheme() {
+  const current = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+  const next = current === "dark" ? "light" : "dark";
+  applyTheme(next);
+  storeTheme(next);
 }
 
 function updateHeaderShadow() {
@@ -61,17 +54,15 @@ export function init() {
   const themeButton = document.querySelector("[data-theme-toggle]");
   if (!themeButton) return;
 
-  const storedTheme = readStoredTheme();
-  const theme = isKnownTheme(storedTheme) ? storedTheme : "auto";
-  applyTheme(theme);
+  applyTheme(readStoredTheme() ?? systemTheme());
 
-  themeButton.addEventListener("click", cycleTheme);
+  themeButton.addEventListener("click", toggleTheme);
 
   updateHeaderShadow();
   globalThis.addEventListener("scroll", updateHeaderShadow, { passive: true });
 
   return () => {
-    themeButton.removeEventListener("click", cycleTheme);
+    themeButton.removeEventListener("click", toggleTheme);
     globalThis.removeEventListener("scroll", updateHeaderShadow);
   };
 }

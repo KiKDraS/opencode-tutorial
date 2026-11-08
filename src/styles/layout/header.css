@@ -118,8 +118,19 @@
   display: block;
 }
 
-:root:not([data-theme]) .icon-button__icon--auto {
+/* Pre-JS/no-JS fallback: match the system while data-theme is absent. */
+:root:not([data-theme]) .icon-button__icon--sun {
   display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .icon-button__icon--sun {
+    display: none;
+  }
+
+  :root:not([data-theme]) .icon-button__icon--moon {
+    display: block;
+  }
 }
 
 /* TOC toggle shows only below desktop */

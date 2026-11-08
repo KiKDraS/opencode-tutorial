@@ -203,14 +203,18 @@ export class MainPage {
   }
 }
 
-export async function expectThemeState(page: Page, theme: 'auto' | 'light' | 'dark'): Promise<void> {
-  await expect(page.locator('[data-theme-toggle]')).toHaveAttribute('aria-label', `Tema: ${theme}`);
-  if (theme === 'auto') {
-    expect(await page.locator('html').getAttribute('data-theme')).toBeNull();
-    expect(await page.evaluate(() => localStorage.getItem('theme'))).toBeNull();
-  } else {
-    await expect(page.locator('html')).toHaveAttribute('data-theme', theme);
+export async function expectThemeState(
+  page: Page,
+  theme: 'light' | 'dark',
+  { stored = true }: { stored?: boolean } = {},
+): Promise<void> {
+  const label = theme === 'dark' ? 'Tema: oscuro' : 'Tema: claro';
+  await expect(page.locator('[data-theme-toggle]')).toHaveAttribute('aria-label', label);
+  await expect(page.locator('html')).toHaveAttribute('data-theme', theme);
+  if (stored) {
     await expect.poll(() => page.evaluate(() => localStorage.getItem('theme'))).toBe(theme);
+  } else {
+    expect(await page.evaluate(() => localStorage.getItem('theme'))).toBeNull();
   }
 }
 
