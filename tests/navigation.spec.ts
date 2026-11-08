@@ -33,7 +33,7 @@ test.describe('Navigation', () => {
     }
   });
 
-  test('TC-1.2 TOC renders 5 groups + 22 items with valid hrefs', async ({ page }) => {
+  test('TC-1.2 TOC renders 5 groups + 23 items with valid hrefs', async ({ page }) => {
     const main = new MainPage(page);
     await main.goto();
 
@@ -42,9 +42,9 @@ test.describe('Navigation', () => {
     await expect(groups).toHaveCount(5);
     await expect(groups).toHaveText(TOC_SECTIONS.map((s) => s.label));
 
-    // 3. 22 item links; every TOC link href (groups + items) points to an existing element id
+    // 3. 23 item links; every TOC link href (groups + items) points to an existing element id
     const items = page.locator('[data-toc-sublist] a');
-    await expect(items).toHaveCount(22);
+    await expect(items).toHaveCount(23);
     await expect(items).toHaveText(TOC_SECTIONS.flatMap((s) => s.items.map((i) => i.label)));
     for (const section of TOC_SECTIONS) {
       await expect(page.locator(`[data-toc-group-link][href="${section.href}"]`)).toHaveCount(1);
@@ -64,7 +64,7 @@ test.describe('Navigation', () => {
 
       // 1-2. Desktop: click TOC items → native hash jump; target lands at the
       // scroll-padding-top offset (CSS smooth ~400ms, no JS phase)
-      for (const item of ['2.2 OpenCode Zen', '4.9 MCP', '5.2 Flujo de trabajo']) {
+      for (const item of ['2.2 OpenCode Console', '4.9 MCP', '5.2 Flujo de trabajo']) {
         const href = TOC_SECTIONS.flatMap((s) => s.items).find((i) => i.label === item)!.href;
         await main.tocLinks.filter({ hasText: item }).click();
         await expectNativeAnchorJump(page, href);
@@ -96,7 +96,7 @@ test.describe('Navigation', () => {
     },
   );
 
-  test('TC-1.5 All 22 TOC anchors land on the correct heading (id match sweep)', async ({ page }) => {
+  test('TC-1.5 All 23 TOC anchors land on the correct heading (id match sweep)', async ({ page }) => {
     const main = new MainPage(page);
     await main.goto();
 

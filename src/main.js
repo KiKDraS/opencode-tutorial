@@ -1,13 +1,13 @@
 // Entry point: init only. Guards each module (skip if its DOM is missing),
 // isolates failures so one broken module never blocks the rest.
 
-import { init as initHeader } from "./js/layout/header.js";
-import { init as initToc } from "./js/layout/toc.js";
-import { init as initSubsections } from "./js/components/subsections.js";
-import { init as initVideoCard } from "./js/components/video-card.js";
+import { init as initCallout } from "./js/components/callout.js";
 import { init as initCodeBlock } from "./js/components/code-block.js";
 import { init as initSources } from "./js/components/sources.js";
-import { init as initCallout } from "./js/components/callout.js";
+import { init as initSubsections } from "./js/components/subsections.js";
+import { init as initVideoCard } from "./js/components/video-card.js";
+import { init as initHeader } from "./js/layout/header.js";
+import { init as initToc } from "./js/layout/toc.js";
 
 const MODULES = [
   // Subsections first: their slot containers (video/code/callout) are created

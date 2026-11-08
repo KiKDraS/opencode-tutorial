@@ -10,7 +10,7 @@ test.describe('Console cleanliness', () => {
     await main.goto();
 
     // 0 console errors, 0 warnings, 0 uncaught exceptions, 0 failed resources
-    await expect(page.locator('main h3')).toHaveCount(27);
+    await expect(page.locator('main h3')).toHaveCount(28);
     assertCleanConsole(sink);
   });
 
@@ -18,10 +18,9 @@ test.describe('Console cleanliness', () => {
     const sink = collectConsole(page);
     const main = new MainPage(page);
     await main.goto();
-    await expect(page.locator('main h3')).toHaveCount(27);
+    await expect(page.locator('main h3')).toHaveCount(28);
 
-    // Theme cycle ×3 (auto → light → dark → auto)
-    await main.themeToggle.click();
+    // Theme toggle ×2 (light ↔ dark)
     await main.themeToggle.click();
     await main.themeToggle.click();
 

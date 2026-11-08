@@ -73,7 +73,7 @@ test.describe('Mobile viewport', () => {
     await expectDrawer(page, true);
 
     // TOC item click closes the drawer (scroll covered by TC-1.3)
-    await main.tocLinks.filter({ hasText: '2.2 OpenCode Zen' }).click();
+    await main.tocLinks.filter({ hasText: '2.2 OpenCode Console' }).click();
     await expectDrawer(page, false);
   });
 
@@ -93,25 +93,26 @@ test.describe('Mobile viewport', () => {
     },
   );
 
-  test('TC-6.4b Tables self-scroll; code blocks scroll within their container', async ({ page }) => {
+  test('TC-6.4b Table wrapper scrolls internally; code blocks scroll within their container', async ({ page }) => {
     const main = new MainPage(page);
     await main.goto();
 
-    // 2. .compare-table scrolls internally: scrollWidth > clientWidth, overflow-x auto
-    const table = page.locator('table.compare-table').first();
-    await expect(table).toHaveCSS('overflow-x', 'auto');
-    await expect.poll(() => table.evaluate((el) => el.scrollWidth > el.clientWidth)).toBe(true);
+    // 2. .table-scroll wrapper scrolls internally: scrollWidth > clientWidth, overflow-x auto
+    const scroller = page.locator('.table-scroll').first();
+    await expect(scroller).toHaveCSS('overflow-x', 'auto');
+    await expect.poll(() => scroller.evaluate((el) => el.scrollWidth > el.clientWidth)).toBe(true);
+    await expect(page.locator('.compare-table').first()).toHaveCSS('min-width', '640px');
 
-    // Swipe/scroll table 1 to reveal the Codex column ("Cuota en planes")
-    await table.evaluate((el) => {
+    // Swipe/scroll wrapper 1 to reveal the Codex column ("Cuota en planes de pago")
+    await scroller.evaluate((el) => {
       el.scrollLeft = el.scrollWidth;
     });
     const codexVisible = await page.evaluate(() => {
-      const tbl = document.querySelector('table.compare-table')!;
-      const cell = [...tbl.querySelectorAll('td')].find((td) => td.textContent === 'Cuota en planes')!;
-      const tr = tbl.getBoundingClientRect();
+      const wrapper = document.querySelector('.table-scroll')!;
+      const cell = [...wrapper.querySelectorAll('td')].find((td) => td.textContent === 'Cuota en planes de pago')!;
+      const wr = wrapper.getBoundingClientRect();
       const cr = cell.getBoundingClientRect();
-      return cr.left >= tr.left && cr.right <= tr.right;
+      return cr.left >= wr.left && cr.right <= wr.right;
     });
     expect(codexVisible).toBe(true);
 

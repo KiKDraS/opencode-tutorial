@@ -21,6 +21,7 @@
 - Code samples: real, verifiable (bash/JSON/Markdown).
 - Video titles in this spec are real YouTube titles — embed verbatim on site (channel + title + link).
 - This repo (`.opencode/`, `opencode.json`, `AGENTS.md`) = live example (section 5).
+- OpenCode V2 native config; V1 fields only to explain migration.
 - Web content: 100% Spanish. Project files: 100% English.
 
 ## 3. Site Structure (Spanish names = final site content)
@@ -28,9 +29,9 @@
 | # | Section (ES, as shown on site) | Subtopics (ES, as shown on site) |
 |---|---|---|
 | 1 | Fundamentos de LLMs | 1.1 ¿Qué es un LLM? ¿Cómo funciona? · 1.2 ¿Qué es un agente? Agente vs LLM · 1.3 ¿Cómo se mide la inteligencia de un LLM? Qué mirar para elegir modelo · 1.4 ¿Cómo funciona el conteo de tokens? |
-| 2 | OpenCode | 2.1 ¿Qué es? vs ClaudeCode \| Cursor \| Codex · 2.2 OpenCode Zen: cuenta + modelos gratuitos · 2.3 Conectar modelos Zen a OpenCode · 2.4 Multi-proveedor |
+| 2 | OpenCode | 2.1 ¿Qué es? vs ClaudeCode \| Cursor \| Codex · 2.2 OpenCode Console: cuenta + modelos gratuitos · 2.3 Conectar modelos de Console a OpenCode · 2.4 Multi-proveedor · 2.5 Qué cambia en OpenCode V2 |
 | 3 | Estructura `.opencode/` | 3.1 Carpetas y uso (intro) · 3.2 vs ClaudeCode (estructura/config) · 3.3 `opencode.json`: qué es, por qué importa |
-| 4 | Trabajar con agentes | 4.1 Agente. Plan vs Build · 4.2 Loop prompt → crear → iterar (y por qué importa) · 4.3 Permisos (y por qué importan) · 4.4 SPEC.md / AGENTS.md / DESIGN.md (y por qué importan) · 4.5 Agentes personalizados: primary vs sub-agent · 4.6 Skills · 4.7 Prompts · 4.8 Plugins · 4.9 MCP (4.6–4.9: own subtopic + vs ClaudeCode) |
+| 4 | Trabajar con agentes | 4.1 Agente. Plan vs Build · 4.2 Loop prompt → crear → iterar (y por qué importa) · 4.3 Permisos (y por qué importan) · 4.4 SPEC.md / AGENTS.md / DESIGN.md (y por qué importan) · 4.5 Agentes personalizados: primary vs sub-agent · 4.6 Skills · 4.7 Prompts y comandos · 4.8 Plugins · 4.9 MCP (4.6–4.9: own subtopic + vs ClaudeCode) |
 | 5 | Ejemplo real | This project: `.opencode/`, `opencode.json`, agents, workflow |
 
 ## 4. Sources and Videos per Topic
@@ -57,26 +58,28 @@
 | 1.3 Measurement | https://lmarena.ai/ · https://artificialanalysis.ai/ · https://www.swebench.com/ · https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard |
 | 1.4 Tokens | https://platform.openai.com/tokenizer (browser) · https://huggingface.co/learn/agents-course/es/unit1/what-are-llms · https://midu.dev/curso/intro-ia-para-devs/ |
 | 2.1 OpenCode vs | https://opencode.ai/docs/ · https://docs.claude.com/en/docs/claude-code/overview · https://www.cursor.com/docs · https://openai.com/codex/ (browser) |
-| 2.2 Zen | https://opencode.ai/zen · https://opencode.ai/docs/zen · https://opencode.ai/docs/providers/ |
-| 2.3 Connect Zen | https://opencode.ai/docs/ (Configure section) · https://opencode.ai/docs/zen/ |
+| 2.2 Console | https://opencode.ai/console · https://opencode.ai/docs/console/models/ · https://opencode.ai/docs/providers/ |
+| 2.3 Connect Console | https://opencode.ai/docs/console/models/ · https://opencode.ai/docs/providers/ |
 | 2.4 Multi-provider | https://opencode.ai/docs/providers/ · https://opencode.ai/docs/models/ |
+| 2.5 V2 changes | https://opencode.ai/docs/migrate-v1/ · https://opencode.ai/docs/config/ |
 | 3.1 Structure | https://opencode.ai/docs/ (full nav) · this repo `.opencode/` |
-| 3.2 vs ClaudeCode | https://docs.claude.com/en/docs/claude-code/memory · https://opencode.ai/docs/rules/ |
+| 3.2 vs ClaudeCode | https://docs.claude.com/en/docs/claude-code/memory · https://opencode.ai/docs/instructions/ |
 | 3.3 opencode.json | https://opencode.ai/docs/config/ · this repo `opencode.json` |
-| 4.1 Plan vs Build | https://opencode.ai/docs/ (Plan mode / Tab) · https://opencode.ai/docs/agents/ |
+| 4.1 Plan vs Build | https://opencode.ai/docs/cli/tui/ · https://opencode.ai/docs/agents/ |
 | 4.2 Loop | https://opencode.ai/docs/ (plan → iterate → build → undo) |
-| 4.3 Permissions | https://opencode.ai/docs/permissions/ · this repo `opencode.json` `permission` block |
-| 4.4 SPEC/AGENTS/DESIGN | https://opencode.ai/docs/rules/ · https://github.com/mouredev/hello-sdd · this repo `AGENTS.md` `SPEC.md` `DESIGN.md` |
-| 4.5 Agents | https://opencode.ai/docs/agents/ · this repo `opencode.json` `agent` block + `.opencode/agents/*.md` |
+| 4.3 Permissions | https://opencode.ai/docs/permissions/ · https://opencode.ai/docs/migrate-v1/ · this repo `opencode.json` `permissions` list |
+| 4.4 SPEC/AGENTS/DESIGN | https://opencode.ai/docs/instructions/ · https://github.com/mouredev/hello-sdd · this repo `AGENTS.md` `SPEC.md` `DESIGN.md` |
+| 4.5 Agents | https://opencode.ai/docs/agents/ · this repo `opencode.json` `agents` block + `.opencode/agents/*.md` |
 | 4.6 Skills | https://opencode.ai/docs/skills/ · https://skills.sh · vs: https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview |
-| 4.7 Prompts | https://opencode.ai/docs/config/ (instructions/prompts) · this repo `.opencode/prompts/*.md` · vs: https://docs.claude.com/en/docs/claude-code/slash-commands |
-| 4.8 Plugins | https://opencode.ai/docs/plugins/ · this repo `.opencode/plugins/*.js` · vs: https://docs.claude.com/en/docs/claude-code/hooks |
+| 4.7 Prompts y comandos | https://opencode.ai/docs/instructions/ · https://opencode.ai/docs/commands/ · this repo `.opencode/prompts/*.md` · vs: https://docs.claude.com/en/docs/claude-code/slash-commands |
+| 4.8 Plugins | https://opencode.ai/docs/build/plugins/ · https://opencode.ai/docs/build/plugins/migrate-v1/ · this repo `.opencode/plugins/*.js` · vs: https://docs.claude.com/en/docs/claude-code/hooks |
 | 4.9 MCP | https://modelcontextprotocol.io/ · https://opencode.ai/docs/mcp-servers/ · vs: https://docs.claude.com/en/docs/claude-code/mcp |
 | 5 Example | This repo: `AGENTS.md`, `SPEC.md`, `DESIGN.md`, `opencode.json`, `.opencode/` |
 
 ## 5. Acceptance Criteria
 
 - All sections 1–5 present, in Spanish on the site.
+- V2 native shapes shown (`permissions`, `agents`, `plugins`, `mcp.servers`); V1 names only in migration context.
 - Every section: `Sources` block with ≥1 URL + video with authorship (if exists per rules).
 - vs ClaudeCode/Cursor/Codex comparisons: objective table (no fanboy).
 - Every section reachable from TOC/sidebar.
@@ -84,4 +87,4 @@
 ## 6. Out of Scope
 
 - Full step-by-step install tutorials (intro/concepts only).
-- English web content. Paid-service promotion (Zen free = explain how it works only).
+- English web content. Paid-service promotion (Console free = explain how it works only; no Go promotion).

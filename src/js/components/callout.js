@@ -4,8 +4,10 @@
 const CALLOUTS = [
   {
     kind: "note",
-    strong: "Zen gratis = sin tarjeta.",
-    body: [{ text: "La cuenta gratuita no requiere método de pago." }],
+    strong: "Hay modelos gratuitos.",
+    body: [
+      { text: "OpenCode Console ofrece modelos free por tiempo limitado; el resto se paga por uso. La lista y los precios cambian: consulta la documentación enlazada." },
+    ],
   },
   {
     kind: "warning",
@@ -20,7 +22,7 @@ const CALLOUTS = [
     kind: "note",
     strong: "Por qué importan:",
     body: [
-      { code: '"*": "ask"' },
+      { code: '{ "action": "shell", "resource": "*", "effect": "ask" }' },
       { text: " significa que cualquier comando fuera de la lista blanca requiere tu aprobación. Es el límite de daño: un error del agente no puede borrar archivos (" },
       { code: "rm" },
       { text: " denegado) ni ejecutar nada raro sin que tú lo veas." },

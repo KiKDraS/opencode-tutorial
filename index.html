@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OpenCode Tutorial — Agentes de IA para desarrolladores</title>
   <meta name="description"
-    content="Aprende qué son los LLMs y los agentes de IA, cómo funciona OpenCode, su configuración, los agentes personalizados y un ejemplo real. Con fuentes y videos en español." />
+    content="Empieza desde cero con los LLMs y agentes de IA: qué son, cómo usar OpenCode, configurarlo, crear agentes y un ejemplo real. Con fuentes y videos en español." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://KiKDraS.github.io/opencode-tutorial/" />
 
@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://KiKDraS.github.io/opencode-tutorial/" />
   <meta property="og:title" content="OpenCode Tutorial — Agentes de IA para desarrolladores" />
   <meta property="og:description"
-    content="Guía educativa en español: LLMs, agentes de IA, OpenCode, configuración .opencode/ y agentes personalizados. Cada sección cita sus fuentes." />
+    content="Guía educativa en español para empezar con LLMs y agentes de IA: OpenCode, configuración .opencode/, agentes personalizados y ejemplo real. Cada sección cita sus fuentes." />
   <meta property="og:image" content="https://KiKDraS.github.io/opencode-tutorial/logo.png" />
   <meta property="og:locale" content="es_ES" />
 
@@ -24,7 +24,7 @@
   <meta name="twitter:image" content="https://KiKDraS.github.io/opencode-tutorial/logo.png" />
   <meta name="twitter:title" content="OpenCode Tutorial — Agentes de IA para desarrolladores" />
   <meta name="twitter:description"
-    content="Guía educativa en español: LLMs, agentes de IA, OpenCode y agentes personalizados, con fuentes y videos." />
+    content="Guía educativa en español para empezar: LLMs, agentes de IA, OpenCode y agentes personalizados, con fuentes y videos." />
 
   <!-- Favicon set (kept as-is) -->
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
@@ -43,14 +43,14 @@
           "name": "OpenCode Tutorial",
           "url": "https://KiKDraS.github.io/opencode-tutorial/",
           "inLanguage": "es",
-          "description": "Documentación educativa sobre OpenCode y agentes de IA, en español."
+          "description": "Documentación educativa en español para empezar con OpenCode y agentes de IA."
         },
         {
           "@type": "LearningResource",
           "name": "OpenCode Tutorial — Agentes de IA para desarrolladores",
           "url": "https://KiKDraS.github.io/opencode-tutorial/",
           "inLanguage": "es",
-          "description": "Guía completa: fundamentos de LLMs, OpenCode, estructura .opencode/, agentes personalizados y ejemplo real.",
+          "description": "Guía para empezar desde cero: fundamentos de LLMs, OpenCode, estructura .opencode/, agentes personalizados y ejemplo real.",
           "learningResourceType": "tutorial",
           "educationalLevel": "beginner",
           "about": [
@@ -91,8 +91,8 @@
     </nav>
 
     <div class="site-header__actions">
-      <button class="icon-button toc-toggle" type="button" data-toc-toggle aria-expanded="false"
-        aria-controls="toc" aria-label="Abrir tabla de contenidos">
+      <button class="icon-button toc-toggle" type="button" data-toc-toggle aria-expanded="false" aria-controls="toc"
+        aria-label="Abrir tabla de contenidos">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
           aria-hidden="true">
           <line x1="4" y1="6" x2="20" y2="6" />
@@ -101,13 +101,8 @@
         </svg>
       </button>
 
-      <button class="icon-button" type="button" data-theme-toggle aria-label="Tema: automático"
-        title="Cambiar tema (auto / claro / oscuro)">
-        <svg class="icon-button__icon--auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="9" />
-          <path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none" />
-        </svg>
+      <button class="icon-button" type="button" data-theme-toggle aria-label="Cambiar tema"
+        title="Cambiar tema (claro / oscuro)">
         <svg class="icon-button__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round" aria-hidden="true">
           <circle cx="12" cy="12" r="4" />
@@ -135,10 +130,10 @@
     <main class="article" id="main-content" tabindex="-1">
       <!-- ============ HERO ============ -->
       <div class="article__hero" id="inicio">
-        <span class="article__eyebrow">Guía educativa · Español</span>
+        <span class="article__eyebrow">Guía educativa para empezar · Español</span>
         <h1>OpenCode: aprende a trabajar con agentes de IA</h1>
         <p>
-          Qué es un modelo de lenguaje, qué es un agente y cómo usar
+          Empieza desde cero: qué es un modelo de lenguaje, qué es un agente de IA y cómo usar
           <strong>OpenCode</strong>, el agente de código abierto que corre en tu terminal. Cada sección
           termina con un bloque de <strong>fuentes verificables</strong> y videos en español con su autoría.
         </p>
@@ -166,14 +161,16 @@
           <h3 id="que-es-opencode">2.1 ¿Qué es? vs ClaudeCode | Cursor | Codex</h3>
           <div class="article__body">
             <p>
-              <strong>OpenCode</strong> es un agente de IA de <strong>código abierto</strong> que se usa
-              desde la terminal: una interfaz de texto (TUI) donde le describes una tarea y el agente
-              edita archivos, ejecuta comandos y propone cambios. Es multi-proveedor: funciona con
-              Anthropic, OpenAI, Google, modelos locales y el servicio gratuito OpenCode Zen.
+              <strong>OpenCode</strong> es un agente de IA de <strong>código abierto</strong> que funciona en
+              tres superficies: terminal (TUI), escritorio y web. La terminal es una interfaz de texto
+              (TUI): describes una tarea y el agente edita archivos, ejecuta comandos y propone cambios.
+              Es <strong>multi-proveedor</strong>: funciona con varios proveedores a la vez — Anthropic,
+              OpenAI, Google, modelos locales y OpenCode Console.
             </p>
             <p>Comparación objetiva con las alternativas más conocidas:</p>
           </div>
-          <table class="compare-table">
+          <div class="table-scroll" role="region" aria-label="Comparativa: OpenCode vs Claude Code vs Cursor vs Codex" tabindex="0">
+            <table class="compare-table">
               <caption>Comparativa: OpenCode vs Claude Code vs Cursor vs Codex</caption>
               <thead>
                 <tr>
@@ -187,9 +184,9 @@
               <tbody>
                 <tr>
                   <th scope="row">Tipo</th>
-                  <td>Agente de terminal (TUI), open source</td>
+                  <td>Agente de terminal (TUI), escritorio y web; open source</td>
                   <td>Agente de terminal, propietario</td>
-                  <td>Editor/IDE con IA integrada</td>
+                  <td>Editor/IDE (entorno de desarrollo) con IA integrada</td>
                   <td>Agente de terminal + integración en GitHub</td>
                 </tr>
                 <tr>
@@ -201,27 +198,28 @@
                 </tr>
                 <tr>
                   <th scope="row">Proveedores de modelo</th>
-                  <td>Multi: Anthropic, OpenAI, Google, Zen, locales</td>
+                  <td>Multi: Anthropic, OpenAI, Google, Console, locales</td>
                   <td>Anthropic (Claude)</td>
                   <td>Multi (trae modelos propios + trae el tuyo)</td>
                   <td>OpenAI</td>
                 </tr>
                 <tr>
                   <th scope="row">Configuración</th>
-                  <td>opencode.json + AGENTS.md</td>
+                  <td>opencode.json(c) + AGENTS.md</td>
                   <td>settings.json + CLAUDE.md</td>
                   <td>Interfaz gráfica + reglas por proyecto</td>
-                  <td>Config por CLI + reglas</td>
+                  <td>Config por CLI (línea de comandos) + reglas</td>
                 </tr>
                 <tr>
                   <th scope="row">Modelos gratuitos</th>
-                  <td>Sí, vía OpenCode Zen</td>
+                  <td>Sí, vía OpenCode Console (modelos free)</td>
                   <td>No (suscripción o API)</td>
                   <td>Prueba limitada</td>
-                  <td>Cuota en planes</td>
+                  <td>Cuota en planes de pago</td>
                 </tr>
               </tbody>
             </table>
+          </div>
         </div>
 
         <div data-subsection-grid data-section="opencode"></div>
@@ -244,11 +242,12 @@
           <h3 id="vs-claude-code">3.2 vs ClaudeCode (estructura/config)</h3>
           <div class="article__body">
             <p>
-              Claude Code y OpenCode resuelven lo mismo con nombres distintos. La tabla ayuda a
+              Claude Code y OpenCode resuelven lo mismo, pero usan nombres distintos. La tabla te ayuda a
               traducir entre uno y otro:
             </p>
           </div>
-          <table class="compare-table">
+          <div class="table-scroll" role="region" aria-label="Traducción de estructura: OpenCode vs Claude Code" tabindex="0">
+            <table class="compare-table">
               <caption>Traducción de estructura: OpenCode vs Claude Code</caption>
               <thead>
                 <tr>
@@ -260,7 +259,7 @@
               <tbody>
                 <tr>
                   <th scope="row">Reglas del proyecto</th>
-                  <td><code>AGENTS.md</code> (y <code>.opencode/docs/</code>)</td>
+                  <td><code>AGENTS.md</code> + <code>instructions</code></td>
                   <td><code>CLAUDE.md</code> (memoria del proyecto)</td>
                 </tr>
                 <tr>
@@ -270,8 +269,13 @@
                 </tr>
                 <tr>
                   <th scope="row">Configuración principal</th>
-                  <td><code>opencode.json</code> (permisos, agentes, MCP, plugins)</td>
+                  <td><code>opencode.json(c)</code> (permisos, agentes, plugins, <code>mcp.servers</code>)</td>
                   <td><code>settings.json</code> (permisos, hooks, MCP)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Plugins / hooks</th>
+                  <td><code>.opencode/plugins/</code> (JS, API V2)</td>
+                  <td><code>settings.json</code> (hooks)</td>
                 </tr>
                 <tr>
                   <th scope="row">Skills / habilidades</th>
@@ -285,6 +289,7 @@
                 </tr>
               </tbody>
             </table>
+          </div>
         </div>
 
         <div data-subsection-grid data-section="estructura" data-subtopics="opencode-json"></div>
@@ -331,17 +336,21 @@
       <div class="site-footer__brand">
         <img src="/src/assets/logo.png" alt="Logo de OpenCode Tutorial" width="120" height="52" />
         <p>
-          Guía educativa y neutral sobre OpenCode y agentes de IA, en español. Sin afiliación con las
-          herramientas mencionadas.
+          Guía educativa y neutral para empezar con OpenCode y agentes de IA, en español. Sin afiliación con
+          las herramientas mencionadas.
         </p>
       </div>
 
       <div>
         <p class="site-footer__heading">Videos</p>
         <ul class="site-footer__list">
-          <li><a href="https://youtu.be/H3gH_Fe6xvs" target="_blank" rel="noopener noreferrer">MoureDev — Curso de agentes de IA</a></li>
-          <li><a href="https://youtube.com/live/aDJNG_f2C3E" target="_blank" rel="noopener noreferrer">MoureDev — Curso de OpenCode</a></li>
-          <li><a href="https://midu.dev/curso/intro-ia-para-devs/" target="_blank" rel="noopener noreferrer">midudev — Curso: Introducción a la IA para Developers (lessons: LLM, tokens, agents, Claude Code, MCP, skills)</a></li>
+          <li><a href="https://youtu.be/H3gH_Fe6xvs" target="_blank" rel="noopener noreferrer">MoureDev — Curso de
+              agentes de IA</a></li>
+          <li><a href="https://youtube.com/live/aDJNG_f2C3E" target="_blank" rel="noopener noreferrer">MoureDev — Curso
+              de OpenCode</a></li>
+          <li><a href="https://midu.dev/curso/intro-ia-para-devs/" target="_blank" rel="noopener noreferrer">midudev —
+              Curso: Introducción a la IA para Developers (lessons: LLM, tokens, agents, Claude Code, MCP, skills)</a>
+          </li>
           <li><a href="https://fazt.dev/contenido/curso-practico-gpt-codex-agente-ia" target="_blank"
               rel="noopener noreferrer">Fazt — Curso práctico de GPT Codex</a></li>
         </ul>
@@ -350,9 +359,10 @@
       <div>
         <p class="site-footer__heading">Fuentes</p>
         <ul class="site-footer__list">
-          <li><a href="https://opencode.ai/docs/" target="_blank" rel="noopener noreferrer">Documentación de OpenCode</a></li>
-          <li><a href="https://github.com/KiKDraS/opencode-tutorial" target="_blank"
-              rel="noopener noreferrer">Este repositorio</a></li>
+          <li><a href="https://opencode.ai/docs/" target="_blank" rel="noopener noreferrer">Documentación de
+              OpenCode</a></li>
+          <li><a href="https://github.com/KiKDraS/opencode-tutorial" target="_blank" rel="noopener noreferrer">Repositorio
+              de esta página</a></li>
           <li><a href="accessibility-statement.html">Declaración de accesibilidad</a></li>
         </ul>
       </div>
@@ -364,7 +374,7 @@
       </p>
     </div>
   </footer>
-<!-- ============ TEMPLATES (repeated blocks; cloned by JS at init) ============ -->
+  <!-- ============ TEMPLATES (repeated blocks; cloned by JS at init) ============ -->
   <template id="video-card-template">
     <figure class="video-card">
       <a class="video-card__thumb" data-video-thumb-link target="_blank" rel="noopener noreferrer">

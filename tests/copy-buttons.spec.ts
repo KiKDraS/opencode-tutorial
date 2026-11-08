@@ -8,7 +8,7 @@ test.describe('Copy buttons', () => {
     // Clipboard needs permissions before the copy calls
     await page.context().grantPermissions(['clipboard-read', 'clipboard-write']);
     await page.goto(APP_PATH);
-    await expect(page.locator('main h3')).toHaveCount(27);
+    await expect(page.locator('main h3')).toHaveCount(28);
   });
 
   test('TC-4.1 Copy success on first code block', async ({ page }) => {
@@ -36,15 +36,15 @@ test.describe('Copy buttons', () => {
     const clip = await page.evaluate(() => navigator.clipboard.readText());
     const code = await block.locator('pre').textContent();
     expect(clip).toBe(code);
-    expect(clip.startsWith('# 1. Instala OpenCode')).toBe(true);
+    expect(clip.startsWith('# 1. Ejecuta OpenCode')).toBe(true);
 
     // 5. After ~2.5 s the status clears (generous poll window)
     await expect.poll(() => status.textContent(), { timeout: 4000 }).toBe('');
   });
 
-  test('TC-4.2 Copy works for every block (7/7)', async ({ page }) => {
+  test('TC-4.2 Copy works for every block (8/8)', async ({ page }) => {
     // Each block: click copy → success status + clipboard equals that block's code
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 8; i++) {
       const block = page.locator('[data-code-block]').nth(i);
       await block.locator('[data-copy-button]').evaluate((btn) => btn.click());
       await expect(block.locator('.code-status')).toHaveText('Copiado al portapapeles');
@@ -72,7 +72,7 @@ test.describe('Copy buttons', () => {
       document.execCommand = () => false;
     });
     await page.goto(APP_PATH);
-    await expect(page.locator('main h3')).toHaveCount(27);
+    await expect(page.locator('main h3')).toHaveCount(28);
 
     // Click copy → failure status, no aria-pressed
     const block = page.locator('[data-code-block]').first();

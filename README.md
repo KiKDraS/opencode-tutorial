@@ -16,7 +16,7 @@
 
 Web content 100% Spanish. Project files 100% English. Deployed to GitHub Pages.
 
-![Version](https://img.shields.io/badge/version-0.1.0-blue?style=flat-square)
+![Version](https://img.shields.io/badge/version-0.2.0-blue?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
@@ -35,7 +35,7 @@ A documentation site that explains, for Spanish-speaking developers:
 - **LLM fundamentals** — what an LLM is, agents vs LLMs, how model intelligence
   is measured, how tokens work.
 - **OpenCode** — what it is, how it compares to Claude Code / Cursor / Codex,
-  OpenCode Zen, multi-provider setup.
+  OpenCode Console (antes Zen), multi-provider setup.
 - **The `.opencode/` folder** — structure, `opencode.json`, comparison with
   Claude Code.
 - **Working with agents** — plan vs build, the prompt/create/iterate loop,
@@ -70,10 +70,10 @@ No frameworks, no UI libraries.
 ## Setup
 
 ```bash
-npm install        # installs deps (postinstall runs scripts/init.mjs)
-npm run setup      # codegraph index + Playwright browsers (auto on first load)
-npm run dev        # dev server → http://localhost:5173
-npm run build      # production build to dist/
+pnpm install       # installs deps (postinstall runs scripts/init.mjs)
+pnpm run setup     # codegraph index + Playwright browsers (auto on first load)
+pnpm run dev       # dev server → http://localhost:5173
+pnpm run build     # production build to dist/
 ```
 
 ## Content rules (binding, see SPEC.md)
@@ -136,7 +136,7 @@ via `{file:path}`).
 
 | Secret               | Setup Command                                       | Purpose                                                                                            |
 | -------------------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| **Context7 API Key** | `echo "<key>" > .opencode/secrets/context7-api-key` | Optional. Local docs fetching. `"enabled": true` under `"context7"` in `opencode.json`.            |
+| **Context7 API Key** | `echo "<key>" > .opencode/secrets/context7-api-key` | Optional. Local docs fetching. `"disabled": false` under `"mcp.servers.context7"` in `opencode.json`. |
 | **GitHub Token**     | `echo "<token>" > .opencode/secrets/github-token`   | Required by `@release-manager` (PRs, merges, deploys). Fallback: git credentials → `GITHUB_TOKEN`. |
 
 ## Troubleshooting
@@ -146,7 +146,7 @@ via `{file:path}`).
 | `bad file reference: "{file:...}"`             | Missing file referenced in `opencode.json`; shipped placeholder is committed |
 | `opencode.json is not valid JSON`              | Validate: `pnpm dlx jsonlint opencode.json`                                  |
 | `browserType.launch: Executable doesn't exist` | Install browsers: `pnpm run setup`                                           |
-| MCP server tool unavailable                    | Check `"enabled": true` in `opencode.json` and restart session               |
+| MCP server tool unavailable                    | Check `"disabled": false` in `opencode.json` and restart session             |
 
 ## License
 
