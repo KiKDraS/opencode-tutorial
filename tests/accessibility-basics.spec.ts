@@ -105,8 +105,8 @@ test.describe('Accessibility basics', () => {
     const main = new MainPage(page);
     await main.goto();
 
-    // 1. Theme button aria-label matches the current theme (auto at blank state)
-    await expect(main.themeToggle).toHaveAttribute('aria-label', 'Tema: auto');
+    // 1. Theme button label describes the action (light → switch to dark)
+    await expect(main.themeToggle).toHaveAttribute('aria-label', 'Cambiar a oscuro');
 
     // 2. TOC toggle: aria-controls="toc", aria-expanded reflects the drawer state
     await expect(main.tocToggle).toHaveAttribute('aria-controls', 'toc');
@@ -123,7 +123,7 @@ test.describe('Accessibility basics', () => {
 
     // 4. Placeholder thumb links expose aria-label = title; decorative SVGs aria-hidden; copy status role="status"
     await expect(page.locator('.video-card').nth(1).locator('[data-video-thumb-link]')).toHaveAttribute('aria-label', VIDEO_CARDS[1].title);
-    await expect(page.locator('.site-header svg[aria-hidden="true"]')).toHaveCount(4);
+    await expect(page.locator('.site-header svg[aria-hidden="true"]')).toHaveCount(3);
     await expect(page.locator('[data-callout-icon][aria-hidden="true"]')).toHaveCount(3);
     await expect(page.locator('[data-code-block] .code-status').first()).toHaveAttribute('role', 'status');
   });

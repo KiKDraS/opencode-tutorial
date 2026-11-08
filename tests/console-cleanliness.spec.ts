@@ -20,8 +20,7 @@ test.describe('Console cleanliness', () => {
     await main.goto();
     await expect(page.locator('main h3')).toHaveCount(28);
 
-    // Theme cycle ×3 (auto → light → dark → auto)
-    await main.themeToggle.click();
+    // Theme toggle ×2 (light ↔ dark)
     await main.themeToggle.click();
     await main.themeToggle.click();
 

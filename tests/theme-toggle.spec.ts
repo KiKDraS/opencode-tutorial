@@ -1,53 +1,79 @@
-// spec: specs/test-plan-page.md — Suite 3 Theme toggle (auto → light → dark + persistence)
+// spec: specs/test-plan-page.md — Suite 3 Theme toggle (light ↔ dark + system default)
 
 import { test, expect } from '@playwright/test';
 import { APP_PATH, MainPage, assertCleanConsole, collectConsole, expectThemeState } from './helpers/main-page';
 
+const SUN = '.icon-button__icon--sun';
+const MOON = '.icon-button__icon--moon';
+
 test.describe('Theme toggle', () => {
-  // Blank state: every test runs in a fresh context, so localStorage starts
-  // empty ("auto"). NOTE: do NOT clear localStorage via addInitScript — it runs
-  // on every navigation (including page.reload) and would break TC-3.2.
-  test('TC-3.1 Cycle auto → light → dark → auto', async ({ page }) => {
+  // Every test runs in a fresh context, so localStorage starts empty and the
+  // system preference decides the initial theme (never persisted until click).
+  test('TC-3.1 System light default; click toggles light ↔ dark', async ({ page }) => {
     const main = new MainPage(page);
     await main.goto();
 
-    // 1. Blank state: aria-label "Tema: auto", no data-theme on <html>
-    await expectThemeState(page, 'auto');
+    // 1. No stored preference + light system → explicit light, moon (switch to dark), no storage
+    await expectThemeState(page, 'light', { stored: false });
+    await expect(page.locator(MOON)).toBeVisible();
+    await expect(page.locator(SUN)).toBeHidden();
 
-    // 2. Click once → light
-    await main.themeToggle.click();
-    await expectThemeState(page, 'light');
-
-    // 3. Click again → dark
+    // 2. Click → dark, sun (switch to light), stored
     await main.themeToggle.click();
     await expectThemeState(page, 'dark');
+    await expect(page.locator(SUN)).toBeVisible();
+    await expect(page.locator(MOON)).toBeHidden();
 
-    // 4. Click again → auto; data-theme removed; localStorage key removed
+    // 3. Click → light, moon, stored
     await main.themeToggle.click();
-    await expectThemeState(page, 'auto');
-    expect(await page.locator('html').getAttribute('data-theme')).toBeNull();
+    await expectThemeState(page, 'light');
+    await expect(page.locator(MOON)).toBeVisible();
+    await expect(page.locator(SUN)).toBeHidden();
   });
 
-  test('TC-3.2 Persistence across reload', async ({ page }) => {
+  test('TC-3.2 System dark default', async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'dark' });
     const main = new MainPage(page);
     await main.goto();
 
-    // 1. Set dark, reload → still dark
-    await main.themeToggle.click();
+    // Dark resolution is explicit in the DOM but not persisted
+    await expectThemeState(page, 'dark', { stored: false });
+    await expect(page.locator(SUN)).toBeVisible();
+    await expect(page.locator(MOON)).toBeHidden();
+  });
+
+  test('TC-3.3 Stored preference wins over system', async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'dark' });
+    const main = new MainPage(page);
+    await main.goto();
+    await expectThemeState(page, 'dark', { stored: false });
+
+    await page.evaluate(() => localStorage.setItem('theme', 'light'));
+    await page.reload();
+
     await expectThemeState(page, 'light');
+    await expect(page.locator(MOON)).toBeVisible();
+    await expect(page.locator(SUN)).toBeHidden();
+  });
+
+  test('TC-3.4 Persistence across reload', async ({ page }) => {
+    const main = new MainPage(page);
+    await main.goto();
+
+    // 1. Click to dark, reload → dark
     await main.themeToggle.click();
     await expectThemeState(page, 'dark');
     await page.reload();
     await expectThemeState(page, 'dark');
 
-    // 2. Set auto, reload → back to auto (clean-up verified)
+    // 2. Click to light, reload → light
     await main.themeToggle.click();
-    await expectThemeState(page, 'auto');
+    await expectThemeState(page, 'light');
     await page.reload();
-    await expectThemeState(page, 'auto');
+    await expectThemeState(page, 'light');
   });
 
-  test('TC-3.3 No-JS/storage-failure resilience', async ({ page }) => {
+  test('TC-3.5 Storage failure', async ({ page }) => {
     // localStorage throws (private mode): theme still applies in-session, no console error
     const sink = collectConsole(page);
     await page.addInitScript(() => {
@@ -62,12 +88,13 @@ test.describe('Theme toggle', () => {
       };
     });
     await page.goto(APP_PATH);
-    await expect(page.locator('[data-theme-toggle]')).toHaveAttribute('aria-label', 'Tema: auto');
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+    await expect(page.locator('[data-theme-toggle]')).toHaveAttribute('aria-label', 'Cambiar a oscuro');
 
     // Click still updates data-theme for the session
     await page.locator('[data-theme-toggle]').click();
-    await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
-    await expect(page.locator('[data-theme-toggle]')).toHaveAttribute('aria-label', 'Tema: light');
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+    await expect(page.locator('[data-theme-toggle]')).toHaveAttribute('aria-label', 'Cambiar a claro');
     assertCleanConsole(sink);
   });
 });

@@ -21,7 +21,7 @@ Reader finishes a section understanding the concept and knowing where to continu
 |---|---|
 | **Aesthetic Direction** | Clean technical documentation (reference: opencode.ai/docs, docs.claude.com). Clarity > spectacle |
 | **Typography** | Space Grotesk (display) + Inter (body) + JetBrains Mono (code) |
-| **Color Strategy** | Cool neutrals (slate) + indigo accent. High text/background contrast. Light default + auto dark |
+| **Color Strategy** | Cool neutrals (slate) + indigo accent. High text/background contrast. System preference on first load; explicit light/dark toggle persisted after click |
 | **Layout Approach** | Sticky sidebar TOC (left) + article column (~72ch) + top nav. Mobile: collapsible TOC |
 | **Background Treatment** | Flat, subtle section separation (borders, not heavy shadows) |
 | **Motion Choreography** | None — no scroll-driven animation. Hover/focus transitions only (short, token-based) |
@@ -62,7 +62,7 @@ Fill into `src/styles/boilerplate/variables.css`.
 | `--color-success` | `#16a34a` | — | Success states |
 | `--color-warning` | `#d97706` | — | Warning states |
 
-**Dark mode:** `@media (prefers-color-scheme: dark) { :root { ... } }`. Override only color tokens.
+**Dark mode:** system preference via `@media (prefers-color-scheme: dark)` as pre-JS fallback; JS resolves stored `light`/`dark` or system preference into `data-theme` on `<html>`. Override only color tokens.
 
 ### 2.2 Typography Scale (use `clamp()` for fluid sizing)
 
