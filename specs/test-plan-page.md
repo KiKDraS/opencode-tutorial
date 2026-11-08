@@ -32,7 +32,7 @@ and static markup in `index.html`.
 | TOC href→target | group hrefs = section ids above; item hrefs = h3 ids (see content map below) |
 | Video cards | **15** across 7 grids (`[data-video-grid]`); thumbs `loading="lazy"`; 3 placeholder cards (`aria-label` = title) |
 | Sources per section | fundamentos **11**, opencode **9**, estructura **7**, agentes **23**, ejemplo-real **6** (total **56**) |
-| Compare tables | 2, both `.compare-table` (self `overflow-x: auto`, `min-width: 640px`); captions below |
+| Compare tables | 2, both wrapped in `.table-scroll` (`overflow-x: auto`); inner `.compare-table` keeps `min-width: 640px`; captions below |
 | Code blocks | **8**, labels: `terminal`, `estructura (este repo)`, `opencode.json (extracto)`, `opencode.json → permissions (extracto)`, `AGENTS.md (este repo)`, `opencode.json → agents (este repo)`, `plugin V2 (extracto)`, `terminal` |
 | Copy buttons | label `Copiar`; success status `Copiado al portapapeles` (transient ~2 s); failure `No se pudo copiar`; `aria-pressed` set true on success |
 | Callouts | 3: `Hay modelos gratuitos.`, `No se edita sin aprobación.`, `Por qué importan:` |
@@ -267,10 +267,14 @@ columns `Función | OpenCode | Claude Code`. Rows:
 **TC-6.3 Backdrop click closes drawer**
 1. Open drawer; click `[data-toc-backdrop]` → drawer closes (same assertions).
 
-**TC-6.4 Content readable; tables self-scroll; **no page-level horizontal overflow (KNOWN DEFECT)****
-1. At 390×844, closed drawer: assert main content width ≤ viewport; assert `document.documentElement.scrollWidth` **==** `clientWidth` (**currently FAILS: scrollWidth = 656 vs 390 — the closed off-canvas drawer (`.toc`, `position: fixed; transform: translateX(100%)`) extends the document's scrollable overflow by ~266 px**). Report as defect; success criterion = no horizontal page scroll.
-2. Assert `.compare-table` scrolls internally: `table.scrollWidth > table.clientWidth` and `getComputedStyle(table).overflowX === 'auto'`; swipe/scroll table 1 to reveal `Codex` column content (`Cuota en planes`).
-3. Assert code blocks scroll horizontally within their own container (`pre` overflow-x auto) and no element except the drawer exceeds viewport width when drawer is closed.
+**TC-6.4 Content readable; no page-level horizontal overflow (P1 fixed)**
+1. At 390×844, closed drawer: assert main content width ≤ viewport; assert `document.documentElement.scrollWidth` **≤** `clientWidth`; success criterion = no horizontal page scroll.
+2. Internal table/code-block scrolling is covered by TC-6.4b.
+
+**TC-6.4b Table wrapper scrolls internally; code blocks scroll within their container**
+1. Assert `.table-scroll` wrapper scrolls internally: `scroller.scrollWidth > scroller.clientWidth` and `getComputedStyle(scroller).overflowX === 'auto'`; inner `.compare-table` keeps `min-width: 640px`.
+2. Swipe/scroll wrapper 1 to reveal the `Codex` column content (`Cuota en planes de pago`); compare the cell rect to the **wrapper** rect.
+3. Assert code blocks scroll horizontally within their own container (`pre` overflow-x auto).
 
 **TC-6.5 Header remains usable at 390 px**
 1. Assert logo link + 2 icon buttons visible; header nav links hidden (or collapsed per DESIGN.md) — assert no horizontal overflow contribution from header.
