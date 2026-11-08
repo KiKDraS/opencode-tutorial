@@ -809,7 +809,7 @@ const SUBSECTIONS = {
             { t: "code", v: "permissions" },
             {
               t: "text",
-              v: " es una lista ordenada: la última regla que coincide gana, así que las reglas generales van primero y las excepciones después. La lista de ",
+              v: " es una lista ordenada: la última regla que coincide gana, así que las reglas generales van primero y las excepciones después. Un extracto de ",
             },
             { t: "link", v: "este repositorio", href: "https://github.com/KiKDraS/opencode-tutorial" },
             { t: "text", v: ":" },
@@ -858,14 +858,39 @@ const SUBSECTIONS = {
         {
           type: "p",
           inline: [
+            { t: "text", v: "El extracto muestra el patrón: una regla general " },
+            { t: "code", v: "shell *: ask" },
+            { t: "text", v: ", permisos de solo lectura (" },
+            { t: "code", v: "ls" },
+            { t: "text", v: ", " },
+            { t: "code", v: "cat" },
+            { t: "text", v: ", " },
+            { t: "code", v: "git status" },
+            { t: "text", v: ", " },
+            { t: "code", v: "gh pr list" },
+            { t: "text", v: ") y " },
+            { t: "code", v: "rm *: deny" },
+            { t: "text", v: ". El archivo real añade más comandos de lectura de " },
+            { t: "code", v: "git" },
+            { t: "text", v: " y " },
+            { t: "code", v: "gh" },
+            { t: "text", v: "." },
+          ],
+        },
+        {
+          type: "p",
+          inline: [
             {
               t: "text",
-              v: "V2 permite rutas externas por defecto. Este repositorio añade ",
+              v: "V2 permite rutas externas por defecto. Si quieres que te pregunte antes de salir del proyecto, añade ",
             },
-            { t: "code", v: "external_directory: ask" },
+            {
+              t: "code",
+              v: '{ "action": "external_directory", "resource": "*", "effect": "ask" }',
+            },
             {
               t: "text",
-              v: " para recuperar la confirmación. Las reglas de cada agente se añaden después de las globales.",
+              v: "; este repositorio no lo hace. Las reglas de cada agente se añaden después de las globales.",
             },
           ],
         },

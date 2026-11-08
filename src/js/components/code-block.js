@@ -26,7 +26,7 @@ $ opencode
 └── skills/     # habilidades reutilizables (accessibility-wcag, seo, playwright, …)`,
   },
   {
-    label: "opencode.json (este repo)",
+    label: "opencode.json (extracto)",
     code: `{
   "$schema": "https://opencode.ai/config.json",
   "instructions": [
@@ -34,13 +34,14 @@ $ opencode
     ".opencode/prompts/agent-knowledge-awareness.md"
   ],
   "permissions": [
-    { "action": "playwright*", "resource": "*", "effect": "deny" },
     { "action": "shell", "resource": "*", "effect": "ask" },
-    { "action": "shell", "resource": "git *", "effect": "allow" },
-    { "action": "shell", "resource": "pnpm *", "effect": "allow" },
-    { "action": "shell", "resource": "rm *", "effect": "deny" },
-    { "action": "shell", "resource": "grep *", "effect": "allow" },
-    { "action": "external_directory", "resource": "*", "effect": "ask" }
+    { "action": "shell", "resource": "ls *", "effect": "allow" },
+    { "action": "shell", "resource": "cat *", "effect": "allow" },
+    { "action": "shell", "resource": "git status *", "effect": "allow" },
+    { "action": "shell", "resource": "gh pr list *", "effect": "allow" },
+    { "action": "shell", "resource": "npm run build *", "effect": "allow" },
+    { "action": "shell", "resource": "npx playwright test *", "effect": "allow" },
+    { "action": "shell", "resource": "rm *", "effect": "deny" }
   ],
   "plugins": ["@dietrichgebert/ponytail"],
   "mcp": {
@@ -57,15 +58,16 @@ $ opencode
 }`,
   },
   {
-    label: "opencode.json → permissions (este repo)",
+    label: "opencode.json → permissions (extracto)",
     code: `"permissions": [
-  { "action": "playwright*", "resource": "*", "effect": "deny" },
   { "action": "shell", "resource": "*", "effect": "ask" },
-  { "action": "shell", "resource": "git *", "effect": "allow" },
-  { "action": "shell", "resource": "pnpm *", "effect": "allow" },
-  { "action": "shell", "resource": "rm *", "effect": "deny" },
-  { "action": "shell", "resource": "grep *", "effect": "allow" },
-  { "action": "external_directory", "resource": "*", "effect": "ask" }
+  { "action": "shell", "resource": "ls *", "effect": "allow" },
+  { "action": "shell", "resource": "cat *", "effect": "allow" },
+  { "action": "shell", "resource": "git status *", "effect": "allow" },
+  { "action": "shell", "resource": "gh pr list *", "effect": "allow" },
+  { "action": "shell", "resource": "npm run build *", "effect": "allow" },
+  { "action": "shell", "resource": "npx playwright test *", "effect": "allow" },
+  { "action": "shell", "resource": "rm *", "effect": "deny" }
 ]`,
   },
   {

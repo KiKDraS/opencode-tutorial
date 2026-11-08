@@ -129,8 +129,8 @@ export const VIDEO_CARDS: Array<{ title: string; channel: string; kind: 'thumb' 
 export const CODE_BLOCK_LABELS = [
   'terminal',
   'estructura (este repo)',
-  'opencode.json (este repo)',
-  'opencode.json → permissions (este repo)',
+  'opencode.json (extracto)',
+  'opencode.json → permissions (extracto)',
   'AGENTS.md (este repo)',
   'opencode.json → agents (este repo)',
   'plugin V2 (extracto)',

@@ -163,7 +163,7 @@ test.describe('Content presence', () => {
       await expect(block.locator('[data-copy-button]')).toHaveText('Copiar');
     }
 
-    // 2. Block 3 (opencode.json este repo) content spot-checks
+    // 2. Block 3 (opencode.json extracto) content spot-checks
     const block3 = page.locator('[data-code-block]').nth(2).locator('pre');
     await expect(block3).toContainText('"default_agent": "orchestrator"');
     await expect(block3).toContainText('"resource": "rm *"');
