@@ -166,11 +166,11 @@
           <h3 id="que-es-opencode">2.1 ¿Qué es? vs ClaudeCode | Cursor | Codex</h3>
           <div class="article__body">
             <p>
-              <strong>OpenCode</strong> es un agente de IA de <strong>código abierto</strong> que se usa
-              desde la terminal. La terminal es una interfaz de texto (TUI): tú le describes una tarea y el
-              agente edita archivos, ejecuta comandos y propone cambios. Es <strong>multi-proveedor</strong>:
-              funciona con varios proveedores a la vez — Anthropic, OpenAI, Google, modelos locales y el
-              servicio gratuito OpenCode Zen.
+              <strong>OpenCode</strong> es un agente de IA de <strong>código abierto</strong> que funciona en
+              tres superficies: terminal (TUI), escritorio y web. La terminal es una interfaz de texto
+              (TUI): describes una tarea y el agente edita archivos, ejecuta comandos y propone cambios.
+              Es <strong>multi-proveedor</strong>: funciona con varios proveedores a la vez — Anthropic,
+              OpenAI, Google, modelos locales y OpenCode Console.
             </p>
             <p>Comparación objetiva con las alternativas más conocidas:</p>
           </div>
@@ -188,7 +188,7 @@
             <tbody>
               <tr>
                 <th scope="row">Tipo</th>
-                <td>Agente de terminal (TUI), open source</td>
+                <td>Agente de terminal (TUI), escritorio y web; open source</td>
                 <td>Agente de terminal, propietario</td>
                 <td>Editor/IDE (entorno de desarrollo) con IA integrada</td>
                 <td>Agente de terminal + integración en GitHub</td>
@@ -202,21 +202,21 @@
               </tr>
               <tr>
                 <th scope="row">Proveedores de modelo</th>
-                <td>Multi: Anthropic, OpenAI, Google, Zen, locales</td>
+                <td>Multi: Anthropic, OpenAI, Google, Console, locales</td>
                 <td>Anthropic (Claude)</td>
                 <td>Multi (trae modelos propios + trae el tuyo)</td>
                 <td>OpenAI</td>
               </tr>
               <tr>
                 <th scope="row">Configuración</th>
-                <td>opencode.json + AGENTS.md</td>
+                <td>opencode.json(c) + AGENTS.md</td>
                 <td>settings.json + CLAUDE.md</td>
                 <td>Interfaz gráfica + reglas por proyecto</td>
                 <td>Config por CLI (línea de comandos) + reglas</td>
               </tr>
               <tr>
                 <th scope="row">Modelos gratuitos</th>
-                <td>Sí, vía OpenCode Zen</td>
+                <td>Sí, vía OpenCode Console (modelos free)</td>
                 <td>No (suscripción o API)</td>
                 <td>Prueba limitada</td>
                 <td>Cuota en planes de pago</td>
@@ -261,7 +261,7 @@
             <tbody>
               <tr>
                 <th scope="row">Reglas del proyecto</th>
-                <td><code>AGENTS.md</code> (y <code>.opencode/docs/</code>)</td>
+                <td><code>AGENTS.md</code> + <code>instructions</code></td>
                 <td><code>CLAUDE.md</code> (memoria del proyecto)</td>
               </tr>
               <tr>
@@ -271,8 +271,13 @@
               </tr>
               <tr>
                 <th scope="row">Configuración principal</th>
-                <td><code>opencode.json</code> (permisos, agentes, MCP, plugins)</td>
+                <td><code>opencode.json(c)</code> (permisos, agentes, plugins, <code>mcp.servers</code>)</td>
                 <td><code>settings.json</code> (permisos, hooks, MCP)</td>
+              </tr>
+              <tr>
+                <th scope="row">Plugins / hooks</th>
+                <td><code>.opencode/plugins/</code> (JS, API V2)</td>
+                <td><code>settings.json</code> (hooks)</td>
               </tr>
               <tr>
                 <th scope="row">Skills / habilidades</th>

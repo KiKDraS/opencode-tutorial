@@ -73,7 +73,7 @@ test.describe('Mobile viewport', () => {
     await expectDrawer(page, true);
 
     // TOC item click closes the drawer (scroll covered by TC-1.3)
-    await main.tocLinks.filter({ hasText: '2.2 OpenCode Zen' }).click();
+    await main.tocLinks.filter({ hasText: '2.2 OpenCode Console' }).click();
     await expectDrawer(page, false);
   });
 

@@ -47,7 +47,7 @@ test.describe('Accessibility basics', () => {
     const main = new MainPage(page);
     await main.goto();
 
-    // Exactly 1 h1, 5 h2, 27 h3, zero h4+; every h3 sits inside an .article__section
+    // Exactly 1 h1, 5 h2, 28 h3, zero h4+; every h3 sits inside an .article__section
     const counts = await page.evaluate(() => ({
       h1: document.querySelectorAll('h1').length,
       h2: document.querySelectorAll('h2').length,
@@ -57,7 +57,7 @@ test.describe('Accessibility basics', () => {
       h6: document.querySelectorAll('h6').length,
       orphanH3: [...document.querySelectorAll('h3')].filter((h) => !h.closest('.article__section')).length,
     }));
-    expect(counts).toEqual({ h1: 1, h2: 5, h3: 27, h4: 0, h5: 0, h6: 0, orphanH3: 0 });
+    expect(counts).toEqual({ h1: 1, h2: 5, h3: 28, h4: 0, h5: 0, h6: 0, orphanH3: 0 });
   });
 
   test(
@@ -182,8 +182,8 @@ test.describe('Accessibility basics', () => {
   test.fixme(
     'TC-7.6 No-JS fallback shows all content',
     // FIXME: the plan assumes all content is static in the DOM without JS.
-    // Verified 2026-09-06: subsections (22 h3s), sources (50 links), video cards
-    // (15) and code blocks (7) are rendered client-side by src/js/components/*.js
+    // Verified 2026-11-08: subsections (23 h3s), sources (56 links), video cards
+    // (15) and code blocks (8) are rendered client-side by src/js/components/*.js
     // — with JS disabled only the static shells exist (hero, 5 section h2s, the
     // 2 static h3s 2.1/3.2, 2 compare tables, footer). The full plan assertions
     // cannot pass as written; the static-shell baseline below is what holds.

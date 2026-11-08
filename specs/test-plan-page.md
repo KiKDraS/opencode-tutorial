@@ -7,7 +7,7 @@
   sections, compare tables, video cards, code blocks, callouts, sources, theme toggle,
   copy buttons, accessibility statement page, console cleanliness.
 - **Language of plan:** English. **Test data:** exact Spanish strings (verbatim from the
-  running build — verified against the live DOM on 2026-09-06).
+  running build — verified against the live DOM on 2026-11-08).
 - **Out of scope:** visual regression screenshots, Lighthouse budgets, cross-browser
   matrix (Chromium is the reference; Firefox/WebKit smoke = optional).
 - **Assumption for every scenario:** blank state — fresh browser context, cleared
@@ -25,17 +25,17 @@ and static markup in `index.html`.
 | Page title | `OpenCode Tutorial — Agentes de IA para desarrolladores` |
 | h1 (hero) | `OpenCode: aprende a trabajar con agentes de IA` + eyebrow `Guía educativa · Español` |
 | h2 count / ids | 5 — `fundamentos-titulo`, `opencode-titulo`, `estructura-titulo`, `agentes-titulo`, `ejemplo-titulo` |
-| h3 count | 27 (22 content + 5 × `Fuentes`) — no h4+; hierarchy h1→h2→h3, no skips |
+| h3 count | 28 (23 content + 5 × `Fuentes`) — no h4+; hierarchy h1→h2→h3, no skips |
 | Section ids | `#fundamentos`, `#opencode`, `#estructura-opencode`, `#agentes`, `#ejemplo-real` |
 | Header nav links | `Fundamentos`→`#fundamentos`, `OpenCode`→`#opencode`, `Estructura`→`#estructura-opencode`, `Agentes`→`#agentes`, `Ejemplo real`→`#ejemplo-real` (all `data-spy-link`) |
-| TOC | 5 groups + 22 items = 27 links; title `Contenido`; group 3 label contains inline `<code>.opencode/</code>` |
+| TOC | 5 groups + 23 items = 28 links; title `Contenido`; group 3 label contains inline `<code>.opencode/</code>` |
 | TOC href→target | group hrefs = section ids above; item hrefs = h3 ids (see content map below) |
 | Video cards | **15** across 7 grids (`[data-video-grid]`); thumbs `loading="lazy"`; 3 placeholder cards (`aria-label` = title) |
-| Sources per section | fundamentos **11**, opencode **8**, estructura **6**, agentes **19**, ejemplo-real **6** (total **50**) |
+| Sources per section | fundamentos **11**, opencode **9**, estructura **7**, agentes **23**, ejemplo-real **6** (total **56**) |
 | Compare tables | 2, both `.compare-table` (self `overflow-x: auto`, `min-width: 640px`); captions below |
-| Code blocks | **7**, labels: `terminal`, `estructura (este repo)`, `opencode.json (este repo)`, `opencode.json → permissions (este repo)`, `AGENTS.md (este repo)`, `opencode.json → agents (este repo)`, `terminal` |
+| Code blocks | **8**, labels: `terminal`, `estructura (este repo)`, `opencode.json (este repo)`, `opencode.json → permissions (este repo)`, `AGENTS.md (este repo)`, `opencode.json → agents (este repo)`, `plugin V2 (extracto)`, `terminal` |
 | Copy buttons | label `Copiar`; success status `Copiado al portapapeles` (transient ~2 s); failure `No se pudo copiar`; `aria-pressed` set true on success |
-| Callouts | 3: `Zen gratis = sin tarjeta.`, `No se edita sin aprobación.`, `Por qué importan:` |
+| Callouts | 3: `Hay modelos gratuitos.`, `No se edita sin aprobación.`, `Por qué importan:` |
 | Theme toggle | initial aria-label `Tema: auto`; cycle auto→light→dark; `localStorage` key `theme` (removed on auto); `data-theme` on `<html>` |
 | Skip link | `Saltar al contenido principal` → `#main-content`; visible + focus ring (`2px solid rgb(79,70,229)`) on focus |
 | Footer | 3 link groups (Videos 4 links / Fuentes 3 links incl. `Declaración de accesibilidad` → `accessibility-statement.html`) |
@@ -51,9 +51,10 @@ and static markup in `index.html`.
 | | 1.3 Medir la inteligencia de un LLM | `medir-inteligencia` | `1.3 ¿Cómo se mide la inteligencia de un LLM? Qué mirar para elegir modelo` |
 | | 1.4 Conteo de tokens | `conteo-tokens` | `1.4 ¿Cómo funciona el conteo de tokens?` |
 | 2. OpenCode | 2.1 ¿Qué es? | `que-es-opencode` | `2.1 ¿Qué es? vs ClaudeCode \| Cursor \| Codex` (static) |
-| | 2.2 OpenCode Zen | `opencode-zen` | `2.2 OpenCode Zen: cuenta y modelos gratuitos` |
-| | 2.3 Conectar modelos Zen | `conectar-zen` | `2.3 Conectar modelos Zen a OpenCode` |
+| | 2.2 OpenCode Console | `opencode-zen` | `2.2 OpenCode Console: cuenta y modelos gratuitos` |
+| | 2.3 Conectar Console | `conectar-zen` | `2.3 Conectar modelos de Console a OpenCode` |
 | | 2.4 Multi-proveedor | `multi-proveedor` | `2.4 Multi-proveedor` |
+| | 2.5 Qué cambia en V2 | `cambios-v2` | `2.5 Qué cambia en OpenCode V2` |
 | 3. Estructura `.opencode/` | 3.1 Carpetas y uso | `carpetas-uso` | `3.1 Carpetas y uso` |
 | | 3.2 vs Claude Code | `vs-claude-code` | `3.2 vs ClaudeCode (estructura/config)` (static) |
 | | 3.3 opencode.json | `opencode-json` | `3.3 opencode.json: qué es y por qué importa` |
@@ -63,7 +64,7 @@ and static markup in `index.html`.
 | | 4.4 SPEC / AGENTS / DESIGN | `spec-agents-design` | `4.4 SPEC.md / AGENTS.md / DESIGN.md (y por qué importan)` |
 | | 4.5 Agentes personalizados: primary vs sub-agent | `agentes-personalizados` | `4.5 Agentes personalizados: primary vs sub-agent` |
 | | 4.6 Skills | `skills` | `4.6 Skills (vs Claude Code)` |
-| | 4.7 Prompts | `prompts` | `4.7 Prompts (vs Claude Code)` |
+| | 4.7 Prompts y comandos | `prompts` | `4.7 Prompts y comandos (vs Claude Code)` |
 | | 4.8 Plugins | `plugins` | `4.8 Plugins (vs Claude Code)` |
 | | 4.9 MCP | `mcp` | `4.9 MCP (vs Claude Code)` |
 | 5. Ejemplo real | 5.1 El proyecto | `proyecto-real` | `5.1 El proyecto` |
@@ -95,17 +96,18 @@ Card link text: `Ver en YouTube` (thumbnails) / `Abrir curso` (placeholders).
 
 **Table 1** — caption `Comparativa: OpenCode vs Claude Code vs Cursor vs Codex`;
 columns `Criterio | OpenCode | Claude Code | Cursor | Codex`. Rows:
-`Tipo` (…TUI… / …terminal, propietario / Editor/IDE con IA integrada / Agente de terminal + integración en GitHub),
+`Tipo` (Agente de terminal (TUI), escritorio y web; open source / …terminal, propietario / Editor/IDE con IA integrada / Agente de terminal + integración en GitHub),
 `Código abierto` (Sí / No / No / No),
-`Proveedores de modelo` (Multi: Anthropic, OpenAI, Google, Zen, locales / Anthropic (Claude) / Multi (…) / OpenAI),
-`Configuración` (opencode.json + AGENTS.md / settings.json + CLAUDE.md / … / Config por CLI + reglas),
-`Modelos gratuitos` (Sí, vía OpenCode Zen / No (suscripción o API) / Prueba limitada / Cuota en planes).
+`Proveedores de modelo` (Multi: Anthropic, OpenAI, Google, Console, locales / Anthropic (Claude) / Multi (…) / OpenAI),
+`Configuración` (opencode.json(c) + AGENTS.md / settings.json + CLAUDE.md / … / Config por CLI + reglas),
+`Modelos gratuitos` (Sí, vía OpenCode Console (modelos free) / No (suscripción o API) / Prueba limitada / Cuota en planes).
 
 **Table 2** — caption `Traducción de estructura: OpenCode vs Claude Code`;
 columns `Función | OpenCode | Claude Code`. Rows:
-`Reglas del proyecto` (AGENTS.md (y .opencode/docs/) / CLAUDE.md (memoria del proyecto)),
+`Reglas del proyecto` (AGENTS.md + instructions / CLAUDE.md (memoria del proyecto)),
 `Carpeta de configuración` (.opencode/ / .claude/),
-`Configuración principal` (opencode.json (permisos, agentes, MCP, plugins) / settings.json (permisos, hooks, MCP)),
+`Configuración principal` (opencode.json(c) (permisos, agentes, plugins, mcp.servers) / settings.json (permisos, hooks, MCP)),
+`Plugins / hooks` (.opencode/plugins/ (JS, API V2) / settings.json (hooks)),
 `Skills / habilidades` (.opencode/skills/ / .claude/skills/ (agent skills)),
 `Comandos personalizados` (.opencode/commands/ / Slash commands).
 
@@ -119,14 +121,14 @@ columns `Función | OpenCode | Claude Code`. Rows:
 3. Assert link texts `Fundamentos`, `OpenCode`, `Estructura`, `Agentes`, `Ejemplo real`.
 4. For each link, assert `href` (`#fundamentos`, `#opencode`, `#estructura-opencode`, `#agentes`, `#ejemplo-real`) resolves to an element in the DOM (sections).
 
-**TC-1.2 TOC renders 5 groups + 22 items with valid hrefs**
+**TC-1.2 TOC renders 5 groups + 23 items with valid hrefs**
 1. Load the page.
 2. In `aside[data-toc]`, assert group links = `1. Fundamentos de LLMs`, `2. OpenCode`, `3. Estructura .opencode/` (inline `<code>`), `4. Trabajar con agentes`, `5. Ejemplo real`.
-3. Assert 22 item links; every TOC link `href` (groups + items) points to an existing element id (see map in ground truth). Use `expect(locator).toHaveAttribute('href')` + `document.querySelector(href)` non-null loop.
+3. Assert 23 item links; every TOC link `href` (groups + items) points to an existing element id (see map in ground truth). Use `expect(locator).toHaveAttribute('href')` + `document.querySelector(href)` non-null loop.
 4. Assert item texts match the TOC labels column of the map (e.g. `1.4 Conteo de tokens`, `4.9 MCP`).
 
 **TC-1.3 TOC item click jumps to heading (native) and closes drawer**
-1. Desktop viewport. Click TOC item `2.2 OpenCode Zen`.
+1. Desktop viewport. Click TOC item `2.2 OpenCode Console`.
 2. Expect: native anchor navigation — `location.hash === "#opencode-zen"`, target lands at the `scroll-padding-top` offset (CSS smooth jump, no JS smooth-scroll; poll hash + bounding rect).
 3. On mobile viewport (repeat with drawer open): click item → drawer closes (`.is-open` removed, `aria-expanded=false`).
 4. Repeat for a deep item `4.9 MCP` and `5.2 Flujo de trabajo`.
@@ -136,7 +138,7 @@ columns `Función | OpenCode | Claude Code`. Rows:
 2. Expect `#agentes` section heading `4. Trabajar con agentes` scrolls into view.
 3. Repeat for `Fundamentos` (top).
 
-**TC-1.5 All 22 TOC anchors land on the correct heading (id match sweep)**
+**TC-1.5 All 23 TOC anchors land on the correct heading (id match sweep)**
 1. Load page. For every TOC item href `#x`, resolve `document.getElementById('x')`.
 2. Assert the resolved element is an `h3` whose text starts with the TOC label's numbering (e.g. href `#conteo-tokens` → h3 `1.4 ¿Cómo funciona el conteo de tokens?`).
 
@@ -152,7 +154,7 @@ columns `Función | OpenCode | Claude Code`. Rows:
    `4. Trabajar con agentes`, `5. Ejemplo real: este proyecto`.
 3. Assert hero h1 text verbatim.
 
-**TC-2.2 All subtopics render (22 h3s) — per-section sweep**
+**TC-2.2 All subtopics render (23 h3s) — per-section sweep**
 1. Assert the h3 titles of each section equal the verbatim lists in the ground-truth map
    (e.g. section `agentes` contains all 9: `4.1 Agente. Plan vs Build` … `4.9 MCP (vs Claude Code)`).
 2. Assert each section ends with an h3 `Fuentes`.
@@ -161,8 +163,8 @@ columns `Función | OpenCode | Claude Code`. Rows:
 1. Assert `document.documentElement.lang === "es"` and `<title>` verbatim.
 2. Spot-assert Spanish phrases: hero paragraph contains `agente de código abierto que corre en tu terminal`; subsection 1.1 contains `transformador` and `atención`; section 4.3 contains `allow`, `ask`, `deny`.
 
-**TC-2.4 Sources lists — counts and link integrity (50 total)**
-1. Assert per-section `ul[data-sources-list] li` counts: 11 / 8 / 6 / 19 / 6.
+**TC-2.4 Sources lists — counts and link integrity (56 total)**
+1. Assert per-section `ul[data-sources-list] li` counts: 11 / 9 / 7 / 23 / 6.
 2. Assert first item of each list (verbatim):
    - fundamentos: `AWS — ¿Qué es un modelo de lenguaje grande (LLM)?`
    - opencode: `OpenCode Docs — documentación oficial`
@@ -183,13 +185,18 @@ columns `Función | OpenCode | Claude Code`. Rows:
 3. Table 2: assert header `Función|OpenCode|Claude Code`; assert row `Reglas del proyecto` contains `AGENTS.md` and `CLAUDE.md`.
 
 **TC-2.7 Code blocks + callouts**
-1. Assert 7 `[data-code-block]` with labels verbatim (ground truth); each contains `pre > code` non-empty and a `button[data-copy-button]` `Copiar`.
+1. Assert 8 `[data-code-block]` with labels verbatim (ground truth); each contains `pre > code` non-empty and a `button[data-copy-button]` `Copiar`.
 2. Assert code block 3 (`opencode.json (este repo)`) contains `"default_agent": "orchestrator"` and `"resource": "rm *"`.
 3. Assert 3 callouts with strong texts verbatim (ground truth); callout 2 (`warning`) icon is `!` and contains `opencode.json` inline code.
 
 **TC-2.8 Footer**
 1. Assert footer contains links: `MoureDev — Curso de agentes de IA`, `MoureDev — Curso de OpenCode`, `midudev — Curso: Introducción a la IA para Developers (…)`, `Fazt — Curso práctico de GPT Codex`, `Documentación de OpenCode`, `Este repositorio`, `Declaración de accesibilidad` (href `accessibility-statement.html`).
 2. Assert footer note contains `MoureDev by Brais Moure`.
+
+**TC-2.9 V2 content spot checks**
+1. In subsection `2.5 Qué cambia en OpenCode V2` (`#cambios-v2`), assert the body text contains `OpenCode Console`, `mcp.servers` and `Plugin.define`.
+2. In subsection `4.1 Plan vs Build` (`#plan-vs-build`), assert the body text contains `Shift+Tab` and does not present `Tab` as the V2 agent shortcut.
+3. Assert the first callout strong text is `Hay modelos gratuitos.` and its body mentions modelos free por tiempo limitado.
 
 ---
 
@@ -216,11 +223,11 @@ columns `Función | OpenCode | Claude Code`. Rows:
 1. Blank state. Assert button label `Copiar`, no `aria-pressed`, `.code-status` empty.
 2. Click the copy button of block 1 (`terminal`, the `/connect` instructions).
 3. Expect `.code-status` shows `Copiado al portapapeles` (transient ≈2 s — assert immediately after click with default auto-wait; do not poll longer than ~1.5 s) and button `aria-pressed="true"`.
-4. Assert `navigator.clipboard.readText()` equals the block's `pre` textContent (startswith `# 1. Instala OpenCode`).
+4. Assert `navigator.clipboard.readText()` equals the block's `pre` textContent (startswith `# 1. Ejecuta OpenCode`).
 5. After ~2.5 s, assert status text cleared (optional — timing-sensitive).
 
-**TC-4.2 Copy works for every block (7/7)**
-1. For each of the 7 blocks: click copy; expect `Copiado al portapapeles`; expect clipboard equals that block's code (spot-check blocks 3 and 5 verbatim: block 3 contains `"$schema": "https://opencode.ai/config.json"`; block 5 contains `# Agent Context`).
+**TC-4.2 Copy works for every block (8/8)**
+1. For each of the 8 blocks: click copy; expect `Copiado al portapapeles`; expect clipboard equals that block's code (spot-check blocks 3 and 5 verbatim: block 3 contains `"$schema": "https://opencode.ai/config.json"`; block 5 contains `# Agent Context`).
 
 **TC-4.3 Clipboard failure path (mock)**
 1. Route/override `navigator.clipboard.writeText` to reject (or run non-secure context where fallback `execCommand` fails — mock the rejection).
@@ -277,7 +284,7 @@ columns `Función | OpenCode | Claude Code`. Rows:
 2. Press `Enter` → focus lands on `#main-content` (main element); assert `document.activeElement === main` (or main contains focus), URL hash `#main-content`.
 
 **TC-7.2 Heading hierarchy**
-1. Assert exactly 1 `h1`, 5 `h2`, 27 `h3`, zero `h4`+; each `h3` is inside its section `h2` (no level skips).
+1. Assert exactly 1 `h1`, 5 `h2`, 28 `h3`, zero `h4`+; each `h3` is inside its section `h2` (no level skips).
 
 **TC-7.3 Keyboard navigation & focus visibility**
 1. Tab through header: logo → nav links → TOC toggle → theme toggle; assert every interactive element shows a visible focus outline (`:focus-visible` → `outline: 2px solid`), none trapped.
