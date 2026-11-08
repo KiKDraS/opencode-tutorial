@@ -208,7 +208,7 @@ export async function expectThemeState(
   theme: 'light' | 'dark',
   { stored = true }: { stored?: boolean } = {},
 ): Promise<void> {
-  const label = theme === 'dark' ? 'Tema: oscuro' : 'Tema: claro';
+  const label = theme === 'dark' ? 'Cambiar a claro' : 'Cambiar a oscuro';
   await expect(page.locator('[data-theme-toggle]')).toHaveAttribute('aria-label', label);
   await expect(page.locator('html')).toHaveAttribute('data-theme', theme);
   if (stored) {

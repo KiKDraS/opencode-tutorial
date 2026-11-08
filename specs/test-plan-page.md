@@ -36,7 +36,7 @@ and static markup in `index.html`.
 | Code blocks | **8**, labels: `terminal`, `estructura (este repo)`, `opencode.json (extracto)`, `opencode.json → permissions (extracto)`, `AGENTS.md (este repo)`, `opencode.json → agents (este repo)`, `plugin V2 (extracto)`, `terminal` |
 | Copy buttons | label `Copiar`; success status `Copiado al portapapeles` (transient ~2 s); failure `No se pudo copiar`; `aria-pressed` set true on success |
 | Callouts | 3: `Hay modelos gratuitos.`, `No se edita sin aprobación.`, `Por qué importan:` |
-| Theme toggle | initial HTML label `Cambiar tema`; JS label `Tema: claro` / `Tema: oscuro`; sun in light, moon in dark; system default on first load (never persisted); clicks persist `localStorage.theme`; explicit `data-theme` on `<html>` |
+| Theme toggle | initial HTML label `Cambiar tema`; JS label `Cambiar a oscuro` / `Cambiar a claro`; moon in light, sun in dark (icon shows target theme); system default on first load (never persisted); clicks persist `localStorage.theme`; explicit `data-theme` on `<html>` |
 | Skip link | `Saltar al contenido principal` → `#main-content`; visible + focus ring (`2px solid rgb(79,70,229)`) on focus |
 | Footer | 3 link groups (Videos 4 links / Fuentes 3 links incl. `Declaración de accesibilidad` → `accessibility-statement.html`) |
 | A11y statement | title `Declaración de accesibilidad — OpenCode Tutorial`, h1 `Declaración de accesibilidad`, mentions `WCAG` + conformance `AA`, back link `← Volver al inicio` |
@@ -203,16 +203,16 @@ columns `Función | OpenCode | Claude Code`. Rows:
 ## Suite 3 — Theme toggle (light ↔ dark + system default)
 
 **TC-3.1 System light default; click toggles light ↔ dark**
-1. Blank state (no stored theme, system light). Assert `html[data-theme="light"]`, aria-label `Tema: claro`, sun visible, moon hidden, `localStorage.theme` absent.
-2. Click → `html[data-theme="dark"]`, `Tema: oscuro`, moon visible, sun hidden, storage `dark`.
-3. Click → `html[data-theme="light"]`, `Tema: claro`, sun visible, moon hidden, storage `light`.
+1. Blank state (no stored theme, system light). Assert `html[data-theme="light"]`, aria-label `Cambiar a oscuro`, moon visible, sun hidden, `localStorage.theme` absent.
+2. Click → `html[data-theme="dark"]`, `Cambiar a claro`, sun visible, moon hidden, storage `dark`.
+3. Click → `html[data-theme="light"]`, `Cambiar a oscuro`, moon visible, sun hidden, storage `light`.
 
 **TC-3.2 System dark default**
-1. `page.emulateMedia({ colorScheme: 'dark' })` before load. Blank storage. Assert `html[data-theme="dark"]`, `Tema: oscuro`, moon visible, sun hidden, `localStorage.theme` absent.
+1. `page.emulateMedia({ colorScheme: 'dark' })` before load. Blank storage. Assert `html[data-theme="dark"]`, `Cambiar a claro`, sun visible, moon hidden, `localStorage.theme` absent.
 
 **TC-3.3 Stored preference wins over system**
 1. Emulate system dark; load → dark, no storage.
-2. Set `localStorage.theme = "light"` and reload → light, `Tema: claro`, sun visible.
+2. Set `localStorage.theme = "light"` and reload → light, `Cambiar a oscuro`, moon visible.
 
 **TC-3.4 Persistence across reload**
 1. Click to dark, reload → dark, storage `dark`.
@@ -301,7 +301,7 @@ columns `Función | OpenCode | Claude Code`. Rows:
 2. Tab into TOC (mobile drawer open): links reachable; Escape closes; focus not trapped.
 
 **TC-7.4 ARIA wiring**
-1. Theme button `aria-label` matches current theme (`Tema: claro|oscuro`).
+1. Theme button `aria-label` describes the action (`Cambiar a oscuro|claro`).
 2. TOC toggle `aria-expanded` reflects drawer state; `aria-controls="toc"`.
 3. Exactly one TOC link has `aria-current="true"` at any scroll position; attribute value `"true"`.
 4. Video placeholder thumb links expose `aria-label` = title; decorative SVGs `aria-hidden="true"`; copy status uses `role="status"`.

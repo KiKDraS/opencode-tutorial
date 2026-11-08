@@ -33,7 +33,7 @@ function applyTheme(theme) {
   document.documentElement.dataset.theme = theme;
   document.querySelector("[data-theme-toggle]")?.setAttribute(
     "aria-label",
-    theme === "dark" ? "Tema: oscuro" : "Tema: claro",
+    theme === "dark" ? "Cambiar a claro" : "Cambiar a oscuro",
   );
 }
 

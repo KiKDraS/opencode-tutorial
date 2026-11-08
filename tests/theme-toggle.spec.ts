@@ -13,22 +13,22 @@ test.describe('Theme toggle', () => {
     const main = new MainPage(page);
     await main.goto();
 
-    // 1. No stored preference + light system → explicit light, sun icon, no storage
+    // 1. No stored preference + light system → explicit light, moon (switch to dark), no storage
     await expectThemeState(page, 'light', { stored: false });
-    await expect(page.locator(SUN)).toBeVisible();
-    await expect(page.locator(MOON)).toBeHidden();
+    await expect(page.locator(MOON)).toBeVisible();
+    await expect(page.locator(SUN)).toBeHidden();
 
-    // 2. Click → dark, moon icon, stored
+    // 2. Click → dark, sun (switch to light), stored
     await main.themeToggle.click();
     await expectThemeState(page, 'dark');
-    await expect(page.locator(SUN)).toBeHidden();
-    await expect(page.locator(MOON)).toBeVisible();
-
-    // 3. Click → light, sun icon, stored
-    await main.themeToggle.click();
-    await expectThemeState(page, 'light');
     await expect(page.locator(SUN)).toBeVisible();
     await expect(page.locator(MOON)).toBeHidden();
+
+    // 3. Click → light, moon, stored
+    await main.themeToggle.click();
+    await expectThemeState(page, 'light');
+    await expect(page.locator(MOON)).toBeVisible();
+    await expect(page.locator(SUN)).toBeHidden();
   });
 
   test('TC-3.2 System dark default', async ({ page }) => {
@@ -38,8 +38,8 @@ test.describe('Theme toggle', () => {
 
     // Dark resolution is explicit in the DOM but not persisted
     await expectThemeState(page, 'dark', { stored: false });
-    await expect(page.locator(SUN)).toBeHidden();
-    await expect(page.locator(MOON)).toBeVisible();
+    await expect(page.locator(SUN)).toBeVisible();
+    await expect(page.locator(MOON)).toBeHidden();
   });
 
   test('TC-3.3 Stored preference wins over system', async ({ page }) => {
@@ -52,8 +52,8 @@ test.describe('Theme toggle', () => {
     await page.reload();
 
     await expectThemeState(page, 'light');
-    await expect(page.locator(SUN)).toBeVisible();
-    await expect(page.locator(MOON)).toBeHidden();
+    await expect(page.locator(MOON)).toBeVisible();
+    await expect(page.locator(SUN)).toBeHidden();
   });
 
   test('TC-3.4 Persistence across reload', async ({ page }) => {
@@ -89,12 +89,12 @@ test.describe('Theme toggle', () => {
     });
     await page.goto(APP_PATH);
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
-    await expect(page.locator('[data-theme-toggle]')).toHaveAttribute('aria-label', 'Tema: claro');
+    await expect(page.locator('[data-theme-toggle]')).toHaveAttribute('aria-label', 'Cambiar a oscuro');
 
     // Click still updates data-theme for the session
     await page.locator('[data-theme-toggle]').click();
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
-    await expect(page.locator('[data-theme-toggle]')).toHaveAttribute('aria-label', 'Tema: oscuro');
+    await expect(page.locator('[data-theme-toggle]')).toHaveAttribute('aria-label', 'Cambiar a claro');
     assertCleanConsole(sink);
   });
 });

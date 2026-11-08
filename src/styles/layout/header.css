@@ -103,32 +103,32 @@
     height: 20px;
   }
 
-  /* Only the icon matching current theme is visible */
+  /* Only one icon is visible: the target theme's icon */
   .icon-button__icon--sun,
   .icon-button__icon--moon {
     display: none;
   }
 }
 
-:root[data-theme="light"] .icon-button__icon--sun {
+:root[data-theme="light"] .icon-button__icon--moon {
   display: block;
 }
 
-:root[data-theme="dark"] .icon-button__icon--moon {
+:root[data-theme="dark"] .icon-button__icon--sun {
   display: block;
 }
 
-/* Pre-JS/no-JS fallback: match the system while data-theme is absent. */
-:root:not([data-theme]) .icon-button__icon--sun {
+/* Pre-JS/no-JS fallback: no data-theme yet; show the target icon for the system theme. */
+:root:not([data-theme]) .icon-button__icon--moon {
   display: block;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) .icon-button__icon--sun {
+  :root:not([data-theme]) .icon-button__icon--moon {
     display: none;
   }
 
-  :root:not([data-theme]) .icon-button__icon--moon {
+  :root:not([data-theme]) .icon-button__icon--sun {
     display: block;
   }
 }

@@ -105,8 +105,8 @@ test.describe('Accessibility basics', () => {
     const main = new MainPage(page);
     await main.goto();
 
-    // 1. Theme button aria-label matches the current theme (light on default system)
-    await expect(main.themeToggle).toHaveAttribute('aria-label', 'Tema: claro');
+    // 1. Theme button label describes the action (light → switch to dark)
+    await expect(main.themeToggle).toHaveAttribute('aria-label', 'Cambiar a oscuro');
 
     // 2. TOC toggle: aria-controls="toc", aria-expanded reflects the drawer state
     await expect(main.tocToggle).toHaveAttribute('aria-controls', 'toc');
