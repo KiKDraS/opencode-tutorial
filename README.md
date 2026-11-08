@@ -16,7 +16,7 @@
 
 Web content 100% Spanish. Project files 100% English. Deployed to GitHub Pages.
 
-![Version](https://img.shields.io/badge/version-0.1.0-blue?style=flat-square)
+![Version](https://img.shields.io/badge/version-0.2.0-blue?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
