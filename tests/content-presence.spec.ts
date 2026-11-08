@@ -38,7 +38,7 @@ test.describe('Content presence', () => {
     await expect(page.locator('h1')).toHaveText('OpenCode: aprende a trabajar con agentes de IA');
   });
 
-  test('TC-2.2 All subtopics render (22 h3s) — per-section sweep', async ({ page }) => {
+  test('TC-2.2 All subtopics render (23 h3s) — per-section sweep', async ({ page }) => {
     const main = new MainPage(page);
     await main.goto();
 
@@ -73,11 +73,11 @@ test.describe('Content presence', () => {
     await expect(subsectionPermisos).toContainText('deny');
   });
 
-  test('TC-2.4 Sources lists — counts and link integrity (50 total)', async ({ page }) => {
+  test('TC-2.4 Sources lists — counts and link integrity (56 total)', async ({ page }) => {
     const main = new MainPage(page);
     await main.goto();
 
-    // 1. Per-section counts: 11 / 8 / 6 / 19 / 6
+    // 1. Per-section counts: 11 / 9 / 7 / 23 / 6
     for (const [section, count] of Object.entries(SOURCE_COUNTS)) {
       await expect(page.locator(`ul[data-sources="${section}"] li`)).toHaveCount(count);
     }
@@ -89,8 +89,8 @@ test.describe('Content presence', () => {
 
     // 3. Every source <a>: target=_blank, rel="noopener noreferrer", https:// href
     const links = page.locator('ul[data-sources-list] a');
-    await expect(links).toHaveCount(50);
-    for (let i = 0; i < 50; i++) {
+    await expect(links).toHaveCount(56);
+    for (let i = 0; i < 56; i++) {
       const link = links.nth(i);
       await expect(link).toHaveAttribute('target', '_blank');
       await expect(link).toHaveAttribute('rel', 'noopener noreferrer');
@@ -154,16 +154,16 @@ test.describe('Content presence', () => {
     const main = new MainPage(page);
     await main.goto();
 
-    // 1. 7 [data-code-block] with verbatim labels; each has pre > code and a Copiar button
-    await expect(page.locator('[data-code-block]')).toHaveCount(7);
+    // 1. 8 [data-code-block] with verbatim labels; each has pre > code and a Copiar button
+    await expect(page.locator('[data-code-block]')).toHaveCount(8);
     await expect(page.locator('[data-code-block-label]')).toHaveText(CODE_BLOCK_LABELS);
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 8; i++) {
       const block = page.locator('[data-code-block]').nth(i);
       await expect(block.locator('pre code')).not.toHaveText('');
       await expect(block.locator('[data-copy-button]')).toHaveText('Copiar');
     }
 
-    // 2. Block 3 (opencode.json este repo) content spot-checks
+    // 2. Block 3 (opencode.json extracto) content spot-checks
     const block3 = page.locator('[data-code-block]').nth(2).locator('pre');
     await expect(block3).toContainText('"default_agent": "orchestrator"');
     await expect(block3).toContainText('"resource": "rm *"');
@@ -171,7 +171,7 @@ test.describe('Content presence', () => {
     // 3. 3 callouts with verbatim strong texts; callout 2 (warning) icon "!" + opencode.json code
     const callouts = page.locator('[data-callout]');
     await expect(callouts).toHaveCount(3);
-    await expect(callouts.nth(0).locator('[data-callout-strong]')).toHaveText('Zen gratis = sin tarjeta.');
+    await expect(callouts.nth(0).locator('[data-callout-strong]')).toHaveText('Hay modelos gratuitos.');
     await expect(callouts.nth(1).locator('[data-callout-strong]')).toHaveText('No se edita sin aprobación.');
     await expect(callouts.nth(2).locator('[data-callout-strong]')).toHaveText('Por qué importan:');
     await expect(callouts.nth(1)).toHaveAttribute('data-kind', 'warning');
@@ -191,5 +191,28 @@ test.describe('Content presence', () => {
 
     // 2. Footer note mentions the authors
     await expect(page.locator('.site-footer__note')).toContainText('MoureDev by Brais Moure');
+  });
+
+  test('TC-2.9 V2 content spot checks', async ({ page }) => {
+    const main = new MainPage(page);
+    await main.goto();
+
+    // 1. Subsection 2.5 names Console, mcp.servers and the V2 plugin API
+    const subsectionV2 = page.locator('.article__subsection', { has: page.locator('#cambios-v2') });
+    const bodyV2 = subsectionV2.locator('.article__body');
+    await expect(bodyV2).toContainText('OpenCode Console');
+    await expect(bodyV2).toContainText('mcp.servers');
+    await expect(bodyV2).toContainText('Plugin.define');
+
+    // 2. Subsection 4.1 uses the V2 agent shortcut and rules out Tab
+    const subsectionPlan = page.locator('.article__subsection', { has: page.locator('#plan-vs-build') });
+    const bodyPlan = subsectionPlan.locator('.article__body');
+    await expect(bodyPlan).toContainText('Shift+Tab');
+    await expect(bodyPlan).toContainText('Tab no es el atajo de V2');
+
+    // 3. First callout: free models are limited-time, not permanent
+    const firstCallout = page.locator('[data-callout]').first();
+    await expect(firstCallout.locator('[data-callout-strong]')).toHaveText('Hay modelos gratuitos.');
+    await expect(firstCallout.locator('[data-callout-body]')).toContainText('modelos free por tiempo limitado');
   });
 });

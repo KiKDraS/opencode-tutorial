@@ -35,7 +35,7 @@ A documentation site that explains, for Spanish-speaking developers:
 - **LLM fundamentals** — what an LLM is, agents vs LLMs, how model intelligence
   is measured, how tokens work.
 - **OpenCode** — what it is, how it compares to Claude Code / Cursor / Codex,
-  OpenCode Zen, multi-provider setup.
+  OpenCode Console (antes Zen), multi-provider setup.
 - **The `.opencode/` folder** — structure, `opencode.json`, comparison with
   Claude Code.
 - **Working with agents** — plan vs build, the prompt/create/iterate loop,

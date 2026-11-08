@@ -1,6 +1,6 @@
 // Shared page object + ground-truth data for the OpenCode Tutorial SPA
 // (spec: specs/test-plan-page.md). All strings mirror src/js/layout/toc.js and
-// src/js/components/*.js verbatim (verified against the live build 2026-09-06).
+// src/js/components/*.js verbatim (verified against the live build 2026-11-08).
 
 import { expect, type Page } from '@playwright/test';
 
@@ -31,9 +31,10 @@ export const TOC_SECTIONS = [
     label: '2. OpenCode',
     items: [
       { href: '#que-es-opencode', label: '2.1 ¿Qué es?' },
-      { href: '#opencode-zen', label: '2.2 OpenCode Zen' },
-      { href: '#conectar-zen', label: '2.3 Conectar modelos Zen' },
+      { href: '#opencode-zen', label: '2.2 OpenCode Console' },
+      { href: '#conectar-zen', label: '2.3 Conectar Console' },
       { href: '#multi-proveedor', label: '2.4 Multi-proveedor' },
+      { href: '#cambios-v2', label: '2.5 Qué cambia en V2' },
     ],
   },
   {
@@ -55,7 +56,7 @@ export const TOC_SECTIONS = [
       { href: '#spec-agents-design', label: '4.4 SPEC / AGENTS / DESIGN' },
       { href: '#agentes-personalizados', label: '4.5 Agentes personalizados: primary vs sub-agent' },
       { href: '#skills', label: '4.6 Skills' },
-      { href: '#prompts', label: '4.7 Prompts' },
+      { href: '#prompts', label: '4.7 Prompts y comandos' },
       { href: '#plugins', label: '4.8 Plugins' },
       { href: '#mcp', label: '4.9 MCP' },
     ],
@@ -80,9 +81,10 @@ export const H3_BY_SECTION: Record<string, string[]> = {
   ],
   opencode: [
     '2.1 ¿Qué es? vs ClaudeCode | Cursor | Codex',
-    '2.2 OpenCode Zen: cuenta y modelos gratuitos',
-    '2.3 Conectar modelos Zen a OpenCode',
+    '2.2 OpenCode Console: cuenta y modelos gratuitos',
+    '2.3 Conectar modelos de Console a OpenCode',
     '2.4 Multi-proveedor',
+    '2.5 Qué cambia en OpenCode V2',
     'Fuentes',
   ],
   'estructura-opencode': [
@@ -98,7 +100,7 @@ export const H3_BY_SECTION: Record<string, string[]> = {
     '4.4 SPEC.md / AGENTS.md / DESIGN.md (y por qué importan)',
     '4.5 Agentes personalizados: primary vs sub-agent',
     '4.6 Skills (vs Claude Code)',
-    '4.7 Prompts (vs Claude Code)',
+    '4.7 Prompts y comandos (vs Claude Code)',
     '4.8 Plugins (vs Claude Code)',
     '4.9 MCP (vs Claude Code)',
     'Fuentes',
@@ -127,10 +129,11 @@ export const VIDEO_CARDS: Array<{ title: string; channel: string; kind: 'thumb' 
 export const CODE_BLOCK_LABELS = [
   'terminal',
   'estructura (este repo)',
-  'opencode.json (este repo)',
-  'opencode.json → permissions (este repo)',
+  'opencode.json (extracto)',
+  'opencode.json → permissions (extracto)',
   'AGENTS.md (este repo)',
   'opencode.json → agents (este repo)',
+  'plugin V2 (extracto)',
   'terminal',
 ];
 
@@ -146,9 +149,9 @@ export const FOOTER_LINKS = [
 
 export const SOURCE_COUNTS: Record<string, number> = {
   fundamentos: 11,
-  opencode: 8,
-  estructura: 6,
-  agentes: 19,
+  opencode: 9,
+  estructura: 7,
+  agentes: 23,
   ejemplo: 6,
 };
 
@@ -164,11 +167,11 @@ export class MainPage {
   constructor(readonly page: Page) {}
 
   // Loads the app and waits for the client-side render (subsections, sources,
-  // videos, code blocks are rendered by JS at init): 22 content h3s + 5 × Fuentes.
+  // videos, code blocks are rendered by JS at init): 23 content h3s + 5 × Fuentes.
   async goto(): Promise<void> {
     await this.page.goto(APP_PATH);
     await expect(this.page.locator('h1')).toBeVisible();
-    await expect(this.page.locator('main h3')).toHaveCount(27);
+    await expect(this.page.locator('main h3')).toHaveCount(28);
   }
 
   get themeToggle() {

@@ -4,15 +4,15 @@
 const CODE_BLOCKS = [
   {
     label: "terminal",
-    code: `# 1. Instala OpenCode y ejecútalo en tu proyecto
+    code: `# 1. Ejecuta OpenCode en tu proyecto
 $ opencode
 
 # 2. Dentro de la interfaz, escribe:
 /connect
 
-# 3. Elige "OpenCode Zen" → se abre el navegador para iniciar sesión
-# 4. Vuelve a la terminal y selecciona un modelo de la lista
-# Listo: el modelo Zen queda conectado sin claves de API manuales`,
+# 3. Elige "OpenCode" (pay-as-you-go) y pega tu API key de Console
+# 4. Selecciona un modelo:
+/models`,
   },
   {
     label: "estructura (este repo)",
@@ -26,7 +26,7 @@ $ opencode
 └── skills/     # habilidades reutilizables (accessibility-wcag, seo, playwright, …)`,
   },
   {
-    label: "opencode.json (este repo)",
+    label: "opencode.json (extracto)",
     code: `{
   "$schema": "https://opencode.ai/config.json",
   "instructions": [
@@ -34,25 +34,40 @@ $ opencode
     ".opencode/prompts/agent-knowledge-awareness.md"
   ],
   "permissions": [
-    { "action": "playwright*", "resource": "*", "effect": "deny" },
     { "action": "shell", "resource": "*", "effect": "ask" },
-    { "action": "shell", "resource": "git *", "effect": "allow" },
-    { "action": "shell", "resource": "pnpm *", "effect": "allow" },
-    { "action": "shell", "resource": "rm *", "effect": "deny" },
-    { "action": "shell", "resource": "grep *", "effect": "allow" },
-    { "action": "external_directory", "resource": "*", "effect": "ask" }
+    { "action": "shell", "resource": "ls *", "effect": "allow" },
+    { "action": "shell", "resource": "cat *", "effect": "allow" },
+    { "action": "shell", "resource": "git status *", "effect": "allow" },
+    { "action": "shell", "resource": "gh pr list *", "effect": "allow" },
+    { "action": "shell", "resource": "npm run build *", "effect": "allow" },
+    { "action": "shell", "resource": "npx playwright test *", "effect": "allow" },
+    { "action": "shell", "resource": "rm *", "effect": "deny" }
   ],
+  "plugins": ["@dietrichgebert/ponytail"],
+  "mcp": {
+    "servers": {
+      "context7": {
+        "type": "remote",
+        "url": "https://mcp.context7.com/mcp",
+        "headers": { "CONTEXT7_API_KEY": "{file:.opencode/secrets/context7-api-key}" },
+        "disabled": false
+      }
+    }
+  },
   "default_agent": "orchestrator"
 }`,
   },
   {
-    label: "opencode.json → permissions (este repo)",
+    label: "opencode.json → permissions (extracto)",
     code: `"permissions": [
   { "action": "shell", "resource": "*", "effect": "ask" },
-  { "action": "shell", "resource": "git *", "effect": "allow" },
-  { "action": "shell", "resource": "pnpm *", "effect": "allow" },
-  { "action": "shell", "resource": "rm *", "effect": "deny" },
-  { "action": "shell", "resource": "grep *", "effect": "allow" }
+  { "action": "shell", "resource": "ls *", "effect": "allow" },
+  { "action": "shell", "resource": "cat *", "effect": "allow" },
+  { "action": "shell", "resource": "git status *", "effect": "allow" },
+  { "action": "shell", "resource": "gh pr list *", "effect": "allow" },
+  { "action": "shell", "resource": "npm run build *", "effect": "allow" },
+  { "action": "shell", "resource": "npx playwright test *", "effect": "allow" },
+  { "action": "shell", "resource": "rm *", "effect": "deny" }
 ]`,
   },
   {
@@ -97,6 +112,19 @@ Logic: JS (ES6+)  PM: **pnpm only**
     }
   }
 }`,
+  },
+  {
+    label: "plugin V2 (extracto)",
+    code: `import { Plugin } from "@opencode/plugin"
+
+export default Plugin.define({
+  id: "load-rules",
+  async setup(ctx) {
+    await ctx.session.hook("context", (event) => {
+      event.system.push({ type: "text", text: "Reglas del proyecto" })
+    })
+  },
+})`,
   },
   {
     label: "terminal",

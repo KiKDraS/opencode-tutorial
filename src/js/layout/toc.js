@@ -16,9 +16,10 @@ const TOC_SECTIONS = [
     label: "2. OpenCode",
     items: [
       { href: "#que-es-opencode", label: "2.1 ¿Qué es?" },
-      { href: "#opencode-zen", label: "2.2 OpenCode Zen" },
-      { href: "#conectar-zen", label: "2.3 Conectar modelos Zen" },
+      { href: "#opencode-zen", label: "2.2 OpenCode Console" },
+      { href: "#conectar-zen", label: "2.3 Conectar Console" },
       { href: "#multi-proveedor", label: "2.4 Multi-proveedor" },
+      { href: "#cambios-v2", label: "2.5 Qué cambia en V2" },
     ],
   },
   {
@@ -40,7 +41,7 @@ const TOC_SECTIONS = [
       { href: "#spec-agents-design", label: "4.4 SPEC / AGENTS / DESIGN" },
       { href: "#agentes-personalizados", label: "4.5 Agentes personalizados: primary vs sub-agent" },
       { href: "#skills", label: "4.6 Skills" },
-      { href: "#prompts", label: "4.7 Prompts" },
+      { href: "#prompts", label: "4.7 Prompts y comandos" },
       { href: "#plugins", label: "4.8 Plugins" },
       { href: "#mcp", label: "4.9 MCP" },
     ],

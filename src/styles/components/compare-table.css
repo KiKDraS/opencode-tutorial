@@ -1,17 +1,20 @@
-/* Comparison tables (vs ClaudeCode / Cursor / Codex). Table itself is the
-   horizontal scroll container on mobile; first column sticky within it. */
+/* Comparison tables (vs ClaudeCode / Cursor / Codex). The .table-scroll
+   wrapper is the horizontal scroll container on mobile; the table keeps its
+   min-width so columns stay readable and the wrapper scrolls to reach them. */
 
-.compare-table {
-  display: block;
-  width: 100%;
-  overflow-x: auto;
+.table-scroll {
   margin: var(--space-5) 0;
   border: 1px solid var(--color-border);
   border-radius: 12px;
+  background: var(--color-bg-elevated);
+  overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+.compare-table {
+  width: 100%;
   border-collapse: collapse;
   font-size: var(--font-size-body-sm);
-  background: var(--color-bg-elevated);
   min-width: 640px;
 
   caption {

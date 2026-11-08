@@ -4,8 +4,10 @@
 const CALLOUTS = [
   {
     kind: "note",
-    strong: "Zen gratis = sin tarjeta.",
-    body: [{ text: "La cuenta gratuita no requiere método de pago." }],
+    strong: "Hay modelos gratuitos.",
+    body: [
+      { text: "OpenCode Console ofrece modelos free por tiempo limitado; el resto se paga por uso. La lista y los precios cambian: consulta la documentación enlazada." },
+    ],
   },
   {
     kind: "warning",
