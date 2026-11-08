@@ -128,9 +128,9 @@ export const CODE_BLOCK_LABELS = [
   'terminal',
   'estructura (este repo)',
   'opencode.json (este repo)',
-  'opencode.json → permission (este repo)',
+  'opencode.json → permissions (este repo)',
   'AGENTS.md (este repo)',
-  'opencode.json → agent (este repo)',
+  'opencode.json → agents (este repo)',
   'terminal',
 ];
 

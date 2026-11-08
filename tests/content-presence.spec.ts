@@ -166,7 +166,7 @@ test.describe('Content presence', () => {
     // 2. Block 3 (opencode.json este repo) content spot-checks
     const block3 = page.locator('[data-code-block]').nth(2).locator('pre');
     await expect(block3).toContainText('"default_agent": "orchestrator"');
-    await expect(block3).toContainText('"rm *": "deny"');
+    await expect(block3).toContainText('"resource": "rm *"');
 
     // 3. 3 callouts with verbatim strong texts; callout 2 (warning) icon "!" + opencode.json code
     const callouts = page.locator('[data-callout]');

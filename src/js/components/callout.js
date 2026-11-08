@@ -20,7 +20,7 @@ const CALLOUTS = [
     kind: "note",
     strong: "Por qué importan:",
     body: [
-      { code: '"*": "ask"' },
+      { code: '{ "action": "shell", "resource": "*", "effect": "ask" }' },
       { text: " significa que cualquier comando fuera de la lista blanca requiere tu aprobación. Es el límite de daño: un error del agente no puede borrar archivos (" },
       { code: "rm" },
       { text: " denegado) ni ejecutar nada raro sin que tú lo veas." },

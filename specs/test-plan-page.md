@@ -33,7 +33,7 @@ and static markup in `index.html`.
 | Video cards | **15** across 7 grids (`[data-video-grid]`); thumbs `loading="lazy"`; 3 placeholder cards (`aria-label` = title) |
 | Sources per section | fundamentos **11**, opencode **8**, estructura **6**, agentes **19**, ejemplo-real **6** (total **50**) |
 | Compare tables | 2, both `.compare-table` (self `overflow-x: auto`, `min-width: 640px`); captions below |
-| Code blocks | **7**, labels: `terminal`, `estructura (este repo)`, `opencode.json (este repo)`, `opencode.json → permission (este repo)`, `AGENTS.md (este repo)`, `opencode.json → agent (este repo)`, `terminal` |
+| Code blocks | **7**, labels: `terminal`, `estructura (este repo)`, `opencode.json (este repo)`, `opencode.json → permissions (este repo)`, `AGENTS.md (este repo)`, `opencode.json → agents (este repo)`, `terminal` |
 | Copy buttons | label `Copiar`; success status `Copiado al portapapeles` (transient ~2 s); failure `No se pudo copiar`; `aria-pressed` set true on success |
 | Callouts | 3: `Zen gratis = sin tarjeta.`, `No se edita sin aprobación.`, `Por qué importan:` |
 | Theme toggle | initial aria-label `Tema: auto`; cycle auto→light→dark; `localStorage` key `theme` (removed on auto); `data-theme` on `<html>` |
@@ -184,7 +184,7 @@ columns `Función | OpenCode | Claude Code`. Rows:
 
 **TC-2.7 Code blocks + callouts**
 1. Assert 7 `[data-code-block]` with labels verbatim (ground truth); each contains `pre > code` non-empty and a `button[data-copy-button]` `Copiar`.
-2. Assert code block 3 (`opencode.json (este repo)`) contains `"default_agent": "orchestrator"` and `"rm *": "deny"`.
+2. Assert code block 3 (`opencode.json (este repo)`) contains `"default_agent": "orchestrator"` and `"resource": "rm *"`.
 3. Assert 3 callouts with strong texts verbatim (ground truth); callout 2 (`warning`) icon is `!` and contains `opencode.json` inline code.
 
 **TC-2.8 Footer**
