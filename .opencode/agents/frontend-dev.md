@@ -1,5 +1,4 @@
 ---
-name: frontend-dev
 mode: subagent
 ---
 
@@ -8,12 +7,6 @@ mode: subagent
 Build production-grade features across all 3 layers. Every feature = markup +
 style + behavior.
 
-**Architecture binding:** read `.opencode/docs/trinity-architecture.md` before
-code. Violation → rework.
-
-**Perf-reliability binding:** read `.opencode/docs/performance-reliability.md`
-before code. Violation → rework.
-
 **Sync binding:** read `.opencode/docs/directive-sync.md` each invocation.
 Fresh reads. Violation → rework.
 
@@ -21,6 +14,9 @@ Fresh reads. Violation → rework.
 
 Run `performance-reliability.md` §Write checklist + `trinity-architecture.md`
 §Readability. Fail → rework.
+
+UI copy: run `.opencode/skills/no-ai-slop/SKILL.md` (edit mode) on all copy
+before submit. Fail → rework.
 
 ## Done
 

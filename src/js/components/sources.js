@@ -28,7 +28,7 @@ const SOURCES_BY_SECTION = {
   estructura: [
     { url: "https://opencode.ai/docs/", title: "OpenCode Docs — navegación completa" },
     { url: "https://docs.claude.com/en/docs/claude-code/memory", title: "Claude Code Docs — memory (CLAUDE.md)" },
-    { url: "https://opencode.ai/docs/rules/", title: "OpenCode Docs — Rules" },
+    { url: "https://opencode.ai/docs/instructions/", title: "OpenCode Docs — Instructions" },
     { url: "https://opencode.ai/docs/config/", title: "OpenCode Docs — Config" },
     { url: "https://github.com/KiKDraS/opencode-tutorial/tree/develop/.opencode", title: "Este repositorio — carpeta .opencode/" },
     { url: "https://github.com/KiKDraS/opencode-tutorial/blob/develop/opencode.json", title: "Este repositorio — opencode.json" },
@@ -37,7 +37,7 @@ const SOURCES_BY_SECTION = {
     { url: "https://opencode.ai/docs/", title: "OpenCode Docs — plan/iterate/build/undo" },
     { url: "https://opencode.ai/docs/agents/", title: "OpenCode Docs — Agents" },
     { url: "https://opencode.ai/docs/permissions/", title: "OpenCode Docs — Permissions" },
-    { url: "https://opencode.ai/docs/rules/", title: "OpenCode Docs — Rules" },
+    { url: "https://opencode.ai/docs/instructions/", title: "OpenCode Docs — Instructions" },
     { url: "https://opencode.ai/docs/skills/", title: "OpenCode Docs — Skills" },
     { url: "https://skills.sh/", title: "skills.sh — registro de skills" },
     { url: "https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview", title: "Claude Code Docs — Agent Skills" },
